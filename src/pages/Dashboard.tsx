@@ -2,31 +2,36 @@
 import React from 'react';
 import { JornalCard } from '@/components/JornalCard';
 import { LogTimeline } from '@/components/LogTimeline';
+import Navigation from '@/components/Navigation';
 import { mockJornais, mockLogs } from '@/data/mockData';
 
 const Dashboard = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-8">
-        {/* Header */}
-        <div className="mb-8">
-          <div className="flex items-center gap-2 mb-2">
-            <span className="text-3xl font-bold" style={{ color: 'var(--accent-secondary)' }}>
-              NORTH
-            </span>
-            <span className="text-3xl font-bold" style={{ color: 'var(--accent-primary)' }}>
-              STAR
-            </span>
-            <span className="text-3xl font-bold text-gray-700 ml-2">
-              NETWORK
-            </span>
+        {/* Header com Navigation */}
+        <div className="mb-8 flex items-start justify-between">
+          <div>
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-3xl font-bold" style={{ color: 'var(--accent-secondary)' }}>
+                NORTH
+              </span>
+              <span className="text-3xl font-bold" style={{ color: 'var(--accent-primary)' }}>
+                STAR
+              </span>
+              <span className="text-3xl font-bold text-gray-700 ml-2">
+                NETWORK
+              </span>
+            </div>
+            <h1 className="text-2xl font-semibold text-gray-900 mb-2">
+              Gestão de Jornais
+            </h1>
+            <p className="text-gray-600">
+              Gerencie a hierarquia de jornais, páginas e operadores
+            </p>
           </div>
-          <h1 className="text-2xl font-semibold text-gray-900 mb-2">
-            Gestão de Jornais
-          </h1>
-          <p className="text-gray-600">
-            Gerencie a hierarquia de jornais, páginas e operadores
-          </p>
+          
+          <Navigation />
         </div>
 
         {/* Layout de duas faixas fixas */}
