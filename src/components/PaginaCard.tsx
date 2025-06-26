@@ -34,7 +34,7 @@ export const PaginaCard: React.FC<PaginaCardProps> = ({ pagina, jornalId }) => {
   };
 
   return (
-    <Card className="w-[320px] h-[180px] cursor-pointer relative overflow-hidden bg-white border border-gray-200 shadow-sm hover:shadow-lg transition-shadow duration-200 group">
+    <Card className="w-full h-[180px] cursor-pointer relative overflow-hidden bg-white border border-gray-200 shadow-sm hover:scale-105 hover:z-20 hover:shadow-2xl transition-transform duration-200 ease-out group focus-within:scale-105 focus-within:z-20 focus-within:shadow-2xl">
       <CardContent className="p-6 h-full relative">
         {/* Conteúdo sempre visível */}
         <div className="flex items-center justify-between mb-4">
