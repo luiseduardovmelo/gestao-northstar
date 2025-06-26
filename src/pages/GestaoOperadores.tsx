@@ -4,6 +4,9 @@ import { Button } from '@/components/ui/button';
 import { OperadorCard } from '@/components/OperadorCard';
 import { SlotVazio } from '@/components/SlotVazio';
 import { AdicionarOperadorModal } from '@/components/AdicionarOperadorModal';
+import { ConfirmDeleteModal } from '@/components/ConfirmDeleteModal';
+import { VendaModal } from '@/components/VendaModal';
+import { OperadorGuide } from '@/components/OperadorGuide';
 import { mockOperadores, mockPaginas, mockJornais } from '@/data/mockData';
 import { Operador, RankingSlot, LogMudanca } from '@/types';
 import { useToast } from '@/hooks/use-toast';
@@ -32,18 +35,24 @@ const GestaoOperadores = () => {
   const [slotSelecionado, setSlotSelecionado] = useState<number | null>(null);
   const [hasChanges, setHasChanges] = useState(false);
   const [draggedItem, setDraggedItem] = useState<number | null>(null);
+  
+  // Estados para modais de confirmação
+  const [deleteModal, setDeleteModal] = useState<{ isOpen: boolean; operador: Operador | null }>({
+    isOpen: false,
+    operador: null
+  });
+  const [vendaModal, setVendaModal] = useState<{ isOpen: boolean; operador: Operador | null }>({
+    isOpen: false,
+    operador: null
+  });
 
   const jornal = mockJornais.find(j => j.id === jornalId);
   const pagina = mockPaginas.find(p => p.id === paginaId);
 
-  // Operadores disponíveis para adicionar
-  const operadoresDisponiveis = [
-    { nome: 'Bet365', cargo: 'Casa de Apostas', valor: 15000, logoUrl: '/placeholder.svg' },
-    { nome: 'Betano', cargo: 'Casa de Apostas', valor: 12000, logoUrl: '/placeholder.svg' },
-    { nome: 'Sportingbet', cargo: 'Casa de Apostas', valor: 10000, logoUrl: '/placeholder.svg' },
-    { nome: 'Betfair', cargo: 'Casa de Apostas', valor: 8000, logoUrl: '/placeholder.svg' },
-    { nome: 'KTO', cargo: 'Casa de Apostas', valor: 7000, logoUrl: '/placeholder.svg' },
-  ];
+  // Operadores atualmente no ranking
+  const operadoresNoRanking = ranking
+    .filter(slot => !slot.isEmpty && slot.operador)
+    .map(slot => slot.operador!);
 
   const handleAbrirModal = (posicao: number) => {
     setSlotSelecionado(posicao);
@@ -58,7 +67,7 @@ const GestaoOperadores = () => {
       paginaId: paginaId!,
       nome: operadorData.nome!,
       status: 'livre',
-      valor: operadorData.valor!,
+      valor: 0, // Sempre iniciar com valor 0 para operadores livres
       ordem: slotSelecionado,
       logoUrl: operadorData.logoUrl
     };
@@ -81,6 +90,7 @@ const GestaoOperadores = () => {
             operador: { 
               ...slot.operador, 
               status: novoStatus,
+              valor: novoStatus === 'livre' ? 0 : slot.operador.valor, // Zerar valor se liberar
               vendidoEm: novoStatus === 'vendido' ? new Date().toISOString() : undefined
             } 
           }
@@ -95,12 +105,65 @@ const GestaoOperadores = () => {
   };
 
   const handleRemoveOperador = (operador: Operador) => {
+    if (operador.status === 'vendido') {
+      toast({
+        title: "Operação não permitida",
+        description: "Operadores vendidos não podem ser removidos.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setDeleteModal({ isOpen: true, operador });
+  };
+
+  const handleConfirmDelete = () => {
+    if (!deleteModal.operador) return;
+
     setRanking(prev => prev.map(slot => 
-      slot.operador?.id === operador.id 
+      slot.operador?.id === deleteModal.operador?.id 
         ? { ...slot, operador: undefined, isEmpty: true }
         : slot
     ));
+    
     setHasChanges(true);
+    setDeleteModal({ isOpen: false, operador: null });
+    
+    toast({
+      title: "Operador removido",
+      description: `${deleteModal.operador.nome} foi removido da posição ${deleteModal.operador.ordem}.`,
+    });
+  };
+
+  const handleSellOperador = (operador: Operador) => {
+    if (operador.status === 'vendido') return;
+    setVendaModal({ isOpen: true, operador });
+  };
+
+  const handleConfirmSale = (valor: number) => {
+    if (!vendaModal.operador) return;
+
+    setRanking(prev => prev.map(slot => 
+      slot.operador?.id === vendaModal.operador?.id 
+        ? { 
+            ...slot, 
+            operador: { 
+              ...slot.operador, 
+              status: 'vendido',
+              valor: valor,
+              vendidoEm: new Date().toISOString()
+            } 
+          }
+        : slot
+    ));
+    
+    setHasChanges(true);
+    setVendaModal({ isOpen: false, operador: null });
+    
+    toast({
+      title: "Operador vendido",
+      description: `${vendaModal.operador.nome} foi vendido por R$ ${valor.toLocaleString()}.`,
+    });
   };
 
   const handleDragStart = (e: React.DragEvent, posicao: number) => {
@@ -233,7 +296,7 @@ const GestaoOperadores = () => {
       </div>
 
       {/* Conteúdo */}
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-8 space-y-8">
         {/* Grade 2x5 do ranking */}
         <div className="grid grid-cols-5 gap-6 max-w-5xl mx-auto">
           {ranking.map((slot) => (
@@ -259,6 +322,7 @@ const GestaoOperadores = () => {
                     posicao={slot.posicao}
                     onStatusChange={handleStatusChange}
                     onRemove={handleRemoveOperador}
+                    onSell={handleSellOperador}
                     isDragging={draggedItem === slot.posicao}
                   />
                 </div>
@@ -266,6 +330,9 @@ const GestaoOperadores = () => {
             </div>
           ))}
         </div>
+
+        {/* Guia dos Operadores */}
+        <OperadorGuide operadores={operadoresNoRanking} />
       </div>
 
       {/* Botão Salvar Alterações - Fixo */}
@@ -280,7 +347,7 @@ const GestaoOperadores = () => {
         </div>
       )}
 
-      {/* Modal Adicionar Operador */}
+      {/* Modais */}
       <AdicionarOperadorModal
         isOpen={isModalOpen}
         onClose={() => {
@@ -288,6 +355,20 @@ const GestaoOperadores = () => {
           setSlotSelecionado(null);
         }}
         onSelect={handleAdicionarOperador}
+      />
+
+      <ConfirmDeleteModal
+        isOpen={deleteModal.isOpen}
+        onClose={() => setDeleteModal({ isOpen: false, operador: null })}
+        onConfirm={handleConfirmDelete}
+        operadorNome={deleteModal.operador?.nome || ''}
+      />
+
+      <VendaModal
+        isOpen={vendaModal.isOpen}
+        onClose={() => setVendaModal({ isOpen: false, operador: null })}
+        onConfirm={handleConfirmSale}
+        operadorNome={vendaModal.operador?.nome || ''}
       />
     </div>
   );

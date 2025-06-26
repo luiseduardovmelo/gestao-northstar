@@ -2,9 +2,7 @@
 import React from 'react';
 import { Operador } from '@/types';
 import { Badge } from '@/components/ui/badge';
-import { Lock, Unlock, GripVertical } from 'lucide-react';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { Button } from '@/components/ui/button';
+import { Lock, Unlock, GripVertical, Trash } from 'lucide-react';
 import {
   ContextMenu,
   ContextMenuContent,
@@ -17,6 +15,7 @@ interface OperadorCardProps {
   posicao: number;
   onStatusChange: (operador: Operador, novoStatus: 'livre' | 'vendido') => void;
   onRemove: (operador: Operador) => void;
+  onSell: (operador: Operador) => void;
   isDragging?: boolean;
 }
 
@@ -25,13 +24,20 @@ export const OperadorCard: React.FC<OperadorCardProps> = ({
   posicao,
   onStatusChange,
   onRemove,
+  onSell,
   isDragging = false
 }) => {
   const isVendido = operador.status === 'vendido';
+  const valorExibido = isVendido ? operador.valor : 0;
 
   const handleToggleStatus = () => {
-    const novoStatus = isVendido ? 'livre' : 'vendido';
-    onStatusChange(operador, novoStatus);
+    if (isVendido) {
+      // Liberando operador vendido
+      onStatusChange(operador, 'livre');
+    } else {
+      // Vendendo operador livre - abre modal para definir valor
+      onSell(operador);
+    }
   };
 
   return (
@@ -61,13 +67,28 @@ export const OperadorCard: React.FC<OperadorCardProps> = ({
                 : 'text-gray-400 hover:text-gray-600 hover:bg-gray-50'
               }
             `}
+            aria-label={isVendido ? 'Liberar operador' : 'Vender operador'}
           >
             {isVendido ? <Lock className="w-4 h-4" /> : <Unlock className="w-4 h-4" />}
           </button>
 
+          {/* Ícone de exclusão (apenas quando livre) */}
+          {!isVendido && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                onRemove(operador);
+              }}
+              className="absolute top-8 right-2 p-1 rounded transition-colors text-red-400 hover:text-red-600 hover:bg-red-50"
+              aria-label="Remover operador"
+            >
+              <Trash className="w-4 h-4" />
+            </button>
+          )}
+
           {/* Ícone de arrastar (apenas quando livre) */}
           {!isVendido && (
-            <div className="absolute top-8 right-2 text-gray-400">
+            <div className="absolute bottom-2 right-2 text-gray-400">
               <GripVertical className="w-4 h-4" />
             </div>
           )}
@@ -79,7 +100,7 @@ export const OperadorCard: React.FC<OperadorCardProps> = ({
           )}
 
           {/* Nome do operador */}
-          <h3 className="font-semibold text-sm text-gray-900 mb-2 truncate pr-6">
+          <h3 className="font-semibold text-sm text-gray-900 mb-2 truncate pr-12">
             {operador.nome}
           </h3>
 
@@ -100,25 +121,31 @@ export const OperadorCard: React.FC<OperadorCardProps> = ({
 
             {/* Valor */}
             <span className="text-xs font-medium text-gray-700">
-              R$ {operador.valor.toLocaleString()}
+              R$ {valorExibido.toLocaleString()}
             </span>
           </div>
         </div>
       </ContextMenuTrigger>
       
       <ContextMenuContent>
-        <ContextMenuItem onClick={() => onStatusChange(operador, 'livre')}>
-          Marcar como Livre
-        </ContextMenuItem>
-        <ContextMenuItem onClick={() => onStatusChange(operador, 'vendido')}>
-          Marcar como Vendido
-        </ContextMenuItem>
-        <ContextMenuItem 
-          onClick={() => onRemove(operador)}
-          className="text-red-600"
-        >
-          Remover
-        </ContextMenuItem>
+        {!isVendido && (
+          <ContextMenuItem onClick={() => onSell(operador)}>
+            Vender Operador
+          </ContextMenuItem>
+        )}
+        {isVendido && (
+          <ContextMenuItem onClick={() => onStatusChange(operador, 'livre')}>
+            Liberar Operador
+          </ContextMenuItem>
+        )}
+        {!isVendido && (
+          <ContextMenuItem 
+            onClick={() => onRemove(operador)}
+            className="text-red-600"
+          >
+            Remover
+          </ContextMenuItem>
+        )}
       </ContextMenuContent>
     </ContextMenu>
   );
