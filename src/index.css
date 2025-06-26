@@ -1,94 +1,78 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
-
+/* Design tokens da North Star Network */
 @layer base {
   :root {
+    /* Cores institucionais NSN */
+    --accent-primary: #457B9D;      /* STAR - links, ícones, botões */
+    --accent-secondary: #E63946;    /* NORTH - badges, alertas */
+    
+    /* Cards genéricos */
+    --card-min-size: 220px;
+    --card-border-radius: 16px;
+    --card-shadow: 0 2px 6px rgba(0,0,0,.05);
+    --card-hover-shadow: 0 4px 12px rgba(0,0,0,.08);
+    
+    /* Paletas por jornal */
+    --football-whispers-bg: #00A65E;
+    --football-whispers-text: #FFFFFF;
+    --football-ground-guide-bg: #003C8C;
+    --football-ground-guide-text: #FFFFFF;
+    --vringe-bg: #E30613;
+    --vringe-text: #FFFFFF;
+    --calcio-dangolo-bg: #008C45;
+    --calcio-dangolo-text: #FFFFFF;
+    --sportsmole-bg: #C00021;
+    --sportsmole-text: #FFFFFF;
+    --trivela-bg: #006633;
+    --trivela-text: #FFFFFF;
+    --premier-league-brasil-bg: #37003C;
+    --premier-league-brasil-text: #FFFFFF;
+    --um-dois-esportes-bg: #009739;
+    --um-dois-esportes-text: #FFFFFF;
+    --top-mercato-bg: #FF5600;
+    --top-mercato-text: #000000;
+    --wesport-bg: #D90429;
+    --wesport-text: #FFFFFF;
+    --afrik-foot-bg: #009E60;
+    --afrik-foot-text: #FFFFFF;
+    --soccernet-ng-bg: #006E34;
+    --soccernet-ng-text: #FFFFFF;
+    --al-aire-libre-bg: #0057A0;
+    --al-aire-libre-text: #FFFFFF;
+    --solobasket-bg: #FF6600;
+    --solobasket-text: #000000;
+    --lakers-brasil-bg: #552583;
+    --lakers-brasil-text: #FFFFFF;
+    --basketusa-bg: #D71920;
+    --basketusa-text: #FFFFFF;
+    --basketeurope-bg: #0055A4;
+    --basketeurope-text: #FFFFFF;
+
+    /* Shadcn base colors */
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
-
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
-
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
-
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
-
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
-
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
-
     --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -96,8 +80,93 @@
   * {
     @apply border-border;
   }
-
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Utilitários para as paletas dos jornais */
+@layer components {
+  .jornal-card {
+    min-width: var(--card-min-size);
+    min-height: var(--card-min-size);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-shadow);
+    transition: all 200ms ease-out;
+  }
+  
+  .jornal-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--card-hover-shadow);
+  }
+  
+  /* Cores específicas por jornal */
+  .jornal-football-whispers { 
+    background: var(--football-whispers-bg); 
+    color: var(--football-whispers-text); 
+  }
+  .jornal-football-ground-guide { 
+    background: var(--football-ground-guide-bg); 
+    color: var(--football-ground-guide-text); 
+  }
+  .jornal-vringe { 
+    background: var(--vringe-bg); 
+    color: var(--vringe-text); 
+  }
+  .jornal-calcio-dangolo { 
+    background: var(--calcio-dangolo-bg); 
+    color: var(--calcio-dangolo-text); 
+  }
+  .jornal-sportsmole { 
+    background: var(--sportsmole-bg); 
+    color: var(--sportsmole-text); 
+  }
+  .jornal-trivela { 
+    background: var(--trivela-bg); 
+    color: var(--trivela-text); 
+  }
+  .jornal-premier-league-brasil { 
+    background: var(--premier-league-brasil-bg); 
+    color: var(--premier-league-brasil-text); 
+  }
+  .jornal-um-dois-esportes { 
+    background: var(--um-dois-esportes-bg); 
+    color: var(--um-dois-esportes-text); 
+  }
+  .jornal-top-mercato { 
+    background: var(--top-mercato-bg); 
+    color: var(--top-mercato-text); 
+  }
+  .jornal-wesport { 
+    background: var(--wesport-bg); 
+    color: var(--wesport-text); 
+  }
+  .jornal-afrik-foot { 
+    background: var(--afrik-foot-bg); 
+    color: var(--afrik-foot-text); 
+  }
+  .jornal-soccernet-ng { 
+    background: var(--soccernet-ng-bg); 
+    color: var(--soccernet-ng-text); 
+  }
+  .jornal-al-aire-libre { 
+    background: var(--al-aire-libre-bg); 
+    color: var(--al-aire-libre-text); 
+  }
+  .jornal-solobasket { 
+    background: var(--solobasket-bg); 
+    color: var(--solobasket-text); 
+  }
+  .jornal-lakers-brasil { 
+    background: var(--lakers-brasil-bg); 
+    color: var(--lakers-brasil-text); 
+  }
+  .jornal-basketusa { 
+    background: var(--basketusa-bg); 
+    color: var(--basketusa-text); 
+  }
+  .jornal-basketeurope { 
+    background: var(--basketeurope-bg); 
+    color: var(--basketeurope-text); 
   }
 }

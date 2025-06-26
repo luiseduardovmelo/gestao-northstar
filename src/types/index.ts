@@ -1,7 +1,7 @@
-
 export interface Jornal {
   id: string;
   nome: string;
+  slug: string; // Para mapear as classes CSS das cores
   numeroPaginas: number;
   numeroOperadores: number;
   receitaTotal: number;
