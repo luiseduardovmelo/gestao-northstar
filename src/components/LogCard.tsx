@@ -10,83 +10,91 @@ interface LogCardProps {
 export const LogCard: React.FC<LogCardProps> = ({ log, size = 'small' }) => {
   const getCorPorAcao = (acao: string) => {
     switch (acao) {
-      case 'adicionar': return 'bg-green-100 border-green-200 text-green-800';
-      case 'remover': return 'bg-red-100 border-red-200 text-red-800';
-      case 'mover': return 'bg-blue-100 border-blue-200 text-blue-800';
-      case 'status': return 'bg-yellow-100 border-yellow-200 text-yellow-800';
-      default: return 'bg-gray-100 border-gray-200 text-gray-800';
+      case 'adicionar': return 'bg-green-50 border-green-200 hover:bg-green-100';
+      case 'remover': return 'bg-red-50 border-red-200 hover:bg-red-100';
+      case 'mover': return 'bg-blue-50 border-blue-200 hover:bg-blue-100';
+      case 'status': return 'bg-yellow-50 border-yellow-200 hover:bg-yellow-100';
+      default: return 'bg-gray-50 border-gray-200 hover:bg-gray-100';
     }
   };
 
-  const formatTimestamp = (timestamp: string) => {
-    const date = new Date(timestamp);
-    if (size === 'large') {
-      return date.toLocaleString('pt-BR', {
-        day: '2-digit',
-        month: '2-digit',
-        year: '2-digit',
-        hour: '2-digit',
-        minute: '2-digit'
-      });
-    }
-    return date.toLocaleString('pt-BR', {
-      day: '2-digit',
-      month: '2-digit',
-      hour: '2-digit',
-      minute: '2-digit'
-    });
-  };
-
-  const getAcaoTexto = (acao: string) => {
+  const getCorIndicador = (acao: string) => {
     switch (acao) {
-      case 'adicionar': return 'ADICIONAR';
-      case 'remover': return 'REMOVER';
-      case 'mover': return 'MOVER';
-      case 'status': return 'STATUS';
-      default: return acao.toUpperCase();
+      case 'adicionar': return 'bg-green-500';
+      case 'remover': return 'bg-red-500';
+      case 'mover': return 'bg-blue-500';
+      case 'status': return 'bg-yellow-500';
+      default: return 'bg-gray-500';
     }
   };
 
-  const cardSize = size === 'large' ? 'w-60 h-32' : 'w-48 h-24';
-  const textSize = size === 'large' ? 'text-sm' : 'text-xs';
-  const padding = size === 'large' ? 'p-4' : 'p-3';
+  // Simulando múltiplas páginas para demonstração
+  const paginas = log.pagina ? [log.pagina] : [];
+  const numeroPaginas = paginas.length;
+  const numeroAlteracoes = 1; // Por enquanto cada log representa 1 alteração
+
+  const getPaginasTexto = () => {
+    if (numeroPaginas === 0) return 'Página não especificada';
+    if (numeroPaginas === 1) return paginas[0];
+    return `${paginas[0]} +${numeroPaginas - 1}`;
+  };
 
   return (
-    <div className={`
-      ${cardSize} rounded-lg border-2 ${padding} flex-shrink-0
-      ${getCorPorAcao(log.acao)} transition-all duration-200 hover:shadow-md
-    `}>
-      <div className="flex flex-col h-full justify-between">
-        {/* Header com ação */}
-        <div className="flex items-center justify-between">
-          <span className={`${textSize} font-bold`}>
-            {getAcaoTexto(log.acao)}
-          </span>
-          <span className={`${size === 'large' ? 'text-xs' : 'text-xs'} opacity-75`}>
-            {formatTimestamp(log.timestamp)}
-          </span>
+    <button
+      className={`
+        relative w-80 h-36 rounded-lg border-2 p-3 flex-shrink-0 text-left
+        ${getCorPorAcao(log.acao)} transition-all duration-200 hover:shadow-md
+        focus:outline-none focus:ring-2 focus:ring-[#457B9D] focus:ring-offset-2
+      `}
+      tabIndex={0}
+    >
+      {/* Indicador colorido lateral */}
+      <div 
+        className={`absolute left-0 top-0 w-1 h-full ${getCorIndicador(log.acao)} rounded-l-lg`}
+      />
+      
+      <div className="flex flex-col h-full justify-between ml-2">
+        {/* Título - Nome da Revista */}
+        <div>
+          <h4 className="text-base font-bold text-gray-900 mb-1">
+            {log.jornal || 'Jornal não especificado'}
+          </h4>
+          
+          {/* Subtítulo - Página(s) */}
+          <p className="text-sm font-medium text-gray-700 mb-2">
+            {getPaginasTexto()}
+          </p>
+          
+          {/* Texto menor - Número de alterações */}
+          <p className="text-xs text-gray-600">
+            {numeroAlteracoes} alteração{numeroAlteracoes !== 1 ? 'ões' : ''} registrada{numeroAlteracoes !== 1 ? 's' : ''}
+          </p>
         </div>
 
-        {/* Conteúdo */}
-        <div className="flex-1 min-h-0">
-          <div className={`${textSize} font-medium truncate`}>
-            {log.operador}
-          </div>
-          <div className={`${size === 'large' ? 'text-xs' : 'text-xs'} opacity-75 truncate`}>
-            {log.pagina} • {log.jornal}
-          </div>
-          {log.valorAntigo && log.valorNovo && size === 'large' && (
-            <div className="text-xs opacity-75 truncate mt-1">
-              {log.valorAntigo} → {log.valorNovo}
-            </div>
-          )}
-        </div>
-
-        {/* Footer */}
-        <div className={`${size === 'large' ? 'text-xs' : 'text-xs'} opacity-75`}>
-          por {log.usuario}
+        {/* Footer com timestamp */}
+        <div className="flex justify-between items-end">
+          <span className="text-xs text-gray-500">
+            {new Date(log.timestamp).toLocaleString('pt-BR', {
+              day: '2-digit',
+              month: '2-digit',
+              hour: '2-digit',
+              minute: '2-digit'
+            })}
+          </span>
+          
+          {/* Badge da ação */}
+          <span className={`
+            px-2 py-1 rounded-full text-xs font-medium
+            ${log.acao === 'adicionar' ? 'bg-green-100 text-green-800' :
+              log.acao === 'remover' ? 'bg-red-100 text-red-800' :
+              log.acao === 'mover' ? 'bg-blue-100 text-blue-800' :
+              log.acao === 'status' ? 'bg-yellow-100 text-yellow-800' :
+              'bg-gray-100 text-gray-800'}
+          `}>
+            {log.acao.toUpperCase()}
+          </span>
         </div>
       </div>
-    </div>
+    </button>
   );
 };
