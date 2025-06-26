@@ -1,7 +1,6 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import { JornalCard } from '@/components/JornalCard';
-import { LogCard } from '@/components/LogCard';
+import { LogBoard } from '@/components/LogBoard';
 import Navigation from '@/components/Navigation';
 import { mockJornais } from '@/data/mockData';
 import { LogMudanca } from '@/types';
@@ -80,6 +79,16 @@ const mockLogsRecentes: LogMudanca[] = [
 ];
 
 const Dashboard = () => {
+  const [logs, setLogs] = useState<LogMudanca[]>(
+    mockLogsRecentes.map(log => ({ ...log, status: 'espera' }))
+  );
+
+  const handleLogMove = (logId: string, novaColuna: 'espera' | 'feito') => {
+    setLogs(prev => prev.map(log => 
+      log.id === logId ? { ...log, status: novaColuna } : log
+    ));
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-8">
@@ -120,22 +129,8 @@ const Dashboard = () => {
             </div>
           </div>
 
-          {/* Faixa 2: Board de Logs Horizontais */}
-          <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-            <div className="p-6 border-b border-gray-200">
-              <h2 className="text-lg font-semibold text-gray-900">Log de Mudanças Recentes</h2>
-              <p className="text-sm text-gray-600 mt-1">
-                Acompanhe todas as alterações nos rankings de operadores
-              </p>
-            </div>
-            <div className="p-6">
-              <div className="flex gap-4 overflow-x-auto pb-2" style={{ height: '120px' }}>
-                {mockLogsRecentes.map((log) => (
-                  <LogCard key={log.id} log={log} />
-                ))}
-              </div>
-            </div>
-          </div>
+          {/* Faixa 2: Board de Logs estilo Trello */}
+          <LogBoard logs={logs} onLogMove={handleLogMove} />
 
           {/* Faixa 3: Log de Mudanças Detalhado (altura fixa) - mantido para compatibilidade */}
           <div className="bg-white rounded-lg shadow-sm overflow-hidden">

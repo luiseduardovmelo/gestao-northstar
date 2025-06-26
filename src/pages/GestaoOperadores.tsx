@@ -107,6 +107,11 @@ const GestaoOperadores = () => {
     const slot = ranking.find(s => s.posicao === posicao);
     if (slot?.operador?.status === 'vendido') {
       e.preventDefault();
+      toast({
+        title: "Slot bloqueado",
+        description: "Operadores vendidos não podem ser movidos.",
+        variant: "destructive",
+      });
       return;
     }
     setDraggedItem(posicao);

@@ -49,6 +49,7 @@ export interface LogMudanca {
   usuario: string;
   pagina?: string;
   jornal?: string;
+  status?: 'espera' | 'feito';
 }
 
 export type StatusFilter = 'todos' | 'ativa' | 'inativa' | 'manutencao';
