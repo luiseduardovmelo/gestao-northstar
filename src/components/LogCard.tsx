@@ -7,9 +7,15 @@ interface LogCardProps {
   log: LogMudanca;
   size?: 'small' | 'large';
   onDragStart?: () => void;
+  onExpandChange?: (isExpanded: boolean) => void;
 }
 
-export const LogCard: React.FC<LogCardProps> = ({ log, size = 'small', onDragStart }) => {
+export const LogCard: React.FC<LogCardProps> = ({ 
+  log, 
+  size = 'small', 
+  onDragStart,
+  onExpandChange 
+}) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const cardRef = useRef<HTMLButtonElement>(null);
 
@@ -33,7 +39,7 @@ export const LogCard: React.FC<LogCardProps> = ({ log, size = 'small', onDragSta
     }
   };
 
-  // Simulando múltiplas alterações para demonstração da lista expandida
+  // Simulando múltiplas alterações para demonstração
   const alteracoes = [
     {
       acao: log.acao,
@@ -45,7 +51,6 @@ export const LogCard: React.FC<LogCardProps> = ({ log, size = 'small', onDragSta
         ? `${log.valorAntigo || 'Status'} → ${log.valorNovo || 'Status'}`
         : log.valorNovo || 'Alteração'
     },
-    // Exemplos adicionais para demonstrar lista
     ...(Math.random() > 0.5 ? [{
       acao: 'status',
       operador: 'Outro Operador',
@@ -67,22 +72,36 @@ export const LogCard: React.FC<LogCardProps> = ({ log, size = 'small', onDragSta
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    setIsExpanded(!isExpanded);
+    const newExpanded = !isExpanded;
+    setIsExpanded(newExpanded);
+    if (onExpandChange) {
+      onExpandChange(newExpanded);
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
       e.preventDefault();
-      setIsExpanded(!isExpanded);
+      const newExpanded = !isExpanded;
+      setIsExpanded(newExpanded);
+      if (onExpandChange) {
+        onExpandChange(newExpanded);
+      }
     } else if (e.key === 'Escape' && isExpanded) {
       e.preventDefault();
       setIsExpanded(false);
+      if (onExpandChange) {
+        onExpandChange(false);
+      }
     }
   };
 
   const handleDragStart = () => {
     if (isExpanded) {
       setIsExpanded(false);
+      if (onExpandChange) {
+        onExpandChange(false);
+      }
     }
     if (onDragStart) {
       onDragStart();
@@ -106,7 +125,7 @@ export const LogCard: React.FC<LogCardProps> = ({ log, size = 'small', onDragSta
         relative w-full rounded-md border-2 p-4 text-left shadow-sm
         ${getCorPorAcao(log.acao)} transition-all duration-250 hover:shadow-md
         focus:outline-none focus:ring-2 focus:ring-[#457B9D] focus:ring-offset-2
-        ${isExpanded ? 'max-h-none' : 'min-h-[160px]'}
+        min-h-[160px]
       `}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
@@ -119,16 +138,12 @@ export const LogCard: React.FC<LogCardProps> = ({ log, size = 'small', onDragSta
       
       {/* Ícone de expansão */}
       <div className="absolute top-4 right-4">
-        {isExpanded ? (
-          <ChevronUp size={16} className="text-gray-500" />
-        ) : (
-          <ChevronDown size={16} className="text-gray-500" />
-        )}
+        <ChevronDown size={16} className="text-gray-500" />
       </div>
       
       <div className="flex flex-col ml-2 pr-6">
         {/* Conteúdo principal sempre visível */}
-        <div className="flex flex-col justify-between" style={{ minHeight: isExpanded ? 'auto' : '120px' }}>
+        <div className="flex flex-col justify-between min-h-[120px]">
           {/* Título - Nome da Revista */}
           <div>
             <h4 className="text-lg font-bold text-gray-900 mb-2">
@@ -158,31 +173,6 @@ export const LogCard: React.FC<LogCardProps> = ({ log, size = 'small', onDragSta
             </span>
           </div>
         </div>
-
-        {/* Lista expandida de alterações */}
-        {isExpanded && (
-          <div className="mt-4 pt-3 border-t border-gray-200">
-            <h5 className="text-sm font-semibold text-[#222222] mb-2">
-              Detalhes das Alterações
-            </h5>
-            <div className="max-h-32 overflow-y-auto">
-              <ul className="space-y-1">
-                {alteracoes.map((alteracao, index) => (
-                  <li key={index} className="flex items-start text-xs text-gray-600" style={{ lineHeight: '18px' }}>
-                    <span className="text-gray-400 mr-2 mt-1">●</span>
-                    <span>
-                      <strong className="uppercase font-medium">{alteracao.acao}</strong>
-                      {' — '}
-                      <span className="font-medium">{alteracao.operador}</span>
-                      {' — '}
-                      <span className="text-gray-500">{alteracao.detalhe}</span>
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        )}
       </div>
     </button>
   );

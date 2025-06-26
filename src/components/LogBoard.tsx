@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { LogMudanca } from '@/types';
 import { LogCard } from '@/components/LogCard';
+import { LogCardOverlay } from '@/components/LogCardOverlay';
 
 interface LogBoardProps {
   logs: LogMudanca[];
@@ -10,21 +11,35 @@ interface LogBoardProps {
 
 export const LogBoard: React.FC<LogBoardProps> = ({ logs, onLogMove }) => {
   const [draggedLog, setDraggedLog] = useState<string | null>(null);
+  const [expandedLog, setExpandedLog] = useState<LogMudanca | null>(null);
+  const [isDragDisabled, setIsDragDisabled] = useState(false);
 
   const logsEspera = logs.filter(log => log.status === 'espera' || !log.status);
   const logsFeito = logs.filter(log => log.status === 'feito');
 
   const handleDragStart = (e: React.DragEvent, logId: string) => {
+    if (isDragDisabled) {
+      e.preventDefault();
+      return;
+    }
     setDraggedLog(logId);
     e.dataTransfer.effectAllowed = 'move';
   };
 
   const handleDragOver = (e: React.DragEvent) => {
+    if (isDragDisabled) {
+      e.preventDefault();
+      return;
+    }
     e.preventDefault();
     e.dataTransfer.dropEffect = 'move';
   };
 
   const handleDrop = (e: React.DragEvent, coluna: 'espera' | 'feito') => {
+    if (isDragDisabled) {
+      e.preventDefault();
+      return;
+    }
     e.preventDefault();
     if (draggedLog) {
       onLogMove(draggedLog, coluna);
@@ -40,6 +55,21 @@ export const LogBoard: React.FC<LogBoardProps> = ({ logs, onLogMove }) => {
     }
   };
 
+  const handleExpandChange = (log: LogMudanca, isExpanded: boolean) => {
+    if (isExpanded) {
+      setExpandedLog(log);
+      setIsDragDisabled(true);
+    } else {
+      setExpandedLog(null);
+      setIsDragDisabled(false);
+    }
+  };
+
+  const handleCloseOverlay = () => {
+    setExpandedLog(null);
+    setIsDragDisabled(false);
+  };
+
   const renderLogColumn = (
     titulo: string, 
     logs: LogMudanca[], 
@@ -51,7 +81,7 @@ export const LogBoard: React.FC<LogBoardProps> = ({ logs, onLogMove }) => {
         <p className="text-sm text-gray-600">{logs.length} logs</p>
       </div>
       <div
-        className="flex-1 p-4 overflow-y-auto"
+        className={`flex-1 p-4 overflow-y-auto ${isDragDisabled ? 'pointer-events-none' : ''}`}
         onDragOver={handleDragOver}
         onDrop={(e) => handleDrop(e, coluna)}
       >
@@ -59,13 +89,14 @@ export const LogBoard: React.FC<LogBoardProps> = ({ logs, onLogMove }) => {
           {logs.map((log) => (
             <div
               key={log.id}
-              draggable
+              draggable={!isDragDisabled}
               onDragStart={(e) => handleDragStart(e, log.id)}
               onKeyDown={(e) => handleKeyDown(e, log.id, coluna)}
               tabIndex={0}
               className={`
                 cursor-move focus:outline-none focus:ring-2 focus:ring-[#457B9D] focus:ring-offset-2 rounded-lg
                 ${draggedLog === log.id ? 'opacity-50' : ''}
+                ${isDragDisabled ? 'pointer-events-none' : ''}
               `}
             >
               <LogCard 
@@ -74,6 +105,7 @@ export const LogBoard: React.FC<LogBoardProps> = ({ logs, onLogMove }) => {
                 onDragStart={() => {
                   // Callback para quando o drag inicia, usado pelo LogCard para fechar expansão
                 }}
+                onExpandChange={(isExpanded) => handleExpandChange(log, isExpanded)}
               />
             </div>
           ))}
@@ -88,21 +120,30 @@ export const LogBoard: React.FC<LogBoardProps> = ({ logs, onLogMove }) => {
   );
 
   return (
-    <div className="bg-white rounded-lg shadow-sm overflow-hidden h-[520px]">
-      <div className="p-4 border-b border-gray-200">
-        <h2 className="text-lg font-semibold text-gray-900">Board de Logs</h2>
-        <p className="text-sm text-gray-600 mt-1">
-          Gerencie os logs de mudanças arrastando entre as colunas
-        </p>
-      </div>
-      
-      <div className="flex h-full gap-8 p-4">
-        {renderLogColumn('Log em Espera', logsEspera, 'espera')}
+    <>
+      <div className="bg-white rounded-lg shadow-sm overflow-hidden h-[520px]">
+        <div className="p-4 border-b border-gray-200">
+          <h2 className="text-lg font-semibold text-gray-900">Board de Logs</h2>
+          <p className="text-sm text-gray-600 mt-1">
+            Gerencie os logs de mudanças arrastando entre as colunas
+          </p>
+        </div>
         
-        <div className="w-px bg-gray-200"></div>
-        
-        {renderLogColumn('Log Feito', logsFeito, 'feito')}
+        <div className="flex h-full gap-8 p-4">
+          {renderLogColumn('Log em Espera', logsEspera, 'espera')}
+          
+          <div className="w-px bg-gray-200"></div>
+          
+          {renderLogColumn('Log Feito', logsFeito, 'feito')}
+        </div>
       </div>
-    </div>
+
+      {/* Overlay expandido */}
+      <LogCardOverlay 
+        log={expandedLog || logs[0]} 
+        isOpen={!!expandedLog} 
+        onClose={handleCloseOverlay} 
+      />
+    </>
   );
 };
