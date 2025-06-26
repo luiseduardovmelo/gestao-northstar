@@ -1,9 +1,83 @@
 
 import React from 'react';
 import { JornalCard } from '@/components/JornalCard';
-import { LogTimeline } from '@/components/LogTimeline';
+import { LogCard } from '@/components/LogCard';
 import Navigation from '@/components/Navigation';
-import { mockJornais, mockLogs } from '@/data/mockData';
+import { mockJornais } from '@/data/mockData';
+import { LogMudanca } from '@/types';
+
+// Logs de exemplo com diferentes tipos de ação
+const mockLogsRecentes: LogMudanca[] = [
+  {
+    id: '1',
+    acao: 'adicionar',
+    entidade: 'operador',
+    operador: 'Bet365',
+    valorNovo: 'Posição #1 - R$ 15.000',
+    timestamp: '2024-01-20T10:30:00Z',
+    usuario: 'Admin',
+    pagina: 'Primeira Página',
+    jornal: 'Trivela'
+  },
+  {
+    id: '2',
+    acao: 'mover',
+    entidade: 'operador',
+    operador: 'Betano',
+    valorAntigo: 'Posição #2',
+    valorNovo: 'Posição #1',
+    timestamp: '2024-01-20T09:15:00Z',
+    usuario: 'Admin',
+    pagina: 'Esportes',
+    jornal: 'Gazeta do Povo'
+  },
+  {
+    id: '3',
+    acao: 'status',
+    entidade: 'operador',
+    operador: 'Sportingbet',
+    valorAntigo: 'Livre',
+    valorNovo: 'Vendido',
+    timestamp: '2024-01-20T08:45:00Z',
+    usuario: 'Admin',
+    pagina: 'Primeira Página',
+    jornal: 'Placar'
+  },
+  {
+    id: '4',
+    acao: 'remover',
+    entidade: 'operador',
+    operador: 'KTO',
+    valorAntigo: 'Posição #5 - R$ 7.000',
+    timestamp: '2024-01-19T16:20:00Z',
+    usuario: 'Admin',
+    pagina: 'Economia',
+    jornal: 'Um Dois Esportes'
+  },
+  {
+    id: '5',
+    acao: 'adicionar',
+    entidade: 'operador',
+    operador: 'Betfair',
+    valorNovo: 'Posição #3 - R$ 8.000',
+    timestamp: '2024-01-19T14:10:00Z',
+    usuario: 'Admin',
+    pagina: 'Primeira Página',
+    jornal: 'Lakers Brasil'
+  },
+  {
+    id: '6',
+    acao: 'mover',
+    entidade: 'operador',
+    operador: 'Rivalo',
+    valorAntigo: 'Posição #4',
+    valorNovo: 'Posição #2',
+    timestamp: '2024-01-19T11:30:00Z',
+    usuario: 'Admin',
+    pagina: 'Esportes',
+    jornal: 'Trivela'
+  }
+];
 
 const Dashboard = () => {
   return (
@@ -34,7 +108,7 @@ const Dashboard = () => {
           <Navigation />
         </div>
 
-        {/* Layout de duas faixas fixas */}
+        {/* Layout de três faixas */}
         <div className="space-y-8">
           {/* Faixa 1: Grade de Jornais */}
           <div className="bg-white rounded-lg p-6 shadow-sm">
@@ -46,14 +120,89 @@ const Dashboard = () => {
             </div>
           </div>
 
-          {/* Faixa 2: Log de Mudanças (altura fixa) */}
+          {/* Faixa 2: Board de Logs Horizontais */}
           <div className="bg-white rounded-lg shadow-sm overflow-hidden">
             <div className="p-6 border-b border-gray-200">
-              <h2 className="text-lg font-semibold text-gray-900">Log de Mudanças</h2>
+              <h2 className="text-lg font-semibold text-gray-900">Log de Mudanças Recentes</h2>
+              <p className="text-sm text-gray-600 mt-1">
+                Acompanhe todas as alterações nos rankings de operadores
+              </p>
+            </div>
+            <div className="p-6">
+              <div className="flex gap-4 overflow-x-auto pb-2" style={{ height: '120px' }}>
+                {mockLogsRecentes.map((log) => (
+                  <LogCard key={log.id} log={log} />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Faixa 3: Log de Mudanças Detalhado (altura fixa) - mantido para compatibilidade */}
+          <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+            <div className="p-6 border-b border-gray-200">
+              <h2 className="text-lg font-semibold text-gray-900">Histórico Completo</h2>
             </div>
             <div className="h-80 overflow-y-auto">
               <div className="p-6">
-                <LogTimeline logs={mockLogs} />
+                <div className="space-y-4">
+                  {mockLogsRecentes.map((log, index) => (
+                    <div key={log.id} className="relative">
+                      {/* Timeline line */}
+                      {index < mockLogsRecentes.length - 1 && (
+                        <div className="absolute left-6 top-12 w-0.5 h-8 bg-gray-200"></div>
+                      )}
+                      
+                      <div className="flex items-start space-x-4">
+                        {/* Timeline dot */}
+                        <div className="flex-shrink-0 w-3 h-3 rounded-full bg-gray-300 mt-2"></div>
+                        
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-start justify-between gap-4">
+                            <div className="flex-1">
+                              <div className="flex items-center gap-2 mb-1">
+                                <span className={`px-2 py-1 rounded-full text-xs font-medium border ${
+                                  log.acao === 'adicionar' ? 'text-green-600 bg-green-50 border-green-200' :
+                                  log.acao === 'remover' ? 'text-red-600 bg-red-50 border-red-200' :
+                                  log.acao === 'mover' ? 'text-blue-600 bg-blue-50 border-blue-200' :
+                                  log.acao === 'status' ? 'text-yellow-600 bg-yellow-50 border-yellow-200' :
+                                  'text-gray-600 bg-gray-50 border-gray-200'
+                                }`}>
+                                  {log.acao.toUpperCase()}
+                                </span>
+                                <span className="text-xs text-gray-500">
+                                  {new Date(log.timestamp).toLocaleString('pt-BR')}
+                                </span>
+                              </div>
+                              
+                              <p className="text-sm font-medium text-gray-900 mb-1">
+                                Operador: {log.operador}
+                              </p>
+                              
+                              {(log.valorAntigo || log.valorNovo) && (
+                                <div className="text-sm text-gray-600 mb-1">
+                                  {log.valorAntigo && log.valorNovo && (
+                                    <>
+                                      <span className="line-through text-red-500">{log.valorAntigo}</span>
+                                      {' → '}
+                                      <span className="text-green-600">{log.valorNovo}</span>
+                                    </>
+                                  )}
+                                  {!log.valorAntigo && log.valorNovo && (
+                                    <span className="text-green-600">{log.valorNovo}</span>
+                                  )}
+                                </div>
+                              )}
+                              
+                              <p className="text-xs text-gray-500">
+                                {log.pagina} • {log.jornal} • Por: {log.usuario}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

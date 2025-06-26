@@ -1,3 +1,4 @@
+
 export interface Jornal {
   id: string;
   nome: string;
@@ -28,17 +29,27 @@ export interface Operador {
   valor: number;
   ordem: number;
   vendidoEm?: string;
+  logoUrl?: string;
+}
+
+export interface RankingSlot {
+  id: string;
+  posicao: number;
+  operador?: Operador;
+  isEmpty: boolean;
 }
 
 export interface LogMudanca {
   id: string;
-  acao: 'criar' | 'editar' | 'deletar' | 'reordenar';
+  acao: 'adicionar' | 'remover' | 'mover' | 'status';
   entidade: 'jornal' | 'pagina' | 'operador';
   operador?: string;
   valorAntigo?: string;
   valorNovo?: string;
   timestamp: string;
   usuario: string;
+  pagina?: string;
+  jornal?: string;
 }
 
 export type StatusFilter = 'todos' | 'ativa' | 'inativa' | 'manutencao';

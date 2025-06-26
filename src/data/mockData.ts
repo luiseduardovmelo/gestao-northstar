@@ -1,3 +1,4 @@
+
 import { Jornal, Pagina, Operador, LogMudanca } from '@/types';
 
 export const mockJornais: Jornal[] = [
@@ -89,42 +90,58 @@ export const mockOperadores: Operador[] = [
   {
     id: '1',
     paginaId: '1',
-    nome: 'João Silva',
-    cargo: 'Editor Chefe',
+    nome: 'Bet365',
+    cargo: 'Casa de Apostas',
     status: 'vendido',
-    valor: 5000,
+    valor: 15000,
     ordem: 1,
-    vendidoEm: '2024-01-15T10:00:00Z'
+    vendidoEm: '2024-01-15T10:00:00Z',
+    logoUrl: '/placeholder.svg'
   },
   {
     id: '2',
     paginaId: '1',
-    nome: 'Maria Santos',
-    cargo: 'Jornalista',
+    nome: 'Betano',
+    cargo: 'Casa de Apostas',
     status: 'livre',
-    valor: 3500,
-    ordem: 2
+    valor: 12000,
+    ordem: 2,
+    logoUrl: '/placeholder.svg'
+  },
+  {
+    id: '3',
+    paginaId: '1',
+    nome: 'Sportingbet',
+    cargo: 'Casa de Apostas',
+    status: 'livre',
+    valor: 10000,
+    ordem: 3,
+    logoUrl: '/placeholder.svg'
   }
 ];
 
 export const mockLogs: LogMudanca[] = [
   {
     id: '1',
-    acao: 'criar',
+    acao: 'adicionar',
     entidade: 'operador',
-    operador: 'João Silva',
-    valorNovo: 'Editor Chefe - R$ 5.000',
+    operador: 'Bet365',
+    valorNovo: 'Posição #1 - R$ 15.000',
     timestamp: '2024-01-15T10:00:00Z',
-    usuario: 'Admin'
+    usuario: 'Admin',
+    pagina: 'Primeira Página',
+    jornal: 'Trivela'
   },
   {
     id: '2',
-    acao: 'editar',
+    acao: 'status',
     entidade: 'operador',
-    operador: 'Maria Santos',
-    valorAntigo: 'R$ 3.000',
-    valorNovo: 'R$ 3.500',
+    operador: 'Betano',
+    valorAntigo: 'Livre',
+    valorNovo: 'Vendido',
     timestamp: '2024-01-16T14:30:00Z',
-    usuario: 'Admin'
+    usuario: 'Admin',
+    pagina: 'Primeira Página',
+    jornal: 'Trivela'
   }
 ];

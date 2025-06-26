@@ -1,12 +1,12 @@
 
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { OperadorRow } from '@/components/OperadorRow';
+import { OperadorCard } from '@/components/OperadorCard';
+import { SlotVazio } from '@/components/SlotVazio';
+import { AdicionarOperadorModal } from '@/components/AdicionarOperadorModal';
 import { mockOperadores, mockPaginas, mockJornais } from '@/data/mockData';
-import { Operador } from '@/types';
+import { Operador, RankingSlot, LogMudanca } from '@/types';
 import { useToast } from '@/hooks/use-toast';
 
 const GestaoOperadores = () => {
@@ -14,86 +14,189 @@ const GestaoOperadores = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   
-  const [operadores, setOperadores] = useState<Operador[]>(mockOperadores);
-  const [editingId, setEditingId] = useState<string | null>(null);
-  const [editForm, setEditForm] = useState<Partial<Operador>>({});
-  const [isAddingNew, setIsAddingNew] = useState(false);
-  const [newOperadorForm, setNewOperadorForm] = useState<Partial<Operador>>({
-    nome: '',
-    cargo: '',
-    valor: 0,
-    status: 'livre'
+  // Estado inicial - criar 10 slots
+  const [ranking, setRanking] = useState<RankingSlot[]>(() => {
+    const slots: RankingSlot[] = [];
+    for (let i = 1; i <= 10; i++) {
+      const operadorExistente = mockOperadores.find(op => op.ordem === i);
+      slots.push({
+        id: `slot-${i}`,
+        posicao: i,
+        operador: operadorExistente,
+        isEmpty: !operadorExistente
+      });
+    }
+    return slots;
   });
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [slotSelecionado, setSlotSelecionado] = useState<number | null>(null);
+  const [hasChanges, setHasChanges] = useState(false);
+  const [draggedItem, setDraggedItem] = useState<number | null>(null);
 
   const jornal = mockJornais.find(j => j.id === jornalId);
   const pagina = mockPaginas.find(p => p.id === paginaId);
 
-  const handleEdit = (id: string) => {
-    const operador = operadores.find(o => o.id === id);
-    if (operador) {
-      setEditingId(id);
-      setEditForm(operador);
-    }
+  // Operadores disponíveis para adicionar
+  const operadoresDisponiveis = [
+    { nome: 'Bet365', cargo: 'Casa de Apostas', valor: 15000, logoUrl: '/placeholder.svg' },
+    { nome: 'Betano', cargo: 'Casa de Apostas', valor: 12000, logoUrl: '/placeholder.svg' },
+    { nome: 'Sportingbet', cargo: 'Casa de Apostas', valor: 10000, logoUrl: '/placeholder.svg' },
+    { nome: 'Betfair', cargo: 'Casa de Apostas', valor: 8000, logoUrl: '/placeholder.svg' },
+    { nome: 'KTO', cargo: 'Casa de Apostas', valor: 7000, logoUrl: '/placeholder.svg' },
+  ];
+
+  const handleAbrirModal = (posicao: number) => {
+    setSlotSelecionado(posicao);
+    setIsModalOpen(true);
   };
 
-  const handleSave = (updatedOperador: Operador) => {
-    setOperadores(prev => 
-      prev.map(op => op.id === updatedOperador.id ? updatedOperador : op)
-    );
-    setEditingId(null);
-    setEditForm({});
-    
-    toast({
-      title: "Operador atualizado",
-      description: `${updatedOperador.nome} foi atualizado com sucesso.`,
-    });
-  };
-
-  const handleCancel = () => {
-    setEditingId(null);
-    setEditForm({});
-  };
-
-  const handleDelete = (id: string) => {
-    const operador = operadores.find(o => o.id === id);
-    if (operador?.status === 'vendido') return;
-    
-    setOperadores(prev => prev.filter(o => o.id !== id));
-    
-    toast({
-      title: "Operador removido",
-      description: `Operador foi removido com sucesso.`,
-      variant: "destructive",
-    });
-  };
-
-  const handleAddNew = () => {
-    if (!newOperadorForm.nome || !newOperadorForm.cargo || !newOperadorForm.valor) {
-      toast({
-        title: "Erro",
-        description: "Preencha todos os campos obrigatórios.",
-        variant: "destructive",
-      });
-      return;
-    }
+  const handleAdicionarOperador = (operadorData: Partial<Operador>) => {
+    if (slotSelecionado === null) return;
 
     const novoOperador: Operador = {
       id: Date.now().toString(),
       paginaId: paginaId!,
-      nome: newOperadorForm.nome!,
-      cargo: newOperadorForm.cargo!,
+      nome: operadorData.nome!,
+      cargo: operadorData.cargo!,
       status: 'livre',
-      valor: newOperadorForm.valor!,
-      ordem: operadores.length + 1
+      valor: operadorData.valor!,
+      ordem: slotSelecionado,
+      logoUrl: operadorData.logoUrl
     };
 
-    setOperadores(prev => [...prev, novoOperador]);
-    setIsAddingNew(false);
-    setNewOperadorForm({ nome: '', cargo: '', valor: 0, status: 'livre' });
+    setRanking(prev => prev.map(slot => 
+      slot.posicao === slotSelecionado 
+        ? { ...slot, operador: novoOperador, isEmpty: false }
+        : slot
+    ));
+
+    setHasChanges(true);
+    setSlotSelecionado(null);
+  };
+
+  const handleStatusChange = (operador: Operador, novoStatus: 'livre' | 'vendido') => {
+    setRanking(prev => prev.map(slot => 
+      slot.operador?.id === operador.id 
+        ? { 
+            ...slot, 
+            operador: { 
+              ...slot.operador, 
+              status: novoStatus,
+              vendidoEm: novoStatus === 'vendido' ? new Date().toISOString() : undefined
+            } 
+          }
+        : slot
+    ));
+    setHasChanges(true);
+
+    toast({
+      title: "Status alterado",
+      description: `${operador.nome} agora está ${novoStatus === 'vendido' ? 'vendido' : 'livre'}.`,
+    });
+  };
+
+  const handleRemoveOperador = (operador: Operador) => {
+    setRanking(prev => prev.map(slot => 
+      slot.operador?.id === operador.id 
+        ? { ...slot, operador: undefined, isEmpty: true }
+        : slot
+    ));
+    setHasChanges(true);
+  };
+
+  const handleDragStart = (e: React.DragEvent, posicao: number) => {
+    const slot = ranking.find(s => s.posicao === posicao);
+    if (slot?.operador?.status === 'vendido') {
+      e.preventDefault();
+      return;
+    }
+    setDraggedItem(posicao);
+  };
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+  };
+
+  const handleDrop = (e: React.DragEvent, targetPosicao: number) => {
+    e.preventDefault();
+    if (draggedItem === null) return;
+
+    const targetSlot = ranking.find(s => s.posicao === targetPosicao);
+    if (targetSlot?.operador?.status === 'vendido') {
+      toast({
+        title: "Slot bloqueado",
+        description: "Não é possível mover para um slot com operador vendido.",
+        variant: "destructive",
+      });
+      setDraggedItem(null);
+      return;
+    }
+
+    // Trocar posições
+    setRanking(prev => {
+      const newRanking = [...prev];
+      const draggedSlot = newRanking.find(s => s.posicao === draggedItem);
+      const targetSlot = newRanking.find(s => s.posicao === targetPosicao);
+
+      if (draggedSlot && targetSlot) {
+        const tempOperador = draggedSlot.operador;
+        const tempIsEmpty = draggedSlot.isEmpty;
+
+        draggedSlot.operador = targetSlot.operador;
+        draggedSlot.isEmpty = targetSlot.isEmpty;
+
+        targetSlot.operador = tempOperador;
+        targetSlot.isEmpty = tempIsEmpty;
+
+        // Atualizar ordem dos operadores
+        if (draggedSlot.operador) {
+          draggedSlot.operador.ordem = draggedItem;
+        }
+        if (targetSlot.operador) {
+          targetSlot.operador.ordem = targetPosicao;
+        }
+      }
+
+      return newRanking;
+    });
+
+    setHasChanges(true);
+    setDraggedItem(null);
+  };
+
+  const gerarLogs = useCallback((): LogMudanca[] => {
+    // Simular geração de logs baseada nas mudanças
+    const logs: LogMudanca[] = [];
+    
+    // Para esta implementação, vamos gerar logs de exemplo
+    logs.push({
+      id: Date.now().toString(),
+      acao: 'mover',
+      entidade: 'operador',
+      operador: 'Bet365',
+      valorAntigo: 'Posição #1',
+      valorNovo: 'Posição #3',
+      timestamp: new Date().toISOString(),
+      usuario: 'Admin',
+      pagina: pagina?.nome,
+      jornal: jornal?.nome
+    });
+
+    return logs;
+  }, [pagina, jornal]);
+
+  const handleSalvarAlteracoes = () => {
+    const novoLogs = gerarLogs();
+    
+    // Aqui salvaria no backend e atualizaria o log global
+    console.log('Salvando alterações...', { ranking, logs: novoLogs });
+    
+    setHasChanges(false);
     
     toast({
-      title: "Operador adicionado",
-      description: `${novoOperador.nome} foi adicionado com sucesso.`,
+      title: "Ranking salvo",
+      description: "Todas as alterações foram salvas com sucesso.",
     });
   };
 
@@ -117,116 +220,73 @@ const GestaoOperadores = () => {
               </Button>
               <div>
                 <h1 className="text-2xl font-bold text-gray-900">
-                  {pagina.nome}
+                  Ranking Top 10 - {pagina.nome}
                 </h1>
                 <p className="text-gray-600">{jornal.nome}</p>
               </div>
             </div>
-            
-            <Button
-              onClick={() => setIsAddingNew(true)}
-              className="bg-[#2F6BFF] hover:bg-[#1E4FCC]"
-            >
-              Adicionar Operador
-            </Button>
           </div>
         </div>
       </div>
 
       {/* Conteúdo */}
       <div className="container mx-auto px-4 py-8">
-        {/* Formulário de Novo Operador */}
-        {isAddingNew && (
-          <Card className="mb-6">
-            <CardHeader>
-              <CardTitle>Novo Operador</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <Input
-                  placeholder="Nome"
-                  value={newOperadorForm.nome || ''}
-                  onChange={(e) => setNewOperadorForm(prev => ({ ...prev, nome: e.target.value }))}
+        {/* Grade 2x5 do ranking */}
+        <div className="grid grid-cols-5 gap-6 max-w-5xl mx-auto">
+          {ranking.map((slot) => (
+            <div
+              key={slot.id}
+              className={`${draggedItem === slot.posicao ? 'border-2 border-dashed border-[#457B9D]' : ''}`}
+              onDragOver={handleDragOver}
+              onDrop={(e) => handleDrop(e, slot.posicao)}
+            >
+              {slot.isEmpty ? (
+                <SlotVazio
+                  posicao={slot.posicao}
+                  onAddOperador={() => handleAbrirModal(slot.posicao)}
                 />
-                <Input
-                  placeholder="Cargo"
-                  value={newOperadorForm.cargo || ''}
-                  onChange={(e) => setNewOperadorForm(prev => ({ ...prev, cargo: e.target.value }))}
-                />
-                <Input
-                  type="number"
-                  placeholder="Valor"
-                  value={newOperadorForm.valor || ''}
-                  onChange={(e) => setNewOperadorForm(prev => ({ ...prev, valor: Number(e.target.value) }))}
-                />
-                <div className="flex space-x-2">
-                  <Button onClick={handleAddNew} className="bg-green-600 hover:bg-green-700">
-                    Salvar
-                  </Button>
-                  <Button variant="outline" onClick={() => setIsAddingNew(false)}>
-                    Cancelar
-                  </Button>
+              ) : (
+                <div
+                  draggable={slot.operador?.status !== 'vendido'}
+                  onDragStart={(e) => handleDragStart(e, slot.posicao)}
+                  className={draggedItem === slot.posicao ? 'opacity-50' : ''}
+                >
+                  <OperadorCard
+                    operador={slot.operador!}
+                    posicao={slot.posicao}
+                    onStatusChange={handleStatusChange}
+                    onRemove={handleRemoveOperador}
+                    isDragging={draggedItem === slot.posicao}
+                  />
                 </div>
-              </div>
-            </CardContent>
-          </Card>
-        )}
-
-        {/* Tabela de Operadores */}
-        <Card>
-          <CardContent className="p-0">
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead className="bg-gray-50 border-b border-gray-200">
-                  <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Ordem
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Nome
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Cargo
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Status
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Valor
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Ações
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
-                  {operadores.map((operador) => (
-                    <OperadorRow
-                      key={operador.id}
-                      operador={operador}
-                      isEditing={editingId === operador.id}
-                      onEdit={() => handleEdit(operador.id)}
-                      onSave={handleSave}
-                      onCancel={handleCancel}
-                      onDelete={() => handleDelete(operador.id)}
-                      editForm={editForm}
-                      setEditForm={setEditForm}
-                    />
-                  ))}
-                </tbody>
-              </table>
+              )}
             </div>
-          </CardContent>
-        </Card>
-
-        {operadores.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-gray-500 text-lg">
-              Nenhum operador cadastrado ainda.
-            </p>
-          </div>
-        )}
+          ))}
+        </div>
       </div>
+
+      {/* Botão Salvar Alterações - Fixo */}
+      {hasChanges && (
+        <div className="fixed bottom-6 right-6 z-50">
+          <Button
+            onClick={handleSalvarAlteracoes}
+            className="bg-[#457B9D] hover:bg-[#3a6b8a] text-white px-6 py-3 rounded-lg shadow-lg"
+          >
+            Salvar alterações
+          </Button>
+        </div>
+      )}
+
+      {/* Modal Adicionar Operador */}
+      <AdicionarOperadorModal
+        isOpen={isModalOpen}
+        onClose={() => {
+          setIsModalOpen(false);
+          setSlotSelecionado(null);
+        }}
+        onSelect={handleAdicionarOperador}
+        operadoresDisponiveis={operadoresDisponiveis}
+      />
     </div>
   );
 };
