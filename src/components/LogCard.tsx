@@ -1,6 +1,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { LogMudanca } from '@/types';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 interface LogCardProps {
   log: LogMudanca;
@@ -102,10 +103,10 @@ export const LogCard: React.FC<LogCardProps> = ({ log, size = 'small', onDragSta
     <button
       ref={cardRef}
       className={`
-        relative w-80 rounded-lg border-2 p-3 flex-shrink-0 text-left
+        relative w-full rounded-md border-2 p-4 text-left shadow-sm
         ${getCorPorAcao(log.acao)} transition-all duration-250 hover:shadow-md
         focus:outline-none focus:ring-2 focus:ring-[#457B9D] focus:ring-offset-2
-        ${isExpanded ? 'h-auto' : 'h-36'}
+        ${isExpanded ? 'max-h-none' : 'min-h-[160px]'}
       `}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
@@ -113,20 +114,29 @@ export const LogCard: React.FC<LogCardProps> = ({ log, size = 'small', onDragSta
     >
       {/* Indicador colorido lateral */}
       <div 
-        className={`absolute left-0 top-0 w-1 h-full ${getCorIndicador(log.acao)} rounded-l-lg`}
+        className={`absolute left-0 top-0 w-1 h-full ${getCorIndicador(log.acao)} rounded-l-md`}
       />
       
-      <div className="flex flex-col ml-2">
+      {/* Ícone de expansão */}
+      <div className="absolute top-4 right-4">
+        {isExpanded ? (
+          <ChevronUp size={16} className="text-gray-500" />
+        ) : (
+          <ChevronDown size={16} className="text-gray-500" />
+        )}
+      </div>
+      
+      <div className="flex flex-col ml-2 pr-6">
         {/* Conteúdo principal sempre visível */}
         <div className="flex flex-col justify-between" style={{ minHeight: isExpanded ? 'auto' : '120px' }}>
           {/* Título - Nome da Revista */}
           <div>
-            <h4 className="text-base font-bold text-gray-900 mb-1">
+            <h4 className="text-lg font-bold text-gray-900 mb-2">
               {log.jornal || 'Jornal não especificado'}
             </h4>
             
             {/* Subtítulo - Página(s) */}
-            <p className="text-sm font-medium text-gray-700 mb-2">
+            <p className="text-sm font-medium text-gray-700 mb-2 leading-5 max-h-10 overflow-hidden">
               {getPaginasTexto()}
             </p>
             
@@ -136,8 +146,8 @@ export const LogCard: React.FC<LogCardProps> = ({ log, size = 'small', onDragSta
             </p>
           </div>
 
-          {/* Footer com timestamp e badge */}
-          <div className="flex justify-between items-end mt-auto">
+          {/* Footer com timestamp */}
+          <div className="flex justify-start items-end mt-auto">
             <span className="text-xs text-gray-500">
               {new Date(log.timestamp).toLocaleString('pt-BR', {
                 day: '2-digit',
@@ -146,25 +156,13 @@ export const LogCard: React.FC<LogCardProps> = ({ log, size = 'small', onDragSta
                 minute: '2-digit'
               })}
             </span>
-            
-            {/* Badge da ação */}
-            <span className={`
-              px-2 py-1 rounded-full text-xs font-medium
-              ${log.acao === 'adicionar' ? 'bg-green-100 text-green-800' :
-                log.acao === 'remover' ? 'bg-red-100 text-red-800' :
-                log.acao === 'mover' ? 'bg-blue-100 text-blue-800' :
-                log.acao === 'status' ? 'bg-yellow-100 text-yellow-800' :
-                'bg-gray-100 text-gray-800'}
-            `}>
-              {log.acao.toUpperCase()}
-            </span>
           </div>
         </div>
 
         {/* Lista expandida de alterações */}
         {isExpanded && (
           <div className="mt-4 pt-3 border-t border-gray-200">
-            <h5 className="text-xs font-semibold text-gray-700 mb-2 uppercase tracking-wide">
+            <h5 className="text-sm font-semibold text-[#222222] mb-2">
               Detalhes das Alterações
             </h5>
             <div className="max-h-32 overflow-y-auto">
@@ -176,8 +174,6 @@ export const LogCard: React.FC<LogCardProps> = ({ log, size = 'small', onDragSta
                       <strong className="uppercase font-medium">{alteracao.acao}</strong>
                       {' — '}
                       <span className="font-medium">{alteracao.operador}</span>
-                      {' — '}
-                      <span>{alteracao.pagina}</span>
                       {' — '}
                       <span className="text-gray-500">{alteracao.detalhe}</span>
                     </span>

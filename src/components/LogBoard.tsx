@@ -43,16 +43,15 @@ export const LogBoard: React.FC<LogBoardProps> = ({ logs, onLogMove }) => {
   const renderLogColumn = (
     titulo: string, 
     logs: LogMudanca[], 
-    coluna: 'espera' | 'feito',
-    bgColor: string
+    coluna: 'espera' | 'feito'
   ) => (
-    <div className="flex-1 min-w-0">
-      <div className={`${bgColor} px-4 py-3 border-b border-gray-200`}>
-        <h3 className="font-semibold text-gray-900">{titulo}</h3>
+    <div className="flex-1 flex flex-col min-w-0">
+      <div className="px-4 py-3 border-b border-gray-200">
+        <h3 className="text-lg font-semibold text-gray-900 text-[#111111]">{titulo}</h3>
         <p className="text-sm text-gray-600">{logs.length} logs</p>
       </div>
       <div
-        className="p-4 min-h-64 max-h-96 overflow-y-auto"
+        className="flex-1 p-4 overflow-y-auto"
         onDragOver={handleDragOver}
         onDrop={(e) => handleDrop(e, coluna)}
       >
@@ -89,30 +88,20 @@ export const LogBoard: React.FC<LogBoardProps> = ({ logs, onLogMove }) => {
   );
 
   return (
-    <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-      <div className="p-6 border-b border-gray-200">
+    <div className="bg-white rounded-lg shadow-sm overflow-hidden h-[520px]">
+      <div className="p-4 border-b border-gray-200">
         <h2 className="text-lg font-semibold text-gray-900">Board de Logs</h2>
         <p className="text-sm text-gray-600 mt-1">
           Gerencie os logs de mudanças arrastando entre as colunas
         </p>
       </div>
       
-      <div className="flex">
-        {renderLogColumn(
-          'Log em Espera', 
-          logsEspera, 
-          'espera',
-          'bg-yellow-50'
-        )}
+      <div className="flex h-full gap-8 p-4">
+        {renderLogColumn('Log em Espera', logsEspera, 'espera')}
         
         <div className="w-px bg-gray-200"></div>
         
-        {renderLogColumn(
-          'Log Feito', 
-          logsFeito, 
-          'feito',
-          'bg-green-50'
-        )}
+        {renderLogColumn('Log Feito', logsFeito, 'feito')}
       </div>
     </div>
   );
