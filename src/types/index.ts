@@ -24,7 +24,6 @@ export interface Operador {
   id: string;
   paginaId: string;
   nome: string;
-  cargo: string;
   status: 'vendido' | 'livre';
   valor: number;
   ordem: number;

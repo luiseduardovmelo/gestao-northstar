@@ -7,30 +7,28 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
 import { Search } from 'lucide-react';
 import { Operador } from '@/types';
+import { operadoresDisponiveis } from '@/data/mockData';
 
 interface AdicionarOperadorModalProps {
   isOpen: boolean;
   onClose: () => void;
   onSelect: (operador: Partial<Operador>) => void;
-  operadoresDisponiveis: Partial<Operador>[];
 }
 
 export const AdicionarOperadorModal: React.FC<AdicionarOperadorModalProps> = ({
   isOpen,
   onClose,
-  onSelect,
-  operadoresDisponiveis
+  onSelect
 }) => {
   const [search, setSearch] = useState('');
 
   const operadoresFiltrados = operadoresDisponiveis.filter(op =>
-    op.nome?.toLowerCase().includes(search.toLowerCase())
+    op.nome.toLowerCase().includes(search.toLowerCase())
   );
 
-  const handleSelect = (operador: Partial<Operador>) => {
+  const handleSelect = (operador: typeof operadoresDisponiveis[0]) => {
     onSelect(operador);
     setSearch('');
     onClose();
@@ -77,13 +75,10 @@ export const AdicionarOperadorModal: React.FC<AdicionarOperadorModalProps> = ({
                   <p className="font-medium text-sm text-gray-900 truncate">
                     {operador.nome}
                   </p>
-                  <p className="text-xs text-gray-600 truncate">
-                    {operador.cargo}
-                  </p>
                 </div>
 
                 <div className="text-xs text-gray-500">
-                  R$ {operador.valor?.toLocaleString()}
+                  R$ {operador.valor.toLocaleString()}
                 </div>
               </div>
             ))}

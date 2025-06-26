@@ -76,14 +76,11 @@ export const OperadorCard: React.FC<OperadorCardProps> = ({
       )}
 
       {/* Nome do operador */}
-      <h3 className="font-semibold text-sm text-gray-900 mb-1 truncate">
+      <h3 className="font-semibold text-sm text-gray-900 mb-2 truncate">
         {operador.nome}
       </h3>
 
-      {/* Cargo */}
-      <p className="text-xs text-gray-600 mb-2 truncate">{operador.cargo}</p>
-
-      {/* Badge de status */}
+      {/* Badge de status e valor */}
       <div className="flex items-center justify-between">
         <Popover>
           <PopoverTrigger asChild>

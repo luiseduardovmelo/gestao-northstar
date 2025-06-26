@@ -1,4 +1,3 @@
-
 import React, { useState, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -58,7 +57,6 @@ const GestaoOperadores = () => {
       id: Date.now().toString(),
       paginaId: paginaId!,
       nome: operadorData.nome!,
-      cargo: operadorData.cargo!,
       status: 'livre',
       valor: operadorData.valor!,
       ordem: slotSelecionado,
@@ -285,7 +283,6 @@ const GestaoOperadores = () => {
           setSlotSelecionado(null);
         }}
         onSelect={handleAdicionarOperador}
-        operadoresDisponiveis={operadoresDisponiveis}
       />
     </div>
   );
