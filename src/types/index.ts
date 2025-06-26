@@ -6,6 +6,8 @@ export interface Jornal {
   numeroOperadores: number;
   receitaTotal: number;
   createdAt: string;
+  logoUrl: string;
+  corPrimaria: string;
 }
 
 export interface Pagina {
