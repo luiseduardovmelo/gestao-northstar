@@ -16,10 +16,14 @@ const GestaoOperadores = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   
-  // Estado inicial - criar 10 slots
+  const jornal = mockJornais.find(j => j.id === jornalId);
+  const pagina = mockPaginas.find(p => p.id === paginaId);
+  
+  // Estado inicial - criar slots baseado no número de operadores da página
   const [ranking, setRanking] = useState<RankingSlot[]>(() => {
     const slots: RankingSlot[] = [];
-    for (let i = 1; i <= 10; i++) {
+    const numSlots = pagina?.numeroOperadores || 10;
+    for (let i = 1; i <= numSlots; i++) {
       const operadorExistente = mockOperadores.find(op => op.ordem === i);
       slots.push({
         id: `slot-${i}`,
@@ -45,9 +49,6 @@ const GestaoOperadores = () => {
     isOpen: false,
     operador: null
   });
-
-  const jornal = mockJornais.find(j => j.id === jornalId);
-  const pagina = mockPaginas.find(p => p.id === paginaId);
 
   // Operadores atualmente no ranking
   const operadoresNoRanking = ranking
@@ -286,9 +287,11 @@ const GestaoOperadores = () => {
               </Button>
               <div>
                 <h1 className="text-2xl font-bold text-gray-900">
-                  Ranking Top 10 - {pagina.nome}
+                  Ranking Top {pagina.numeroOperadores} - {pagina.nome}
                 </h1>
-                <p className="text-gray-600">{jornal.nome}</p>
+                <p className="text-gray-600">
+                  {jornal.nome} • {pagina.trafego.toLocaleString()} visitas/mês
+                </p>
               </div>
             </div>
           </div>
@@ -297,8 +300,12 @@ const GestaoOperadores = () => {
 
       {/* Conteúdo */}
       <div className="container mx-auto px-4 py-8 space-y-8">
-        {/* Grade 2x5 do ranking */}
-        <div className="grid grid-cols-5 gap-6 max-w-5xl mx-auto">
+        {/* Grade dinâmica do ranking baseada no número de slots */}
+        <div className={`grid gap-6 max-w-6xl mx-auto ${
+          pagina.numeroOperadores <= 5 ? 'grid-cols-5' : 
+          pagina.numeroOperadores <= 10 ? 'grid-cols-5' :
+          'grid-cols-6'
+        }`}>
           {ranking.map((slot) => (
             <div
               key={slot.id}

@@ -17,6 +17,7 @@ export interface Pagina {
   nome: string;
   status: 'ativa' | 'inativa' | 'manutencao';
   numeroOperadores: number;
+  trafego: number;
   operadores: Operador[];
 }
 
