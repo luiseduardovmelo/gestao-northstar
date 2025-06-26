@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Pagina } from '@/types';
@@ -11,7 +11,6 @@ interface PaginaCardProps {
 }
 
 export const PaginaCard: React.FC<PaginaCardProps> = ({ pagina, jornalId }) => {
-  const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
 
   const getStatusColor = (status: string) => {
@@ -36,14 +35,13 @@ export const PaginaCard: React.FC<PaginaCardProps> = ({ pagina, jornalId }) => {
 
   return (
     <Card
-      className={`
+      className="
         relative cursor-pointer transition-all duration-200 ease-out
-        ${isHovered ? 'transform translate-y-[-8px] shadow-2xl' : 'shadow-sm'}
-        hover:shadow-2xl hover:transform hover:translate-y-[-8px]
-        bg-white border border-gray-200
-      `}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+        hover:scale-105 hover:shadow-2xl hover:-translate-y-2
+        focus-within:scale-105 focus-within:shadow-2xl focus-within:-translate-y-2
+        bg-white border border-gray-200 shadow-sm
+        group
+      "
     >
       <CardContent className="p-6">
         <div className="space-y-4">
@@ -56,12 +54,12 @@ export const PaginaCard: React.FC<PaginaCardProps> = ({ pagina, jornalId }) => {
             </span>
           </div>
           
-          <div 
-            className={`
-              transition-all duration-200 ease-out overflow-hidden
-              ${isHovered ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'}
-            `}
-          >
+          <div className="
+            transition-all duration-200 ease-out overflow-hidden
+            max-h-0 opacity-0
+            group-hover:max-h-60 group-hover:opacity-100
+            group-focus-within:max-h-60 group-focus-within:opacity-100
+          ">
             <div className="space-y-3 pt-2 border-t border-gray-100">
               <div className="grid grid-cols-2 gap-4">
                 <div className="flex justify-between items-center">
