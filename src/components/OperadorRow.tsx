@@ -57,18 +57,6 @@ export const OperadorRow: React.FC<OperadorRowProps> = ({
       </td>
       
       <td className="px-6 py-4">
-        {isEditing ? (
-          <Input
-            value={editForm.cargo || ''}
-            onChange={(e) => setEditForm({ ...editForm, cargo: e.target.value })}
-            className="w-full"
-          />
-        ) : (
-          <span className="text-sm text-gray-600">{operador.cargo}</span>
-        )}
-      </td>
-      
-      <td className="px-6 py-4">
         <span className={`
           inline-flex px-2 py-1 text-xs font-medium rounded-full
           ${operador.status === 'vendido' 
