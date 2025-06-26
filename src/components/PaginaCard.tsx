@@ -49,8 +49,8 @@ export const PaginaCard: React.FC<PaginaCardProps> = ({ pagina, jornalId }) => {
       aria-label={`Entrar na página ${pagina.nome}`}
     >
       <CardContent className="p-6 h-full relative">
-        {/* Conteúdo sempre visível - Centralizado */}
-        <div className="flex flex-col items-center justify-center h-full">
+        {/* Conteúdo sempre visível - Centralizado - Desaparece no hover */}
+        <div className="flex flex-col items-center justify-center h-full visible group-hover:invisible group-focus-within:invisible">
           <h3 className="text-lg font-semibold text-center text-gray-900 mb-3 line-clamp-2">
             {pagina.nome}
           </h3>
@@ -59,13 +59,13 @@ export const PaginaCard: React.FC<PaginaCardProps> = ({ pagina, jornalId }) => {
           </span>
         </div>
 
-        {/* Conteúdo detalhado - Revelado no hover */}
+        {/* Conteúdo detalhado - Aparece apenas no hover */}
         <div className="
           absolute inset-0 p-6 bg-white/98 backdrop-blur-sm
-          opacity-0 pointer-events-none
-          group-hover:opacity-100 group-hover:pointer-events-auto
-          group-focus-within:opacity-100 group-focus-within:pointer-events-auto
-          transition-opacity duration-200
+          invisible pointer-events-none
+          group-hover:visible group-hover:pointer-events-auto
+          group-focus-within:visible group-focus-within:pointer-events-auto
+          transition-all duration-200
           flex flex-col items-center justify-center
         ">
           {/* Informações em grid */}
