@@ -73,9 +73,9 @@ const PaginasJornal = () => {
         </div>
       </div>
 
-      {/* Conteúdo - Grid direto sem agrupamentos */}
+      {/* Conteúdo - Grid com cards maiores */}
       <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 overflow-visible">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 overflow-visible">
           {filteredPaginas.map((pagina) => (
             <PaginaCard 
               key={pagina.id} 
