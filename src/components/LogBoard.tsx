@@ -69,7 +69,13 @@ export const LogBoard: React.FC<LogBoardProps> = ({ logs, onLogMove }) => {
                 ${draggedLog === log.id ? 'opacity-50' : ''}
               `}
             >
-              <LogCard log={log} size="large" />
+              <LogCard 
+                log={log} 
+                size="large" 
+                onDragStart={() => {
+                  // Callback para quando o drag inicia, usado pelo LogCard para fechar expansão
+                }}
+              />
             </div>
           ))}
           {logs.length === 0 && (
