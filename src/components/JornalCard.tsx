@@ -11,43 +11,74 @@ interface JornalCardProps {
 
 export const JornalCard: React.FC<JornalCardProps> = ({ jornal }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [isFlipped, setIsFlipped] = useState(false);
   const navigate = useNavigate();
 
   const handleEntrar = () => {
     navigate(`/jornal/${jornal.id}/paginas`);
   };
 
-  // Mapear slug para classe CSS
-  const getJornalClass = (slug: string) => {
-    return `jornal-${slug}`;
+  const handleCardClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsFlipped(!isFlipped);
+  };
+
+  // Função para escurecer a cor em 10%
+  const darkenColor = (color: string) => {
+    const hex = color.replace('#', '');
+    const r = parseInt(hex.substr(0, 2), 16);
+    const g = parseInt(hex.substr(2, 2), 16);
+    const b = parseInt(hex.substr(4, 2), 16);
+    
+    const darkenedR = Math.max(0, Math.floor(r * 0.9));
+    const darkenedG = Math.max(0, Math.floor(g * 0.9));
+    const darkenedB = Math.max(0, Math.floor(b * 0.9));
+    
+    return `#${darkenedR.toString(16).padStart(2, '0')}${darkenedG.toString(16).padStart(2, '0')}${darkenedB.toString(16).padStart(2, '0')}`;
   };
 
   return (
-    <Card
-      className={`
-        jornal-card relative cursor-pointer
-        ${getJornalClass(jornal.slug)}
-        ${isHovered ? 'transform translate-y-[-4px]' : ''}
-        hover:transform hover:translate-y-[-4px]
-        w-full h-[220px]
-      `}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <CardContent className="p-6 h-full flex flex-col">
-        <div className="flex-1 flex flex-col justify-between">
-          {/* Nome do jornal sempre visível */}
-          <h3 className="text-xl font-bold mb-4 text-center leading-tight">
-            {jornal.nome}
-          </h3>
-          
-          {/* Conteúdo que aparece no hover */}
-          <div 
-            className={`
-              transition-all duration-200 ease-out overflow-hidden
-              ${isHovered ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}
-            `}
-          >
+    <div className="perspective-1000 w-full h-[220px]">
+      <Card
+        className={`
+          relative cursor-pointer w-full h-full
+          transform-style-preserve-3d transition-all duration-500 ease-out
+          ${isFlipped ? 'rotate-y-180' : ''}
+          ${isHovered ? 'scale-105' : 'scale-100'}
+          hover:scale-105
+        `}
+        style={{
+          backgroundColor: jornal.corPrimaria,
+          borderColor: darkenColor(jornal.corPrimaria),
+          borderWidth: '1px'
+        }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onClick={handleCardClick}
+      >
+        {/* Frente do card */}
+        <CardContent className="absolute inset-0 p-6 h-full flex flex-col backface-hidden">
+          <div className="flex-1 flex flex-col items-center justify-center text-white">
+            <div className="w-16 h-16 mb-4 flex items-center justify-center">
+              <img 
+                src={jornal.logoUrl} 
+                alt={`Logo ${jornal.nome}`}
+                className="max-w-full max-h-full object-contain"
+              />
+            </div>
+            <h3 className="text-xl font-bold text-center leading-tight">
+              {jornal.nome}
+            </h3>
+          </div>
+        </CardContent>
+
+        {/* Verso do card */}
+        <CardContent className="absolute inset-0 p-6 h-full flex flex-col backface-hidden rotate-y-180">
+          <div className="flex-1 flex flex-col justify-between text-white">
+            <h3 className="text-xl font-bold mb-4 text-center leading-tight">
+              {jornal.nome}
+            </h3>
+            
             <div className="space-y-3">
               <div className="flex justify-between items-center text-sm">
                 <span className="opacity-90">Páginas:</span>
@@ -67,7 +98,10 @@ export const JornalCard: React.FC<JornalCardProps> = ({ jornal }) => {
               </div>
               
               <Button 
-                onClick={handleEntrar}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleEntrar();
+                }}
                 className="w-full mt-4 bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/30 text-current"
                 variant="outline"
               >
@@ -75,8 +109,8 @@ export const JornalCard: React.FC<JornalCardProps> = ({ jornal }) => {
               </Button>
             </div>
           </div>
-        </div>
-      </CardContent>
-    </Card>
+        </CardContent>
+      </Card>
+    </div>
   );
 };
