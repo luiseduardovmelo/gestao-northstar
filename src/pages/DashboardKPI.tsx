@@ -1,8 +1,8 @@
-
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, ArrowLeft } from 'lucide-react';
 
 // Mock data para demonstração
 const kpiData = {
@@ -43,6 +43,7 @@ const operadoresData = [
 ];
 
 const DashboardKPI = () => {
+  const navigate = useNavigate();
   const [expandedOperadores, setExpandedOperadores] = useState<string[]>([]);
 
   const toggleOperador = (operadorId: string) => {
@@ -56,8 +57,17 @@ const DashboardKPI = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-8">
-        {/* Header */}
+        {/* Header com botão voltar */}
         <div className="mb-8">
+          <Button
+            variant="ghost"
+            onClick={() => navigate('/')}
+            className="mb-4 text-gray-600 hover:text-gray-900 p-0"
+          >
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            Voltar para Home
+          </Button>
+          
           <div className="flex items-center gap-2 mb-2">
             <span className="text-3xl font-bold" style={{ color: 'var(--accent-secondary)' }}>
               NORTH
