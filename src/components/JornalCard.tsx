@@ -42,13 +42,12 @@ export const JornalCard: React.FC<JornalCardProps> = ({ jornal }) => {
       <Card
         className={`
           relative cursor-pointer w-full h-full
-          transform-style-preserve-3d transition-all duration-500 ease-out
+          transform-style-preserve-3d transition-all duration-300 ease-out
           ${isFlipped ? 'rotate-y-180' : ''}
           ${isHovered ? 'scale-105' : 'scale-100'}
-          hover:scale-105
+          hover:scale-105 overflow-hidden
         `}
         style={{
-          backgroundColor: jornal.corPrimaria,
           borderColor: darkenColor(jornal.corPrimaria),
           borderWidth: '1px'
         }}
@@ -56,24 +55,24 @@ export const JornalCard: React.FC<JornalCardProps> = ({ jornal }) => {
         onMouseLeave={() => setIsHovered(false)}
         onClick={handleCardClick}
       >
-        {/* Frente do card */}
-        <CardContent className="absolute inset-0 p-6 h-full flex flex-col backface-hidden">
-          <div className="flex-1 flex flex-col items-center justify-center text-white">
-            <div className="w-16 h-16 mb-4 flex items-center justify-center">
-              <img 
-                src={jornal.logoUrl} 
-                alt={`Logo ${jornal.nome}`}
-                className="max-w-full max-h-full object-contain"
-              />
-            </div>
-            <h3 className="text-xl font-bold text-center leading-tight">
-              {jornal.nome}
-            </h3>
-          </div>
+        {/* Frente do card - Logo em tela cheia */}
+        <CardContent className="absolute inset-0 p-0 h-full backface-hidden">
+          <div 
+            className="w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `url(${jornal.logoUrl})`,
+              backgroundSize: 'cover'
+            }}
+          />
         </CardContent>
 
         {/* Verso do card */}
-        <CardContent className="absolute inset-0 p-6 h-full flex flex-col backface-hidden rotate-y-180">
+        <CardContent 
+          className="absolute inset-0 p-6 h-full flex flex-col backface-hidden rotate-y-180"
+          style={{
+            backgroundColor: jornal.corPrimaria,
+          }}
+        >
           <div className="flex-1 flex flex-col justify-between text-white">
             <h3 className="text-xl font-bold mb-4 text-center leading-tight">
               {jornal.nome}
