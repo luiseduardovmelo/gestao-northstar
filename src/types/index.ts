@@ -9,6 +9,7 @@ export interface Jornal {
   createdAt: string;
   logoUrl: string;
   corPrimaria: string;
+  paginas?: Pagina[]; // Adding the missing paginas property
 }
 
 export interface Pagina {
