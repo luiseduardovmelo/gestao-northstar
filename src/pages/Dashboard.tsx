@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { JornalCard } from '@/components/JornalCard';
 import { LogBoard } from '@/components/LogBoard';
+import { TrevelaLogCard } from '@/components/TrevelaLogCard';
 import Navigation from '@/components/Navigation';
 import { mockJornais } from '@/data/mockData';
 import { LogMudanca } from '@/types';
+import { getTrevelaLogs, TrivelalLog } from '@/utils/trivelaBoardLogs';
 
 // Logs de exemplo com diferentes tipos de ação
 const mockLogsRecentes: LogMudanca[] = [
@@ -82,6 +84,28 @@ const Dashboard = () => {
   const [logs, setLogs] = useState<LogMudanca[]>(
     mockLogsRecentes.map(log => ({ ...log, status: 'espera' }))
   );
+  
+  // Estado para logs específicos do Trivela
+  const [trevelaLogs, setTrevelaLogs] = useState<TrivelalLog[]>([]);
+
+  // Carregar logs do Trivela ao inicializar
+  useEffect(() => {
+    const loadTrevelaLogs = () => {
+      try {
+        const logs = getTrevelaLogs();
+        setTrevelaLogs(logs);
+      } catch (error) {
+        console.error('Erro ao carregar logs do Trivela:', error);
+      }
+    };
+
+    loadTrevelaLogs();
+    
+    // Atualizar logs a cada 5 segundos para capturar novos logs
+    const interval = setInterval(loadTrevelaLogs, 5000);
+    
+    return () => clearInterval(interval);
+  }, []);
 
   const handleLogMove = (logId: string, novaColuna: 'espera' | 'feito') => {
     setLogs(prev => prev.map(log => 
@@ -131,6 +155,23 @@ const Dashboard = () => {
 
           {/* Faixa 2: Board de Logs estilo Trello */}
           <LogBoard logs={logs} onLogMove={handleLogMove} />
+
+          {/* Faixa 2.5: Logs específicos do Trivela */}
+          {trevelaLogs.length > 0 && (
+            <div className="bg-white rounded-lg p-6 shadow-sm">
+              <div className="flex items-center gap-2 mb-6">
+                <h2 className="text-lg font-semibold text-gray-900">Logs do Trivela</h2>
+                <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">
+                  {trevelaLogs.length}
+                </span>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {trevelaLogs.map((log) => (
+                  <TrevelaLogCard key={log.id} log={log} />
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Faixa 3: Log de Mudanças Detalhado (altura fixa) - mantido para compatibilidade */}
           <div className="bg-white rounded-lg shadow-sm overflow-hidden">

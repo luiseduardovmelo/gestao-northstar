@@ -1,3 +1,4 @@
+
 import React, { useState, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -8,8 +9,9 @@ import { ConfirmDeleteModal } from '@/components/ConfirmDeleteModal';
 import { VendaModal } from '@/components/VendaModal';
 import { OperadorGuide } from '@/components/OperadorGuide';
 import { mockOperadores, mockPaginas, mockJornais } from '@/data/mockData';
-import { Operador, RankingSlot, LogMudanca } from '@/types';
+import { Operador, RankingSlot } from '@/types';
 import { useToast } from '@/hooks/use-toast';
+import { saveTrevelaLog } from '@/utils/trivelaBoardLogs';
 
 const GestaoOperadores = () => {
   const { jornalId, paginaId } = useParams<{ jornalId: string; paginaId: string }>();
@@ -50,6 +52,16 @@ const GestaoOperadores = () => {
     operador: null
   });
 
+  // Sistema de rastreamento de alterações apenas para Trivela
+  const [pendingChanges, setPendingChanges] = useState<string[]>([]);
+  const isTrivela = jornal?.nome === 'Trivela';
+
+  const addTrevelaChange = (change: string) => {
+    if (isTrivela) {
+      setPendingChanges(prev => [...prev, change]);
+    }
+  };
+
   // Operadores atualmente no ranking
   const operadoresNoRanking = ranking
     .filter(slot => !slot.isEmpty && slot.operador)
@@ -68,7 +80,7 @@ const GestaoOperadores = () => {
       paginaId: paginaId!,
       nome: operadorData.nome!,
       status: 'livre',
-      valor: 0, // Sempre iniciar com valor 0 para operadores livres
+      valor: 0,
       ordem: slotSelecionado,
       logoUrl: operadorData.logoUrl
     };
@@ -81,6 +93,9 @@ const GestaoOperadores = () => {
 
     setHasChanges(true);
     setSlotSelecionado(null);
+    
+    // Registrar alteração apenas para Trivela
+    addTrevelaChange(`ADICIONADO: Operador ${novoOperador.nome} no slot ${slotSelecionado}`);
   };
 
   const handleStatusChange = (operador: Operador, novoStatus: 'livre' | 'vendido') => {
@@ -91,13 +106,20 @@ const GestaoOperadores = () => {
             operador: { 
               ...slot.operador, 
               status: novoStatus,
-              valor: novoStatus === 'livre' ? 0 : slot.operador.valor, // Zerar valor se liberar
+              valor: novoStatus === 'livre' ? 0 : slot.operador.valor,
               vendidoEm: novoStatus === 'vendido' ? new Date().toISOString() : undefined
             } 
           }
         : slot
     ));
     setHasChanges(true);
+
+    // Registrar alteração apenas para Trivela
+    if (novoStatus === 'vendido') {
+      addTrevelaChange(`TRAVADO: Operador ${operador.nome} no slot ${operador.ordem}`);
+    } else {
+      addTrevelaChange(`LIBERADO: Operador ${operador.nome} no slot ${operador.ordem}`);
+    }
 
     toast({
       title: "Status alterado",
@@ -130,6 +152,9 @@ const GestaoOperadores = () => {
     setHasChanges(true);
     setDeleteModal({ isOpen: false, operador: null });
     
+    // Registrar alteração apenas para Trivela
+    addTrevelaChange(`REMOVIDO: Operador ${deleteModal.operador.nome} do slot ${deleteModal.operador.ordem}`);
+    
     toast({
       title: "Operador removido",
       description: `${deleteModal.operador.nome} foi removido da posição ${deleteModal.operador.ordem}.`,
@@ -160,6 +185,9 @@ const GestaoOperadores = () => {
     
     setHasChanges(true);
     setVendaModal({ isOpen: false, operador: null });
+    
+    // Registrar alteração apenas para Trivela
+    addTrevelaChange(`TRAVADO: Operador ${vendaModal.operador.nome} no slot ${vendaModal.operador.ordem} por R$ ${valor.toLocaleString()}`);
     
     toast({
       title: "Operador vendido",
@@ -200,6 +228,8 @@ const GestaoOperadores = () => {
       return;
     }
 
+    const draggedSlot = ranking.find(s => s.posicao === draggedItem);
+    
     // Trocar posições
     setRanking(prev => {
       const newRanking = [...prev];
@@ -228,43 +258,51 @@ const GestaoOperadores = () => {
       return newRanking;
     });
 
+    // Registrar alteração apenas para Trivela
+    if (draggedSlot?.operador) {
+      addTrevelaChange(`MOVIDO: Operador ${draggedSlot.operador.nome} do slot ${draggedItem} para slot ${targetPosicao}`);
+    }
+
     setHasChanges(true);
     setDraggedItem(null);
   };
 
-  const gerarLogs = useCallback((): LogMudanca[] => {
-    // Simular geração de logs baseada nas mudanças
-    const logs: LogMudanca[] = [];
-    
-    // Para esta implementação, vamos gerar logs de exemplo
-    logs.push({
-      id: Date.now().toString(),
-      acao: 'mover',
-      entidade: 'operador',
-      operador: 'Bet365',
-      valorAntigo: 'Posição #1',
-      valorNovo: 'Posição #3',
-      timestamp: new Date().toISOString(),
-      usuario: 'Admin',
-      pagina: pagina?.nome,
-      jornal: jornal?.nome
-    });
-
-    return logs;
-  }, [pagina, jornal]);
-
   const handleSalvarAlteracoes = () => {
-    const novoLogs = gerarLogs();
-    
-    // Aqui salvaria no backend e atualizaria o log global
-    console.log('Salvando alterações...', { ranking, logs: novoLogs });
-    
-    setHasChanges(false);
-    
-    toast({
-      title: "Ranking salvo",
-      description: "Todas as alterações foram salvas com sucesso.",
-    });
+    try {
+      // Salvar no log específico do Trivela
+      if (isTrivela && pendingChanges.length > 0) {
+        const novoLog = {
+          id: Date.now(),
+          jornal: jornal.nome,
+          pagina: pagina?.nome || 'Página não identificada',
+          alteracoes: [...pendingChanges],
+          timestamp: new Date().toLocaleString('pt-BR'),
+          totalAlteracoes: pendingChanges.length
+        };
+        
+        saveTrevelaLog(novoLog);
+        setPendingChanges([]);
+        
+        toast({
+          title: "Ranking salvo",
+          description: "Alterações salvas e registradas no log do Trivela.",
+        });
+      } else {
+        toast({
+          title: "Ranking salvo",
+          description: "Todas as alterações foram salvas com sucesso.",
+        });
+      }
+      
+      setHasChanges(false);
+    } catch (error) {
+      console.error('Erro ao salvar alterações:', error);
+      toast({
+        title: "Erro",
+        description: "Ocorreu um erro ao salvar as alterações.",
+        variant: "destructive",
+      });
+    }
   };
 
   if (!jornal || !pagina) {
@@ -291,6 +329,11 @@ const GestaoOperadores = () => {
                 </h1>
                 <p className="text-gray-600">
                   {jornal.nome} • {pagina.trafego.toLocaleString()} visitas/mês
+                  {isTrivela && pendingChanges.length > 0 && (
+                    <span className="ml-2 text-orange-600">
+                      • {pendingChanges.length} alteração{pendingChanges.length !== 1 ? 'ões' : ''} pendente{pendingChanges.length !== 1 ? 's' : ''}
+                    </span>
+                  )}
                 </p>
               </div>
             </div>
@@ -350,6 +393,11 @@ const GestaoOperadores = () => {
             className="bg-[#457B9D] hover:bg-[#3a6b8a] text-white px-6 py-3 rounded-lg shadow-lg"
           >
             Salvar alterações
+            {isTrivela && pendingChanges.length > 0 && (
+              <span className="ml-2 bg-white text-[#457B9D] px-2 py-1 rounded-full text-xs font-medium">
+                {pendingChanges.length}
+              </span>
+            )}
           </Button>
         </div>
       )}
