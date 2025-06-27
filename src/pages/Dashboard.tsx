@@ -1,92 +1,17 @@
-import React, { useState } from 'react';
+
+import React from 'react';
 import { JornalCard } from '@/components/JornalCard';
 import { LogBoard } from '@/components/LogBoard';
 import Navigation from '@/components/Navigation';
 import { mockJornais } from '@/data/mockData';
-import { LogMudanca } from '@/types';
-
-// Logs de exemplo com diferentes tipos de ação
-const mockLogsRecentes: LogMudanca[] = [
-  {
-    id: '1',
-    acao: 'adicionar',
-    entidade: 'operador',
-    operador: 'Bet365',
-    valorNovo: 'Posição #1 - R$ 15.000',
-    timestamp: '2024-01-20T10:30:00Z',
-    usuario: 'Admin',
-    pagina: 'Primeira Página',
-    jornal: 'Trivela'
-  },
-  {
-    id: '2',
-    acao: 'mover',
-    entidade: 'operador',
-    operador: 'Betano',
-    valorAntigo: 'Posição #2',
-    valorNovo: 'Posição #1',
-    timestamp: '2024-01-20T09:15:00Z',
-    usuario: 'Admin',
-    pagina: 'Esportes',
-    jornal: 'Gazeta do Povo'
-  },
-  {
-    id: '3',
-    acao: 'status',
-    entidade: 'operador',
-    operador: 'Sportingbet',
-    valorAntigo: 'Livre',
-    valorNovo: 'Vendido',
-    timestamp: '2024-01-20T08:45:00Z',
-    usuario: 'Admin',
-    pagina: 'Primeira Página',
-    jornal: 'Placar'
-  },
-  {
-    id: '4',
-    acao: 'remover',
-    entidade: 'operador',
-    operador: 'KTO',
-    valorAntigo: 'Posição #5 - R$ 7.000',
-    timestamp: '2024-01-19T16:20:00Z',
-    usuario: 'Admin',
-    pagina: 'Economia',
-    jornal: 'Um Dois Esportes'
-  },
-  {
-    id: '5',
-    acao: 'adicionar',
-    entidade: 'operador',
-    operador: 'Betfair',
-    valorNovo: 'Posição #3 - R$ 8.000',
-    timestamp: '2024-01-19T14:10:00Z',
-    usuario: 'Admin',
-    pagina: 'Primeira Página',
-    jornal: 'Lakers Brasil'
-  },
-  {
-    id: '6',
-    acao: 'mover',
-    entidade: 'operador',
-    operador: 'Rivalo',
-    valorAntigo: 'Posição #4',
-    valorNovo: 'Posição #2',
-    timestamp: '2024-01-19T11:30:00Z',
-    usuario: 'Admin',
-    pagina: 'Esportes',
-    jornal: 'Trivela'
-  }
-];
+import { useLog } from '@/contexts/LogContext';
 
 const Dashboard = () => {
-  const [logs, setLogs] = useState<LogMudanca[]>(
-    mockLogsRecentes.map(log => ({ ...log, status: 'espera' }))
-  );
+  const { logs, saveChangesToLog } = useLog();
 
   const handleLogMove = (logId: string, novaColuna: 'espera' | 'feito') => {
-    setLogs(prev => prev.map(log => 
-      log.id === logId ? { ...log, status: novaColuna } : log
-    ));
+    // Esta funcionalidade será implementada se necessário
+    console.log('Log moved:', logId, novaColuna);
   };
 
   return (
@@ -140,10 +65,10 @@ const Dashboard = () => {
             <div className="h-80 overflow-y-auto">
               <div className="p-6">
                 <div className="space-y-4">
-                  {mockLogsRecentes.map((log, index) => (
+                  {logs.slice(0, 10).map((log, index) => (
                     <div key={log.id} className="relative">
                       {/* Timeline line */}
-                      {index < mockLogsRecentes.length - 1 && (
+                      {index < Math.min(logs.length, 10) - 1 && (
                         <div className="absolute left-6 top-12 w-0.5 h-8 bg-gray-200"></div>
                       )}
                       
@@ -197,6 +122,12 @@ const Dashboard = () => {
                       </div>
                     </div>
                   ))}
+                  
+                  {logs.length === 0 && (
+                    <div className="text-center py-8 text-gray-400">
+                      <p className="text-sm">Nenhum log registrado ainda</p>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

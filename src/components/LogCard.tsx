@@ -39,35 +39,16 @@ export const LogCard: React.FC<LogCardProps> = ({
     }
   };
 
-  // Simulando múltiplas alterações para demonstração
-  const alteracoes = [
-    {
-      acao: log.acao,
-      operador: log.operador || 'Operador',
-      pagina: log.pagina || 'Página',
-      detalhe: log.acao === 'mover' 
-        ? `${log.valorAntigo || '#?'} → ${log.valorNovo || '#?'}`
-        : log.acao === 'status'
-        ? `${log.valorAntigo || 'Status'} → ${log.valorNovo || 'Status'}`
-        : log.valorNovo || 'Alteração'
-    },
-    ...(Math.random() > 0.5 ? [{
-      acao: 'status',
-      operador: 'Outro Operador',
-      pagina: log.pagina || 'Página',
-      detalhe: 'Livre → Vendido'
-    }] : [])
+  // Usar alterações do log se disponíveis, senão criar uma lista padrão
+  const alteracoes = log.alteracoes || [
+    log.acao === 'mover' 
+      ? `${log.valorAntigo || '#?'} → ${log.valorNovo || '#?'}`
+      : log.acao === 'status'
+      ? `${log.valorAntigo || 'Status'} → ${log.valorNovo || 'Status'}`
+      : log.valorNovo || 'Alteração'
   ];
 
-  const paginas = log.pagina ? [log.pagina] : [];
-  const numeroPaginas = paginas.length;
   const numeroAlteracoes = alteracoes.length;
-
-  const getPaginasTexto = () => {
-    if (numeroPaginas === 0) return 'Página não especificada';
-    if (numeroPaginas === 1) return paginas[0];
-    return `${paginas[0]} +${numeroPaginas - 1}`;
-  };
 
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -138,7 +119,7 @@ export const LogCard: React.FC<LogCardProps> = ({
       
       {/* Ícone de expansão */}
       <div className="absolute top-4 right-4">
-        <ChevronDown size={16} className="text-gray-500" />
+        {isExpanded ? <ChevronUp size={16} className="text-gray-500" /> : <ChevronDown size={16} className="text-gray-500" />}
       </div>
       
       <div className="flex flex-col ml-2 pr-6">
@@ -150,9 +131,9 @@ export const LogCard: React.FC<LogCardProps> = ({
               {log.jornal || 'Jornal não especificado'}
             </h4>
             
-            {/* Subtítulo - Página(s) */}
+            {/* Subtítulo - Página */}
             <p className="text-sm font-medium text-gray-700 mb-2 leading-5 max-h-10 overflow-hidden">
-              {getPaginasTexto()}
+              {log.pagina || 'Página não especificada'}
             </p>
             
             {/* Texto menor - Número de alterações */}
@@ -173,6 +154,21 @@ export const LogCard: React.FC<LogCardProps> = ({
             </span>
           </div>
         </div>
+
+        {/* Conteúdo expandido */}
+        {isExpanded && (
+          <div className="mt-4 pt-4 border-t border-gray-200">
+            <h5 className="text-sm font-semibold text-gray-800 mb-2">Alterações detalhadas:</h5>
+            <ul className="space-y-1">
+              {alteracoes.map((alteracao, index) => (
+                <li key={index} className="text-xs text-gray-600 flex items-start">
+                  <span className="text-gray-400 mr-2">•</span>
+                  <span>{alteracao}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </button>
   );

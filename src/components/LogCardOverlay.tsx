@@ -22,10 +22,9 @@ export const LogCardOverlay: React.FC<LogCardOverlayProps> = ({ log, isOpen, onC
     }
   };
 
-  // Simulando múltiplas alterações para demonstração
-  const alteracoes = [
+  // Usar alterações do log se disponíveis
+  const alteracoes = log.alteracoes || [
     {
-      acao: log.acao,
       operador: log.operador || 'Operador',
       pagina: log.pagina || 'Página',
       detalhe: log.acao === 'mover' 
@@ -33,27 +32,10 @@ export const LogCardOverlay: React.FC<LogCardOverlayProps> = ({ log, isOpen, onC
         : log.acao === 'status'
         ? `${log.valorAntigo || 'Status'} → ${log.valorNovo || 'Status'}`
         : log.valorNovo || 'Alteração'
-    },
-    // Exemplos adicionais para demonstrar lista
-    ...(Math.random() > 0.5 ? [{
-      acao: 'status',
-      operador: 'Outro Operador',
-      pagina: log.pagina || 'Página',
-      detalhe: 'Livre → Vendido'
-    }] : [])
+    }
   ];
 
   const numeroAlteracoes = alteracoes.length;
-
-  // Agrupar alterações por página
-  const alteracoesPorPagina = alteracoes.reduce((acc, alteracao) => {
-    const pagina = alteracao.pagina;
-    if (!acc[pagina]) {
-      acc[pagina] = [];
-    }
-    acc[pagina].push(alteracao);
-    return acc;
-  }, {} as Record<string, typeof alteracoes>);
 
   // Focus trap e keyboard handling
   useEffect(() => {
@@ -109,29 +91,38 @@ export const LogCardOverlay: React.FC<LogCardOverlayProps> = ({ log, isOpen, onC
           {/* Linha divisória */}
           <div className="border-t border-gray-300"></div>
 
-          {/* Alterações por página */}
+          {/* Alterações da página */}
           <div className="space-y-4">
-            {Object.entries(alteracoesPorPagina).map(([pagina, alteracoesPagina]) => (
-              <div key={pagina} className="space-y-2">
-                <h3 className="text-lg font-semibold text-gray-800">
-                  {pagina}
-                </h3>
-                <ul className="space-y-1 ml-4">
-                  {alteracoesPagina.map((alteracao, index) => (
+            <div className="space-y-2">
+              <h3 className="text-lg font-semibold text-gray-800">
+                {log.pagina || 'Página não especificada'}
+              </h3>
+              <ul className="space-y-1 ml-4">
+                {typeof alteracoes[0] === 'string' ? (
+                  // Se alteracoes é um array de strings
+                  alteracoes.map((alteracao, index) => (
+                    <li key={index} className="flex items-start text-sm text-gray-700" style={{ lineHeight: '20px' }}>
+                      <span className="text-gray-400 mr-2 mt-1">•</span>
+                      <span>{alteracao}</span>
+                    </li>
+                  ))
+                ) : (
+                  // Se alteracoes é um array de objetos (compatibilidade)
+                  alteracoes.map((alteracao, index) => (
                     <li key={index} className="flex items-start text-sm text-gray-700" style={{ lineHeight: '20px' }}>
                       <span className="text-gray-400 mr-2 mt-1">•</span>
                       <span>
-                        <strong className="uppercase font-medium">{alteracao.acao}</strong>
+                        <strong className="uppercase font-medium">{log.acao}</strong>
                         {' — '}
                         <span className="font-medium">{alteracao.operador}</span>
                         {' — '}
                         <span className="text-gray-600">{alteracao.detalhe}</span>
                       </span>
                     </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+                  ))
+                )}
+              </ul>
+            </div>
           </div>
 
           {/* Rodapé */}
