@@ -53,9 +53,9 @@ const GestaoOperadores = () => {
     operador: null
   });
 
-  // Sistema de rastreamento de alterações para Trivela, Gazeta do Povo, Um Dois Esportes e Placar
+  // Sistema de rastreamento de alterações para Trivela, Gazeta do Povo, Um Dois Esportes, Placar e Lakers BR
   const [alteracoesPendentes, setAlteracoesPendentes] = useState<string[]>([]);
-  const shouldTrackChanges = jornal?.nome === 'Trivela' || jornal?.nome === 'Gazeta do Povo' || jornal?.nome === 'Um Dois Esportes' || jornal?.nome === 'Placar';
+  const shouldTrackChanges = jornal?.nome === 'Trivela' || jornal?.nome === 'Gazeta do Povo' || jornal?.nome === 'Um Dois Esportes' || jornal?.nome === 'Placar' || jornal?.nome === 'Lakers BR';
 
   const addChange = (change: string) => {
     if (shouldTrackChanges) {
@@ -279,7 +279,7 @@ const GestaoOperadores = () => {
     }
 
     try {
-      // Registrar log se for jornal rastreado (Trivela, Gazeta do Povo, Um Dois Esportes ou Placar)
+      // Registrar log se for jornal rastreado (Trivela, Gazeta do Povo, Um Dois Esportes, Placar ou Lakers BR)
       if (shouldTrackChanges) {
         const novoLog: TrivelaBoardLog = {
           id: Date.now(),
@@ -437,3 +437,4 @@ const GestaoOperadores = () => {
 };
 
 export default GestaoOperadores;
+
