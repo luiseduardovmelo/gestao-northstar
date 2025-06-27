@@ -2036,8 +2036,8 @@ export const mockOperadores: Operador[] = [
   {
     id: '1',
     paginaId: '1',
-    nome: 'Bet365 BR',
-    status: 'vendido',
+    nome: 'BetMGM',
+    status: 'livre',
     valor: 15000,
     ordem: 1,
     vendidoEm: '2024-01-15T10:00:00Z',
@@ -2055,7 +2055,7 @@ export const mockOperadores: Operador[] = [
   {
     id: '3',
     paginaId: '1',
-    nome: 'Sportingbet',
+    nome: 'alfabet',
     status: 'livre',
     valor: 10000,
     ordem: 3,
