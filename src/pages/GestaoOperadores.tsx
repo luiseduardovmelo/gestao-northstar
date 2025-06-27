@@ -1,5 +1,3 @@
-
-
 import React, { useState, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -53,9 +51,9 @@ const GestaoOperadores = () => {
     operador: null
   });
 
-  // Sistema de rastreamento de alterações para Trivela, Gazeta do Povo, Um Dois Esportes e Placar
+  // Sistema de rastreamento de alterações para Trivela, Gazeta do Povo, Um Dois Esportes, Placar e Lakers Brasil
   const [alteracoesPendentes, setAlteracoesPendentes] = useState<string[]>([]);
-  const shouldTrackChanges = jornal?.nome === 'Trivela' || jornal?.nome === 'Gazeta do Povo' || jornal?.nome === 'Um Dois Esportes' || jornal?.nome === 'Placar';
+  const shouldTrackChanges = jornal?.nome === 'Trivela' || jornal?.nome === 'Gazeta do Povo' || jornal?.nome === 'Um Dois Esportes' || jornal?.nome === 'Placar' || jornal?.nome === 'Lakers Brasil';
 
   const addChange = (change: string) => {
     if (shouldTrackChanges) {
@@ -279,7 +277,7 @@ const GestaoOperadores = () => {
     }
 
     try {
-      // Registrar log se for jornal rastreado (Trivela, Gazeta do Povo, Um Dois Esportes ou Placar)
+      // Registrar log se for jornal rastreado (Trivela, Gazeta do Povo, Um Dois Esportes, Placar ou Lakers Brasil)
       if (shouldTrackChanges) {
         const novoLog: TrivelaBoardLog = {
           id: Date.now(),

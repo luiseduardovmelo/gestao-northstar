@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from 'react';
 import { JornalCard } from '@/components/JornalCard';
 import { TrevelaLogCard } from '@/components/TrevelaLogCard';
@@ -10,17 +8,18 @@ import { getTrevelaLogs, TrivelaBoardLog } from '@/utils/trivelaBoardLogs';
 const Dashboard = () => {
   const [trevelaLogs, setTrevelaLogs] = useState<TrivelaBoardLog[]>([]);
 
-  // Carregar logs do Trivela, Gazeta do Povo, Um Dois Esportes e Placar ao inicializar
+  // Carregar logs do Trivela, Gazeta do Povo, Um Dois Esportes, Placar e Lakers Brasil ao inicializar
   useEffect(() => {
     const loadTrevelaLogs = () => {
       try {
         const logs = getTrevelaLogs();
-        // Filtrar apenas logs do Trivela, Gazeta do Povo, Um Dois Esportes e Placar
+        // Filtrar apenas logs do Trivela, Gazeta do Povo, Um Dois Esportes, Placar e Lakers Brasil
         const filteredLogs = logs.filter(log => 
           log.jornal === 'Trivela' || 
           log.jornal === 'Gazeta do Povo' || 
           log.jornal === 'Um Dois Esportes' ||
-          log.jornal === 'Placar'
+          log.jornal === 'Placar' ||
+          log.jornal === 'Lakers Brasil'
         );
         setTrevelaLogs(filteredLogs);
       } catch (error) {
@@ -44,7 +43,8 @@ const Dashboard = () => {
         log.jornal === 'Trivela' || 
         log.jornal === 'Gazeta do Povo' || 
         log.jornal === 'Um Dois Esportes' ||
-        log.jornal === 'Placar'
+        log.jornal === 'Placar' ||
+        log.jornal === 'Lakers Brasil'
       );
       setTrevelaLogs(filteredLogs);
     } catch (error) {
@@ -113,7 +113,7 @@ const Dashboard = () => {
                 </div>
                 <p className="text-gray-500 text-lg font-medium">Nenhum log pendente</p>
                 <p className="text-gray-400 text-sm mt-1">
-                  Os logs das alterações do Trivela e Gazeta do Povo aparecerão aqui
+                  Os logs das alterações dos jornais esportivos aparecerão aqui
                 </p>
               </div>
             )}
