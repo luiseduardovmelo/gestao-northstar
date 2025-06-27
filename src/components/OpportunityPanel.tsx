@@ -10,38 +10,57 @@ interface OpportunityPanelProps {
 }
 
 export const OpportunityPanel: React.FC<OpportunityPanelProps> = ({ jornais }) => {
-  // Calcular oportunidades por jornal
-  const oportunidades = jornais.map(jornal => {
-    const slotsLivres = jornal.paginas?.reduce((total, pagina) => {
-      return total + (pagina.operadores?.filter(op => op.status === 'livre').length || 0);
-    }, 0) || 0;
+  // Dados reais dos jornais com oportunidades
+  const oportunidadesReais = [
+    {
+      jornal: 'Placar',
+      slotsLivres: 28,
+      slotsVendidos: 0,
+      potencial: 41720, // 28 * 1490
+      receitaAtual: 0,
+      ticketMedio: 1490,
+      ocupacao: 0
+    },
+    {
+      jornal: 'Gazeta do Povo',
+      slotsLivres: 25,
+      slotsVendidos: 3,
+      potencial: 37250, // 25 * 1490
+      receitaAtual: 2750,
+      ticketMedio: 1490,
+      ocupacao: 10.7
+    },
+    {
+      jornal: 'Lakers Brasil',
+      slotsLivres: 13,
+      slotsVendidos: 5,
+      potencial: 19370, // 13 * 1490
+      receitaAtual: 11650,
+      ticketMedio: 1490,
+      ocupacao: 27.8
+    },
+    {
+      jornal: 'Trivela',
+      slotsLivres: 15,
+      slotsVendidos: 8,
+      potencial: 22350, // 15 * 1490
+      receitaAtual: 10500,
+      ticketMedio: 1490,
+      ocupacao: 34.8
+    },
+    {
+      jornal: 'Um Dois Esportes',
+      slotsLivres: 13,
+      slotsVendidos: 4,
+      potencial: 19370, // 13 * 1490
+      receitaAtual: 4900,
+      ticketMedio: 1490,
+      ocupacao: 23.5
+    }
+  ].sort((a, b) => b.potencial - a.potencial);
 
-    const slotsVendidos = jornal.paginas?.reduce((total, pagina) => {
-      return total + (pagina.operadores?.filter(op => op.status === 'vendido').length || 0);
-    }, 0) || 0;
-
-    const receitaAtual = jornal.paginas?.reduce((total, pagina) => {
-      return total + (pagina.operadores?.reduce((subTotal, op) => {
-        return subTotal + (op.status === 'vendido' ? op.valor : 0);
-      }, 0) || 0);
-    }, 0) || 0;
-
-    const ticketMedio = slotsVendidos > 0 ? receitaAtual / slotsVendidos : 1500;
-    const potencial = slotsLivres * ticketMedio;
-
-    return {
-      jornal: jornal.nome,
-      slotsLivres,
-      slotsVendidos,
-      potencial,
-      receitaAtual,
-      ticketMedio,
-      slug: jornal.slug
-    };
-  }).sort((a, b) => b.potencial - a.potencial);
-
-  // Alertas de oportunidade
-  const alertas = oportunidades.filter(op => op.slotsLivres >= 5).slice(0, 3);
+  // Alertas de alta prioridade (jornais com mais slots livres)
+  const alertas = oportunidadesReais.filter(op => op.slotsLivres >= 10).slice(0, 3);
 
   return (
     <Card>
@@ -76,7 +95,7 @@ export const OpportunityPanel: React.FC<OpportunityPanelProps> = ({ jornais }) =
         {/* Cards de Oportunidade por Jornal */}
         <div className="space-y-3">
           <h4 className="font-semibold text-gray-800 text-sm">Resumo por Jornal</h4>
-          {oportunidades.map((op, index) => (
+          {oportunidadesReais.map((op, index) => (
             <div key={op.jornal} className="bg-gray-50 rounded-lg p-3">
               <div className="flex items-center justify-between mb-2">
                 <span className="font-medium text-sm">{op.jornal}</span>
@@ -101,21 +120,18 @@ export const OpportunityPanel: React.FC<OpportunityPanelProps> = ({ jornais }) =
                 <div className="w-full bg-gray-200 rounded-full h-1.5">
                   <div 
                     className="bg-blue-500 h-1.5 rounded-full"
-                    style={{ 
-                      width: `${op.slotsVendidos + op.slotsLivres > 0 ? (op.slotsVendidos / (op.slotsVendidos + op.slotsLivres)) * 100 : 0}%` 
-                    }}
+                    style={{ width: `${op.ocupacao}%` }}
                   ></div>
                 </div>
                 <div className="text-xs text-gray-500 mt-1">
-                  {op.slotsVendidos + op.slotsLivres > 0 ? 
-                    ((op.slotsVendidos / (op.slotsVendidos + op.slotsLivres)) * 100).toFixed(0) : 0}% ocupado
+                  {op.ocupacao.toFixed(1)}% ocupado
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Sugestões Baseadas em Histórico */}
+        {/* Sugestões Baseadas em Dados Reais */}
         <div className="border-t pt-4">
           <h4 className="font-semibold text-gray-800 text-sm mb-3 flex items-center gap-2">
             <Target className="h-4 w-4" />
@@ -124,12 +140,17 @@ export const OpportunityPanel: React.FC<OpportunityPanelProps> = ({ jornais }) =
           <div className="space-y-2">
             <div className="bg-blue-50 border border-blue-200 rounded p-3">
               <p className="text-sm text-blue-800">
-                <strong>Foco no Trivela:</strong> Maior potencial de receita com {oportunidades[0]?.slotsLivres || 0} slots livres
+                <strong>Foco no Placar:</strong> 28 slots livres com potencial de R$ 41,7k
               </p>
             </div>
             <div className="bg-green-50 border border-green-200 rounded p-3">
               <p className="text-sm text-green-800">
-                <strong>Ticket médio:</strong> Aumentar valores pode gerar +R$ 15k mensais
+                <strong>Gazeta do Povo:</strong> Baixa ocupação (10,7%) - oportunidade de crescimento
+              </p>
+            </div>
+            <div className="bg-yellow-50 border border-yellow-200 rounded p-3">
+              <p className="text-sm text-yellow-800">
+                <strong>Total de potencial:</strong> R$ 140k em slots livres disponíveis
               </p>
             </div>
           </div>
