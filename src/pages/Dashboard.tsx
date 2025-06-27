@@ -9,13 +9,17 @@ import { getTrevelaLogs, TrivelaBoardLog } from '@/utils/trivelaBoardLogs';
 const Dashboard = () => {
   const [trevelaLogs, setTrevelaLogs] = useState<TrivelaBoardLog[]>([]);
 
-  // Carregar logs do Trivela e Gazeta do Povo ao inicializar
+  // Carregar logs do Trivela, Gazeta do Povo e Um Dois Esportes ao inicializar
   useEffect(() => {
     const loadTrevelaLogs = () => {
       try {
         const logs = getTrevelaLogs();
-        // Filtrar apenas logs do Trivela e Gazeta do Povo
-        const filteredLogs = logs.filter(log => log.jornal === 'Trivela' || log.jornal === 'Gazeta do Povo');
+        // Filtrar apenas logs do Trivela, Gazeta do Povo e Um Dois Esportes
+        const filteredLogs = logs.filter(log => 
+          log.jornal === 'Trivela' || 
+          log.jornal === 'Gazeta do Povo' || 
+          log.jornal === 'Um Dois Esportes'
+        );
         setTrevelaLogs(filteredLogs);
       } catch (error) {
         console.error('Erro ao carregar logs:', error);
@@ -34,7 +38,11 @@ const Dashboard = () => {
     // Recarregar logs após remoção
     try {
       const logs = getTrevelaLogs();
-      const filteredLogs = logs.filter(log => log.jornal === 'Trivela' || log.jornal === 'Gazeta do Povo');
+      const filteredLogs = logs.filter(log => 
+        log.jornal === 'Trivela' || 
+        log.jornal === 'Gazeta do Povo' || 
+        log.jornal === 'Um Dois Esportes'
+      );
       setTrevelaLogs(filteredLogs);
     } catch (error) {
       console.error('Erro ao recarregar logs:', error);
