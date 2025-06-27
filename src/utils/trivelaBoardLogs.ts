@@ -2,7 +2,6 @@
 // Utilitário para gerenciar logs específicos do Trivela
 export interface TrivelalLog {
   id: number;
-  jornal: string;
   pagina: string;
   alteracoes: string[];
   timestamp: string;
@@ -26,6 +25,16 @@ export const getTrevelaLogs = (): TrivelalLog[] => {
   } catch (error) {
     console.error('Erro ao carregar logs do Trivela:', error);
     return [];
+  }
+};
+
+export const removeTrevelaLog = (logId: number): void => {
+  try {
+    const existingLogs = getTrevelaLogs();
+    const updatedLogs = existingLogs.filter(log => log.id !== logId);
+    localStorage.setItem('trivelaBoardLogs', JSON.stringify(updatedLogs));
+  } catch (error) {
+    console.error('Erro ao remover log do Trivela:', error);
   }
 };
 

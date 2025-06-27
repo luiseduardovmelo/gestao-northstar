@@ -1,19 +1,43 @@
 
 import React, { useState } from 'react';
-import { TrivelalLog } from '@/utils/trivelaBoardLogs';
-import { ChevronDown, ChevronUp, X } from 'lucide-react';
+import { TrivelalLog, removeTrevelaLog } from '@/utils/trivelaBoardLogs';
+import { ChevronDown, ChevronUp, Check } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
 
 interface TrevelaLogCardProps {
   log: TrivelalLog;
+  onLogRemoved: () => void;
 }
 
-export const TrevelaLogCard: React.FC<TrevelaLogCardProps> = ({ log }) => {
+export const TrevelaLogCard: React.FC<TrevelaLogCardProps> = ({ log, onLogRemoved }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const { toast } = useToast();
 
   const handleToggleExpand = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     setIsExpanded(!isExpanded);
+  };
+
+  const handleResolve = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    try {
+      removeTrevelaLog(log.id);
+      onLogRemoved();
+      toast({
+        title: "Log finalizado com sucesso",
+        description: "O log foi removido da lista.",
+      });
+    } catch (error) {
+      console.error('Erro ao resolver log:', error);
+      toast({
+        title: "Erro ao finalizar log",
+        description: "Não foi possível remover o log. Tente novamente.",
+        variant: "destructive",
+      });
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -25,6 +49,32 @@ export const TrevelaLogCard: React.FC<TrevelaLogCardProps> = ({ log }) => {
 
   return (
     <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-200">
+      <div className="flex items-start justify-between mb-2">
+        <div className="flex-1">
+          <div className="flex items-center gap-2 mb-2">
+            <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+            <h4 className="text-lg font-bold text-gray-900">{log.pagina}</h4>
+          </div>
+        </div>
+        
+        <button
+          onClick={handleResolve}
+          className="flex items-center gap-1 px-3 py-1 bg-green-500 hover:bg-green-600 text-white text-xs font-medium rounded-full transition-colors"
+          aria-label="Marcar como resolvido"
+        >
+          <Check size={12} />
+          Resolvido
+        </button>
+      </div>
+
+      <p className="text-xs text-gray-600 mb-2">
+        {log.totalAlteracoes} alteração{log.totalAlteracoes !== 1 ? 'ões' : ''} registrada{log.totalAlteracoes !== 1 ? 's' : ''}
+      </p>
+      
+      <p className="text-xs text-gray-500 mb-3">
+        {log.timestamp}
+      </p>
+
       <button
         onClick={handleToggleExpand}
         onKeyDown={handleKeyDown}
@@ -32,30 +82,14 @@ export const TrevelaLogCard: React.FC<TrevelaLogCardProps> = ({ log }) => {
         tabIndex={0}
       >
         <div className="flex items-center justify-between">
-          <div className="flex-1">
-            <div className="flex items-center gap-2 mb-2">
-              <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-              <h4 className="text-lg font-bold text-gray-900">{log.jornal}</h4>
-            </div>
-            
-            <p className="text-sm font-medium text-gray-700 mb-1">
-              {log.pagina}
-            </p>
-            
-            <p className="text-xs text-gray-600 mb-2">
-              {log.totalAlteracoes} alteração{log.totalAlteracoes !== 1 ? 'ões' : ''} registrada{log.totalAlteracoes !== 1 ? 's' : ''}
-            </p>
-            
-            <p className="text-xs text-gray-500">
-              {log.timestamp}
-            </p>
-          </div>
-          
+          <span className="text-sm text-blue-600 font-medium">
+            {isExpanded ? 'Ocultar detalhes' : 'Ver detalhes'}
+          </span>
           <div className="ml-4">
             {isExpanded ? (
-              <ChevronUp size={20} className="text-gray-500" />
+              <ChevronUp size={16} className="text-gray-500" />
             ) : (
-              <ChevronDown size={20} className="text-gray-500" />
+              <ChevronDown size={16} className="text-gray-500" />
             )}
           </div>
         </div>
@@ -72,6 +106,16 @@ export const TrevelaLogCard: React.FC<TrevelaLogCardProps> = ({ log }) => {
               </li>
             ))}
           </ul>
+          
+          <div className="flex justify-end mt-4 pt-3 border-t border-blue-200">
+            <button
+              onClick={handleResolve}
+              className="flex items-center gap-2 px-4 py-2 bg-green-500 hover:bg-green-600 text-white text-sm font-medium rounded-md transition-colors"
+            >
+              <Check size={14} />
+              Resolvido
+            </button>
+          </div>
         </div>
       )}
     </div>

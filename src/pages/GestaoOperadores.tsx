@@ -1,4 +1,3 @@
-
 import React, { useState, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -53,12 +52,12 @@ const GestaoOperadores = () => {
   });
 
   // Sistema de rastreamento de alterações apenas para Trivela
-  const [pendingChanges, setPendingChanges] = useState<string[]>([]);
+  const [alteracoesPendentes, setAlteracoesPendentes] = useState<string[]>([]);
   const isTrivela = jornal?.nome === 'Trivela';
 
   const addTrevelaChange = (change: string) => {
     if (isTrivela) {
-      setPendingChanges(prev => [...prev, change]);
+      setAlteracoesPendentes(prev => [...prev, change]);
     }
   };
 
@@ -268,37 +267,42 @@ const GestaoOperadores = () => {
   };
 
   const handleSalvarAlteracoes = () => {
+    if (alteracoesPendentes.length === 0) {
+      toast({
+        title: "Nenhuma alteração",
+        description: "Não há alterações pendentes para salvar.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     try {
-      // Salvar no log específico do Trivela
-      if (isTrivela && pendingChanges.length > 0) {
-        const novoLog = {
+      // Só registrar log se for do jornal Trivela
+      if (jornal?.nome === 'Trivela') {
+        const novoLog: TrivelalLog = {
           id: Date.now(),
-          jornal: jornal.nome,
           pagina: pagina?.nome || 'Página não identificada',
-          alteracoes: [...pendingChanges],
+          alteracoes: [...alteracoesPendentes],
           timestamp: new Date().toLocaleString('pt-BR'),
-          totalAlteracoes: pendingChanges.length
+          totalAlteracoes: alteracoesPendentes.length
         };
-        
+
         saveTrevelaLog(novoLog);
-        setPendingChanges([]);
-        
-        toast({
-          title: "Ranking salvo",
-          description: "Alterações salvas e registradas no log do Trivela.",
-        });
-      } else {
-        toast({
-          title: "Ranking salvo",
-          description: "Todas as alterações foram salvas com sucesso.",
-        });
       }
+
+      // Limpar alterações pendentes
+      setAlteracoesPendentes([]);
       
-      setHasChanges(false);
+      toast({
+        title: "Alterações salvas com sucesso!",
+        description: jornal?.nome === 'Trivela' 
+          ? "Alterações salvas e registradas no log"
+          : "Todas as alterações foram aplicadas",
+      });
     } catch (error) {
       console.error('Erro ao salvar alterações:', error);
       toast({
-        title: "Erro",
+        title: "Erro ao salvar",
         description: "Ocorreu um erro ao salvar as alterações.",
         variant: "destructive",
       });
@@ -329,9 +333,9 @@ const GestaoOperadores = () => {
                 </h1>
                 <p className="text-gray-600">
                   {jornal.nome} • {pagina.trafego.toLocaleString()} visitas/mês
-                  {isTrivela && pendingChanges.length > 0 && (
+                  {isTrivela && alteracoesPendentes.length > 0 && (
                     <span className="ml-2 text-orange-600">
-                      • {pendingChanges.length} alteração{pendingChanges.length !== 1 ? 'ões' : ''} pendente{pendingChanges.length !== 1 ? 's' : ''}
+                      • {alteracoesPendentes.length} alteração{alteracoesPendentes.length !== 1 ? 'ões' : ''} pendente{alteracoesPendentes.length !== 1 ? 's' : ''}
                     </span>
                   )}
                 </p>
@@ -393,9 +397,9 @@ const GestaoOperadores = () => {
             className="bg-[#457B9D] hover:bg-[#3a6b8a] text-white px-6 py-3 rounded-lg shadow-lg"
           >
             Salvar alterações
-            {isTrivela && pendingChanges.length > 0 && (
+            {isTrivela && alteracoesPendentes.length > 0 && (
               <span className="ml-2 bg-white text-[#457B9D] px-2 py-1 rounded-full text-xs font-medium">
-                {pendingChanges.length}
+                {alteracoesPendentes.length}
               </span>
             )}
           </Button>
