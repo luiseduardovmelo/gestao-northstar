@@ -1,11 +1,11 @@
 
 import React, { useState } from 'react';
-import { TrivelalLog, removeTrevelaLog } from '@/utils/trivelaBoardLogs';
+import { TrivelaBoardLog, removeTrevelaLog } from '@/utils/trivelaBoardLogs';
 import { ChevronDown, ChevronUp, Check } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 interface TrevelaLogCardProps {
-  log: TrivelalLog;
+  log: TrivelaBoardLog;
   onLogRemoved: () => void;
 }
 

@@ -1,13 +1,12 @@
-
 import React, { useState, useEffect } from 'react';
 import { JornalCard } from '@/components/JornalCard';
 import { TrevelaLogCard } from '@/components/TrevelaLogCard';
 import Navigation from '@/components/Navigation';
 import { mockJornais } from '@/data/mockData';
-import { getTrevelaLogs, TrivelalLog } from '@/utils/trivelaBoardLogs';
+import { getTrevelaLogs, TrivelaBoardLog } from '@/utils/trivelaBoardLogs';
 
 const Dashboard = () => {
-  const [trevelaLogs, setTrevelaLogs] = useState<TrivelalLog[]>([]);
+  const [trevelaLogs, setTrevelaLogs] = useState<TrivelaBoardLog[]>([]);
 
   // Carregar logs do Trivela ao inicializar
   useEffect(() => {

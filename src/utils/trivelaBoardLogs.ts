@@ -1,6 +1,6 @@
 
 // Utilitário para gerenciar logs específicos do Trivela
-export interface TrivelalLog {
+export interface TrivelaBoardLog {
   id: number;
   pagina: string;
   alteracoes: string[];
@@ -8,7 +8,7 @@ export interface TrivelalLog {
   totalAlteracoes: number;
 }
 
-export const saveTrevelaLog = (log: TrivelalLog): void => {
+export const saveTrevelaLog = (log: TrivelaBoardLog): void => {
   try {
     const existingLogs = getTrevelaLogs();
     const updatedLogs = [log, ...existingLogs];
@@ -18,7 +18,7 @@ export const saveTrevelaLog = (log: TrivelalLog): void => {
   }
 };
 
-export const getTrevelaLogs = (): TrivelalLog[] => {
+export const getTrevelaLogs = (): TrivelaBoardLog[] => {
   try {
     const logs = localStorage.getItem('trivelaBoardLogs');
     return logs ? JSON.parse(logs) : [];

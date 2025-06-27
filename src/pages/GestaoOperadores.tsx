@@ -10,7 +10,7 @@ import { OperadorGuide } from '@/components/OperadorGuide';
 import { mockOperadores, mockPaginas, mockJornais } from '@/data/mockData';
 import { Operador, RankingSlot } from '@/types';
 import { useToast } from '@/hooks/use-toast';
-import { saveTrevelaLog } from '@/utils/trivelaBoardLogs';
+import { saveTrevelaLog, TrivelaBoardLog } from '@/utils/trivelaBoardLogs';
 
 const GestaoOperadores = () => {
   const { jornalId, paginaId } = useParams<{ jornalId: string; paginaId: string }>();
@@ -279,7 +279,7 @@ const GestaoOperadores = () => {
     try {
       // Só registrar log se for do jornal Trivela
       if (jornal?.nome === 'Trivela') {
-        const novoLog: TrivelalLog = {
+        const novoLog: TrivelaBoardLog = {
           id: Date.now(),
           pagina: pagina?.nome || 'Página não identificada',
           alteracoes: [...alteracoesPendentes],
