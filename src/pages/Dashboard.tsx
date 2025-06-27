@@ -1,4 +1,5 @@
 
+
 import React, { useState, useEffect } from 'react';
 import { JornalCard } from '@/components/JornalCard';
 import { TrevelaLogCard } from '@/components/TrevelaLogCard';
@@ -9,16 +10,17 @@ import { getTrevelaLogs, TrivelaBoardLog } from '@/utils/trivelaBoardLogs';
 const Dashboard = () => {
   const [trevelaLogs, setTrevelaLogs] = useState<TrivelaBoardLog[]>([]);
 
-  // Carregar logs do Trivela, Gazeta do Povo e Um Dois Esportes ao inicializar
+  // Carregar logs do Trivela, Gazeta do Povo, Um Dois Esportes e Placar ao inicializar
   useEffect(() => {
     const loadTrevelaLogs = () => {
       try {
         const logs = getTrevelaLogs();
-        // Filtrar apenas logs do Trivela, Gazeta do Povo e Um Dois Esportes
+        // Filtrar apenas logs do Trivela, Gazeta do Povo, Um Dois Esportes e Placar
         const filteredLogs = logs.filter(log => 
           log.jornal === 'Trivela' || 
           log.jornal === 'Gazeta do Povo' || 
-          log.jornal === 'Um Dois Esportes'
+          log.jornal === 'Um Dois Esportes' ||
+          log.jornal === 'Placar'
         );
         setTrevelaLogs(filteredLogs);
       } catch (error) {
@@ -41,7 +43,8 @@ const Dashboard = () => {
       const filteredLogs = logs.filter(log => 
         log.jornal === 'Trivela' || 
         log.jornal === 'Gazeta do Povo' || 
-        log.jornal === 'Um Dois Esportes'
+        log.jornal === 'Um Dois Esportes' ||
+        log.jornal === 'Placar'
       );
       setTrevelaLogs(filteredLogs);
     } catch (error) {
