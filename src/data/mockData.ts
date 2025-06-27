@@ -355,7 +355,7 @@ export const mockPaginas: Pagina[] = [
     jornalId: '2',
     nome: 'Plataformas legalizadas',
     status: 'ativa',
-    numeroOperadores: 10,
+    numeroOperadores: 15,
     trafego: 1399,
     operadores: []
   },
@@ -2059,6 +2059,262 @@ export const mockOperadores: Operador[] = [
     status: 'livre',
     valor: 10000,
     ordem: 3,
+    logoUrl: '/placeholder.svg'
+  },
+
+  // Operadores para página "Plataformas legalizadas" da Gazeta do Povo
+  {
+    id: 'gp-pl-1',
+    paginaId: '102',
+    nome: 'BetMGM BR',
+    status: 'livre',
+    valor: 0,
+    ordem: 1,
+    logoUrl: '/placeholder.svg'
+  },
+  {
+    id: 'gp-pl-2',
+    paginaId: '102',
+    nome: 'Betano BR',
+    status: 'livre',
+    valor: 0,
+    ordem: 2,
+    logoUrl: '/placeholder.svg'
+  },
+  {
+    id: 'gp-pl-3',
+    paginaId: '102',
+    nome: 'Alfabet',
+    status: 'livre',
+    valor: 0,
+    ordem: 3,
+    logoUrl: '/placeholder.svg'
+  },
+  {
+    id: 'gp-pl-4',
+    paginaId: '102',
+    nome: 'KTO',
+    status: 'livre',
+    valor: 0,
+    ordem: 4,
+    logoUrl: '/placeholder.svg'
+  },
+  {
+    id: 'gp-pl-5',
+    paginaId: '102',
+    nome: 'Hanzbet',
+    status: 'livre',
+    valor: 0,
+    ordem: 5,
+    logoUrl: '/placeholder.svg'
+  },
+  {
+    id: 'gp-pl-6',
+    paginaId: '102',
+    nome: 'BR4Bet',
+    status: 'livre',
+    valor: 0,
+    ordem: 6,
+    logoUrl: '/placeholder.svg'
+  },
+  {
+    id: 'gp-pl-7',
+    paginaId: '102',
+    nome: 'Stake BR',
+    status: 'livre',
+    valor: 0,
+    ordem: 7,
+    logoUrl: '/placeholder.svg'
+  },
+  {
+    id: 'gp-pl-8',
+    paginaId: '102',
+    nome: 'Lottoland BR',
+    status: 'livre',
+    valor: 0,
+    ordem: 8,
+    logoUrl: '/placeholder.svg'
+  },
+  {
+    id: 'gp-pl-9',
+    paginaId: '102',
+    nome: 'Bateubet',
+    status: 'livre',
+    valor: 0,
+    ordem: 9,
+    logoUrl: '/placeholder.svg'
+  },
+  {
+    id: 'gp-pl-10',
+    paginaId: '102',
+    nome: 'Multibet',
+    status: 'livre',
+    valor: 0,
+    ordem: 10,
+    logoUrl: '/placeholder.svg'
+  },
+  {
+    id: 'gp-pl-11',
+    paginaId: '102',
+    nome: 'Superbet',
+    status: 'livre',
+    valor: 0,
+    ordem: 11,
+    logoUrl: '/placeholder.svg'
+  },
+  {
+    id: 'gp-pl-12',
+    paginaId: '102',
+    nome: 'Estrela Bet',
+    status: 'livre',
+    valor: 0,
+    ordem: 12,
+    logoUrl: '/placeholder.svg'
+  },
+  {
+    id: 'gp-pl-13',
+    paginaId: '102',
+    nome: 'Lotogreen',
+    status: 'livre',
+    valor: 0,
+    ordem: 13,
+    logoUrl: '/placeholder.svg'
+  },
+  {
+    id: 'gp-pl-14',
+    paginaId: '102',
+    nome: 'Hiperbet',
+    status: 'livre',
+    valor: 0,
+    ordem: 14,
+    logoUrl: '/placeholder.svg'
+  },
+  {
+    id: 'gp-pl-15',
+    paginaId: '102',
+    nome: 'MC Games',
+    status: 'livre',
+    valor: 0,
+    ordem: 15,
+    logoUrl: '/placeholder.svg'
+  },
+
+  // Operadores para página "Bonus sem deposito para cassino" da Gazeta do Povo
+  {
+    id: 'gp-bd-1',
+    paginaId: '103',
+    nome: 'Superbet',
+    status: 'livre',
+    valor: 0,
+    ordem: 1,
+    logoUrl: '/placeholder.svg'
+  },
+  {
+    id: 'gp-bd-2',
+    paginaId: '103',
+    nome: 'Betano BR',
+    status: 'livre',
+    valor: 0,
+    ordem: 2,
+    logoUrl: '/placeholder.svg'
+  },
+  {
+    id: 'gp-bd-3',
+    paginaId: '103',
+    nome: 'Novibet BR',
+    status: 'livre',
+    valor: 0,
+    ordem: 3,
+    logoUrl: '/placeholder.svg'
+  },
+  {
+    id: 'gp-bd-4',
+    paginaId: '103',
+    nome: 'Stake BR',
+    status: 'livre',
+    valor: 0,
+    ordem: 4,
+    logoUrl: '/placeholder.svg'
+  },
+  {
+    id: 'gp-bd-5',
+    paginaId: '103',
+    nome: 'Multibet',
+    status: 'livre',
+    valor: 0,
+    ordem: 5,
+    logoUrl: '/placeholder.svg'
+  },
+  {
+    id: 'gp-bd-6',
+    paginaId: '103',
+    nome: 'Bacana Play BR',
+    status: 'livre',
+    valor: 0,
+    ordem: 6,
+    logoUrl: '/placeholder.svg'
+  },
+  {
+    id: 'gp-bd-7',
+    paginaId: '103',
+    nome: 'Esportiva Bet',
+    status: 'livre',
+    valor: 0,
+    ordem: 7,
+    logoUrl: '/placeholder.svg'
+  },
+  {
+    id: 'gp-bd-8',
+    paginaId: '103',
+    nome: 'Betwarrior',
+    status: 'livre',
+    valor: 0,
+    ordem: 8,
+    logoUrl: '/placeholder.svg'
+  },
+  {
+    id: 'gp-bd-9',
+    paginaId: '103',
+    nome: 'Betboom',
+    status: 'livre',
+    valor: 0,
+    ordem: 9,
+    logoUrl: '/placeholder.svg'
+  },
+  {
+    id: 'gp-bd-10',
+    paginaId: '103',
+    nome: 'Lottoland BR',
+    status: 'livre',
+    valor: 0,
+    ordem: 10,
+    logoUrl: '/placeholder.svg'
+  },
+  {
+    id: 'gp-bd-11',
+    paginaId: '103',
+    nome: 'BR4Bet',
+    status: 'livre',
+    valor: 0,
+    ordem: 11,
+    logoUrl: '/placeholder.svg'
+  },
+  {
+    id: 'gp-bd-12',
+    paginaId: '103',
+    nome: 'Vbet BR',
+    status: 'livre',
+    valor: 0,
+    ordem: 12,
+    logoUrl: '/placeholder.svg'
+  },
+  {
+    id: 'gp-bd-13',
+    paginaId: '103',
+    nome: 'Luva Bet',
+    status: 'livre',
+    valor: 0,
+    ordem: 13,
     logoUrl: '/placeholder.svg'
   }
 ];
