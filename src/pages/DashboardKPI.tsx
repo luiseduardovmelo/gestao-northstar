@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ChevronDown, ChevronUp, ArrowLeft, BarChart3, Users, Target } from 'lucide-react';
 import { DashboardAdvanced } from '@/components/DashboardAdvanced';
+import { OperadorExpandibleList } from '@/components/OperadorExpandibleList';
 
 // Mock data para demonstração
 const kpiData = {
@@ -92,7 +93,7 @@ const DashboardKPI = () => {
 
         {/* Tabs para diferentes visualizações */}
         <Tabs defaultValue="analytics" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-2 max-w-md">
+          <TabsList className="grid w-full grid-cols-3 max-w-lg">
             <TabsTrigger value="analytics" className="flex items-center gap-2">
               <BarChart3 className="h-4 w-4" />
               Analytics
@@ -101,6 +102,10 @@ const DashboardKPI = () => {
               <Users className="h-4 w-4" />
               Operadores
             </TabsTrigger>
+            <TabsTrigger value="legacy" className="flex items-center gap-2">
+              <Target className="h-4 w-4" />
+              Legacy
+            </TabsTrigger>
           </TabsList>
 
           {/* Aba Analytics - Dashboard Avançado */}
@@ -108,8 +113,13 @@ const DashboardKPI = () => {
             <DashboardAdvanced />
           </TabsContent>
 
-          {/* Aba Operadores - Dashboard Original */}
-          <TabsContent value="operators" className="space-y-6">
+          {/* Aba Operadores - Nova Lista Expandível */}
+          <TabsContent value="operators">
+            <OperadorExpandibleList />
+          </TabsContent>
+
+          {/* Aba Legacy - Dashboard Original */}
+          <TabsContent value="legacy" className="space-y-6">
             {/* Cards KPI Originais */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <Card>
@@ -149,7 +159,7 @@ const DashboardKPI = () => {
             {/* Acordeões de Operadores */}
             <div className="bg-white rounded-lg shadow-sm">
               <div className="p-6 border-b border-gray-200">
-                <h2 className="text-lg font-semibold text-gray-900">Gestão de Operadores</h2>
+                <h2 className="text-lg font-semibold text-gray-900">Gestão de Operadores (Legacy)</h2>
               </div>
               
               <div className="divide-y divide-gray-200">
