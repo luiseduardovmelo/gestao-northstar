@@ -51,12 +51,12 @@ const GestaoOperadores = () => {
     operador: null
   });
 
-  // Sistema de rastreamento de alterações apenas para Trivela
+  // Sistema de rastreamento de alterações para Trivela e Gazeta do Povo
   const [alteracoesPendentes, setAlteracoesPendentes] = useState<string[]>([]);
-  const isTrivela = jornal?.nome === 'Trivela';
+  const shouldTrackChanges = jornal?.nome === 'Trivela' || jornal?.nome === 'Gazeta do Povo';
 
-  const addTrevelaChange = (change: string) => {
-    if (isTrivela) {
+  const addChange = (change: string) => {
+    if (shouldTrackChanges) {
       setAlteracoesPendentes(prev => [...prev, change]);
     }
   };
@@ -93,8 +93,8 @@ const GestaoOperadores = () => {
     setHasChanges(true);
     setSlotSelecionado(null);
     
-    // Registrar alteração apenas para Trivela
-    addTrevelaChange(`ADICIONADO: Operador ${novoOperador.nome} no slot ${slotSelecionado}`);
+    // Registrar alteração para jornais rastreados
+    addChange(`ADICIONADO: Operador ${novoOperador.nome} no slot ${slotSelecionado}`);
   };
 
   const handleStatusChange = (operador: Operador, novoStatus: 'livre' | 'vendido') => {
@@ -113,11 +113,11 @@ const GestaoOperadores = () => {
     ));
     setHasChanges(true);
 
-    // Registrar alteração apenas para Trivela
+    // Registrar alteração para jornais rastreados
     if (novoStatus === 'vendido') {
-      addTrevelaChange(`TRAVADO: Operador ${operador.nome} no slot ${operador.ordem}`);
+      addChange(`TRAVADO: Operador ${operador.nome} no slot ${operador.ordem}`);
     } else {
-      addTrevelaChange(`LIBERADO: Operador ${operador.nome} no slot ${operador.ordem}`);
+      addChange(`LIBERADO: Operador ${operador.nome} no slot ${operador.ordem}`);
     }
 
     toast({
@@ -151,8 +151,8 @@ const GestaoOperadores = () => {
     setHasChanges(true);
     setDeleteModal({ isOpen: false, operador: null });
     
-    // Registrar alteração apenas para Trivela
-    addTrevelaChange(`REMOVIDO: Operador ${deleteModal.operador.nome} do slot ${deleteModal.operador.ordem}`);
+    // Registrar alteração para jornais rastreados
+    addChange(`REMOVIDO: Operador ${deleteModal.operador.nome} do slot ${deleteModal.operador.ordem}`);
     
     toast({
       title: "Operador removido",
@@ -185,8 +185,8 @@ const GestaoOperadores = () => {
     setHasChanges(true);
     setVendaModal({ isOpen: false, operador: null });
     
-    // Registrar alteração apenas para Trivela
-    addTrevelaChange(`TRAVADO: Operador ${vendaModal.operador.nome} no slot ${vendaModal.operador.ordem} por R$ ${valor.toLocaleString()}`);
+    // Registrar alteração para jornais rastreados
+    addChange(`TRAVADO: Operador ${vendaModal.operador.nome} no slot ${vendaModal.operador.ordem} por R$ ${valor.toLocaleString()}`);
     
     toast({
       title: "Operador vendido",
@@ -257,9 +257,9 @@ const GestaoOperadores = () => {
       return newRanking;
     });
 
-    // Registrar alteração apenas para Trivela
+    // Registrar alteração para jornais rastreados
     if (draggedSlot?.operador) {
-      addTrevelaChange(`MOVIDO: Operador ${draggedSlot.operador.nome} do slot ${draggedItem} para slot ${targetPosicao}`);
+      addChange(`MOVIDO: Operador ${draggedSlot.operador.nome} do slot ${draggedItem} para slot ${targetPosicao}`);
     }
 
     setHasChanges(true);
@@ -277,10 +277,11 @@ const GestaoOperadores = () => {
     }
 
     try {
-      // Só registrar log se for do jornal Trivela
-      if (jornal?.nome === 'Trivela') {
+      // Registrar log se for jornal rastreado (Trivela ou Gazeta do Povo)
+      if (shouldTrackChanges) {
         const novoLog: TrivelaBoardLog = {
           id: Date.now(),
+          jornal: jornal?.nome || 'Jornal não identificado',
           pagina: pagina?.nome || 'Página não identificada',
           alteracoes: [...alteracoesPendentes],
           timestamp: new Date().toLocaleString('pt-BR'),
@@ -295,7 +296,7 @@ const GestaoOperadores = () => {
       
       toast({
         title: "Alterações salvas com sucesso!",
-        description: jornal?.nome === 'Trivela' 
+        description: shouldTrackChanges 
           ? "Alterações salvas e registradas no log"
           : "Todas as alterações foram aplicadas",
       });
@@ -333,7 +334,7 @@ const GestaoOperadores = () => {
                 </h1>
                 <p className="text-gray-600">
                   {jornal.nome} • {pagina.trafego.toLocaleString()} visitas/mês
-                  {isTrivela && alteracoesPendentes.length > 0 && (
+                  {shouldTrackChanges && alteracoesPendentes.length > 0 && (
                     <span className="ml-2 text-orange-600">
                       • {alteracoesPendentes.length} alteração{alteracoesPendentes.length !== 1 ? 'ões' : ''} pendente{alteracoesPendentes.length !== 1 ? 's' : ''}
                     </span>
@@ -397,7 +398,7 @@ const GestaoOperadores = () => {
             className="bg-[#457B9D] hover:bg-[#3a6b8a] text-white px-6 py-3 rounded-lg shadow-lg"
           >
             Salvar alterações
-            {isTrivela && alteracoesPendentes.length > 0 && (
+            {shouldTrackChanges && alteracoesPendentes.length > 0 && (
               <span className="ml-2 bg-white text-[#457B9D] px-2 py-1 rounded-full text-xs font-medium">
                 {alteracoesPendentes.length}
               </span>

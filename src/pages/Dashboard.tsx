@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { JornalCard } from '@/components/JornalCard';
 import { TrevelaLogCard } from '@/components/TrevelaLogCard';
@@ -8,14 +9,16 @@ import { getTrevelaLogs, TrivelaBoardLog } from '@/utils/trivelaBoardLogs';
 const Dashboard = () => {
   const [trevelaLogs, setTrevelaLogs] = useState<TrivelaBoardLog[]>([]);
 
-  // Carregar logs do Trivela ao inicializar
+  // Carregar logs do Trivela e Gazeta do Povo ao inicializar
   useEffect(() => {
     const loadTrevelaLogs = () => {
       try {
         const logs = getTrevelaLogs();
-        setTrevelaLogs(logs);
+        // Filtrar apenas logs do Trivela e Gazeta do Povo
+        const filteredLogs = logs.filter(log => log.jornal === 'Trivela' || log.jornal === 'Gazeta do Povo');
+        setTrevelaLogs(filteredLogs);
       } catch (error) {
-        console.error('Erro ao carregar logs do Trivela:', error);
+        console.error('Erro ao carregar logs:', error);
       }
     };
 
@@ -31,7 +34,8 @@ const Dashboard = () => {
     // Recarregar logs após remoção
     try {
       const logs = getTrevelaLogs();
-      setTrevelaLogs(logs);
+      const filteredLogs = logs.filter(log => log.jornal === 'Trivela' || log.jornal === 'Gazeta do Povo');
+      setTrevelaLogs(filteredLogs);
     } catch (error) {
       console.error('Erro ao recarregar logs:', error);
     }
@@ -98,7 +102,7 @@ const Dashboard = () => {
                 </div>
                 <p className="text-gray-500 text-lg font-medium">Nenhum log pendente</p>
                 <p className="text-gray-400 text-sm mt-1">
-                  Os logs das alterações do Trivela aparecerão aqui
+                  Os logs das alterações do Trivela e Gazeta do Povo aparecerão aqui
                 </p>
               </div>
             )}

@@ -53,8 +53,9 @@ export const TrevelaLogCard: React.FC<TrevelaLogCardProps> = ({ log, onLogRemove
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-2">
             <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-            <h4 className="text-lg font-bold text-gray-900">{log.pagina}</h4>
+            <h4 className="text-lg font-bold text-gray-900">{log.jornal}</h4>
           </div>
+          <p className="text-sm font-medium text-gray-700 mb-1">{log.pagina}</p>
         </div>
         
         <button
