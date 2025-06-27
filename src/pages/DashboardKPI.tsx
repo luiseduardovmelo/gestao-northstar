@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -48,15 +47,6 @@ const operadoresData = [
 
 const DashboardKPI = () => {
   const navigate = useNavigate();
-  const [expandedOperadores, setExpandedOperadores] = useState<string[]>([]);
-
-  const toggleOperador = (operadorId: string) => {
-    setExpandedOperadores(prev =>
-      prev.includes(operadorId)
-        ? prev.filter(id => id !== operadorId)
-        : [...prev, operadorId]
-    );
-  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -93,7 +83,7 @@ const DashboardKPI = () => {
 
         {/* Tabs para diferentes visualizações */}
         <Tabs defaultValue="analytics" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-3 max-w-lg">
+          <TabsList className="grid w-full grid-cols-2 max-w-md">
             <TabsTrigger value="analytics" className="flex items-center gap-2">
               <BarChart3 className="h-4 w-4" />
               Analytics
@@ -101,10 +91,6 @@ const DashboardKPI = () => {
             <TabsTrigger value="operators" className="flex items-center gap-2">
               <Users className="h-4 w-4" />
               Operadores
-            </TabsTrigger>
-            <TabsTrigger value="legacy" className="flex items-center gap-2">
-              <Target className="h-4 w-4" />
-              Legacy
             </TabsTrigger>
           </TabsList>
 
@@ -116,122 +102,6 @@ const DashboardKPI = () => {
           {/* Aba Operadores - Nova Lista Expandível */}
           <TabsContent value="operators">
             <OperadorExpandibleList />
-          </TabsContent>
-
-          {/* Aba Legacy - Dashboard Original */}
-          <TabsContent value="legacy" className="space-y-6">
-            {/* Cards KPI Originais */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <Card>
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-lg font-medium text-gray-700">Páginas Totais</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="text-3xl font-bold" style={{ color: 'var(--accent-primary)' }}>
-                    {kpiData.paginasTotais}
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-lg font-medium text-gray-700">Gasto Mensal</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="text-3xl font-bold" style={{ color: 'var(--accent-secondary)' }}>
-                    R$ {(kpiData.gastoMensal / 1000).toFixed(0)}k
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-lg font-medium text-gray-700">% Gratuitas</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="text-3xl font-bold text-gray-700">
-                    {kpiData.percentualGratuitas}%
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Acordeões de Operadores */}
-            <div className="bg-white rounded-lg shadow-sm">
-              <div className="p-6 border-b border-gray-200">
-                <h2 className="text-lg font-semibold text-gray-900">Gestão de Operadores (Legacy)</h2>
-              </div>
-              
-              <div className="divide-y divide-gray-200">
-                {operadoresData.map((operador) => (
-                  <div key={operador.id} className="p-6">
-                    {/* Cabeçalho do Acordeão */}
-                    <Button
-                      variant="ghost"
-                      className="w-full p-0 h-auto hover:bg-transparent"
-                      onClick={() => toggleOperador(operador.id)}
-                    >
-                      <div className="flex items-center justify-between w-full">
-                        <div className="flex items-center gap-6 text-left">
-                          <div className="font-semibold text-gray-900">{operador.nome}</div>
-                          <div className="text-sm text-gray-600">
-                            {operador.totalPaginas} páginas
-                          </div>
-                          <div className="text-sm text-green-600">
-                            {operador.paginasPagas} pagas
-                          </div>
-                          <div className="text-sm text-gray-500">
-                            {operador.paginasGratuitas} gratuitas
-                          </div>
-                          <div className="text-sm font-medium" style={{ color: 'var(--accent-primary)' }}>
-                            R$ {(operador.gastoTotal / 1000).toFixed(0)}k total
-                          </div>
-                        </div>
-                        {expandedOperadores.includes(operador.id) ? (
-                          <ChevronUp className="h-5 w-5 text-gray-400" />
-                        ) : (
-                          <ChevronDown className="h-5 w-5 text-gray-400" />
-                        )}
-                      </div>
-                    </Button>
-
-                    {/* Conteúdo Expandido */}
-                    {expandedOperadores.includes(operador.id) && (
-                      <div className="mt-4 overflow-x-auto">
-                        <table className="w-full text-sm">
-                          <thead>
-                            <tr className="border-b border-gray-200">
-                              <th className="text-left py-2 text-gray-700">Jornal</th>
-                              <th className="text-left py-2 text-gray-700">Página</th>
-                              <th className="text-left py-2 text-gray-700">Pago?</th>
-                              <th className="text-left py-2 text-gray-700">Valor</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {operador.detalhes.map((detalhe, index) => (
-                              <tr key={index} className="border-b border-gray-100">
-                                <td className="py-2 text-gray-900">{detalhe.jornal}</td>
-                                <td className="py-2 text-gray-600">{detalhe.pagina}</td>
-                                <td className="py-2">
-                                  {detalhe.pago ? (
-                                    <span className="text-green-600 font-medium">✓ Sim</span>
-                                  ) : (
-                                    <span className="text-gray-500">Gratuito</span>
-                                  )}
-                                </td>
-                                <td className="py-2 font-medium">
-                                  {detalhe.valor > 0 ? `R$ ${detalhe.valor.toLocaleString()}` : '-'}
-                                </td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
           </TabsContent>
         </Tabs>
       </div>
