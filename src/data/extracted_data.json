@@ -1,0 +1,7283 @@
+{
+  "jornais": [
+    {
+      "id": "2",
+      "nome": "Gazeta Do Povo",
+      "slug": "gazeta-do-povo",
+      "corPrimaria": "#003763",
+      "logoUrl": "/lovable-uploads/8ddca8c2-7ea4-4f2b-bb6b-7a90d64fe838.png",
+      "numeroPaginas": 18,
+      "numeroOperadores": 187,
+      "receitaTotal": 28850.0,
+      "createdAt": "2024-05-15T11:20:00Z"
+    },
+    {
+      "id": "6",
+      "nome": "Lance",
+      "slug": "lance",
+      "corPrimaria": "#1E1E1E",
+      "logoUrl": "/lovable-uploads/lance-logo.png",
+      "numeroPaginas": 13,
+      "numeroOperadores": 154,
+      "receitaTotal": 2950.0,
+      "createdAt": "2024-05-15T11:20:00Z"
+    },
+    {
+      "id": "4",
+      "nome": "Um Dois Esportes",
+      "slug": "um-dois-esportes",
+      "corPrimaria": "#009739",
+      "logoUrl": "/lovable-uploads/999097ff-454a-4213-881a-cc6cbfa458ba.png",
+      "numeroPaginas": 0,
+      "numeroOperadores": 0,
+      "receitaTotal": 0,
+      "createdAt": "2024-05-15T11:20:00Z"
+    },
+    {
+      "id": "1",
+      "nome": "Trivela",
+      "slug": "trivela",
+      "corPrimaria": "#006633",
+      "logoUrl": "/lovable-uploads/46ae41cd-01d1-4c47-8333-9bb8c65a61f6.png",
+      "numeroPaginas": 9,
+      "numeroOperadores": 99,
+      "receitaTotal": 15500.0,
+      "createdAt": "2024-05-15T11:20:00Z"
+    },
+    {
+      "id": "5",
+      "nome": "Lakers Brasil",
+      "slug": "lakers-brasil",
+      "corPrimaria": "#552583",
+      "logoUrl": "/lovable-uploads/73834f04-f5e8-458e-a465-94f40ed8f5f2.png",
+      "numeroPaginas": 1,
+      "numeroOperadores": 15,
+      "receitaTotal": 9900.0,
+      "createdAt": "2024-05-15T11:20:00Z"
+    },
+    {
+      "id": "7",
+      "nome": "Tribuna Do Paraná",
+      "slug": "tribuna-do-parana",
+      "corPrimaria": "#D92027",
+      "logoUrl": "/lovable-uploads/tribuna-logo.png",
+      "numeroPaginas": 1,
+      "numeroOperadores": 10,
+      "receitaTotal": 800.0,
+      "createdAt": "2024-05-15T11:20:00Z"
+    },
+    {
+      "id": "3",
+      "nome": "Placar",
+      "slug": "placar",
+      "corPrimaria": "#E8312D",
+      "logoUrl": "/lovable-uploads/1e8ad685-b8ed-49f9-891f-fe0a0882f140.png",
+      "numeroPaginas": 9,
+      "numeroOperadores": 105,
+      "receitaTotal": 13550.0,
+      "createdAt": "2024-05-15T11:20:00Z"
+    }
+  ],
+  "paginas": [
+    {
+      "id": "1",
+      "jornalId": "2",
+      "nome": "PLATAFORMA BÔNUS DE CADASTRO",
+      "status": "ativa",
+      "numeroOperadores": 10,
+      "trafego": 26385,
+      "operadores": [
+        {
+          "id": "1",
+          "paginaId": "1",
+          "nome": "BetGorillas",
+          "status": "vendido",
+          "valor": 800.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "2",
+          "paginaId": "1",
+          "nome": "Bateubet",
+          "status": "vendido",
+          "valor": 800.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "3",
+          "paginaId": "1",
+          "nome": "BetBoom",
+          "status": "vendido",
+          "valor": 1500.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "4",
+          "paginaId": "1",
+          "nome": "Oleybet",
+          "status": "vendido",
+          "valor": 300.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "5",
+          "paginaId": "1",
+          "nome": "Rivalo",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "6",
+          "paginaId": "1",
+          "nome": "Brazino777",
+          "status": "vendido",
+          "valor": 700.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "7",
+          "paginaId": "1",
+          "nome": "Esportivabet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "8",
+          "paginaId": "1",
+          "nome": "Multibet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "9",
+          "paginaId": "1",
+          "nome": "BetMGM",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "10",
+          "paginaId": "1",
+          "nome": "Alfabet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "11",
+          "paginaId": "1",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 11
+        },
+        {
+          "id": "12",
+          "paginaId": "1",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 12
+        },
+        {
+          "id": "13",
+          "paginaId": "1",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 13
+        },
+        {
+          "id": "14",
+          "paginaId": "1",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 14
+        },
+        {
+          "id": "15",
+          "paginaId": "1",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "jornalId": "2",
+      "nome": "PLATAFORMA QUE MAIS PAGA",
+      "status": "ativa",
+      "numeroOperadores": 15,
+      "trafego": 13455,
+      "operadores": [
+        {
+          "id": "16",
+          "paginaId": "2",
+          "nome": "Esportiva Bet",
+          "status": "vendido",
+          "valor": 1000.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "17",
+          "paginaId": "2",
+          "nome": "Br4bet",
+          "status": "vendido",
+          "valor": 400.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "18",
+          "paginaId": "2",
+          "nome": "Brazino777",
+          "status": "vendido",
+          "valor": 1000.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "19",
+          "paginaId": "2",
+          "nome": "Rivalo",
+          "status": "vendido",
+          "valor": 300.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "20",
+          "paginaId": "2",
+          "nome": "Estrelabet",
+          "status": "vendido",
+          "valor": 300.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "21",
+          "paginaId": "2",
+          "nome": "BetdaSorte",
+          "status": "vendido",
+          "valor": 600.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "22",
+          "paginaId": "2",
+          "nome": "Gol de Bet",
+          "status": "vendido",
+          "valor": 100.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "23",
+          "paginaId": "2",
+          "nome": "Playuzu",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "24",
+          "paginaId": "2",
+          "nome": "Casa de Apostas",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "25",
+          "paginaId": "2",
+          "nome": "Stake",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "26",
+          "paginaId": "2",
+          "nome": "Alfabet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 11,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "27",
+          "paginaId": "2",
+          "nome": "Superbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 12,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "28",
+          "paginaId": "2",
+          "nome": "Bateubet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 13,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "29",
+          "paginaId": "2",
+          "nome": "Hiperbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 14,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "30",
+          "paginaId": "2",
+          "nome": "Lotogreen",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 15,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "jornalId": "2",
+      "nome": "BÔNUS SEM DEP CASSINO",
+      "status": "ativa",
+      "numeroOperadores": 13,
+      "trafego": 4763,
+      "operadores": [
+        {
+          "id": "31",
+          "paginaId": "3",
+          "nome": "MCGames",
+          "status": "vendido",
+          "valor": 200.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "32",
+          "paginaId": "3",
+          "nome": "Energia Bet",
+          "status": "vendido",
+          "valor": 250.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "33",
+          "paginaId": "3",
+          "nome": "Multibet",
+          "status": "vendido",
+          "valor": 250.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "34",
+          "paginaId": "3",
+          "nome": "BetdaSorte",
+          "status": "vendido",
+          "valor": 500.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "35",
+          "paginaId": "3",
+          "nome": "Oleybet",
+          "status": "vendido",
+          "valor": 250.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "36",
+          "paginaId": "3",
+          "nome": "Bateubet",
+          "status": "vendido",
+          "valor": 800.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "37",
+          "paginaId": "3",
+          "nome": "Esportivabet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "38",
+          "paginaId": "3",
+          "nome": "Vbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "39",
+          "paginaId": "3",
+          "nome": "Lottoland",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "40",
+          "paginaId": "3",
+          "nome": "Luvabet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "41",
+          "paginaId": "3",
+          "nome": "Superbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 11,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "42",
+          "paginaId": "3",
+          "nome": "MMABet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 12,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "43",
+          "paginaId": "3",
+          "nome": "Seguro Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 13,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "44",
+          "paginaId": "3",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 14
+        },
+        {
+          "id": "45",
+          "paginaId": "3",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "jornalId": "2",
+      "nome": "FORTUNE TIGER",
+      "status": "ativa",
+      "numeroOperadores": 6,
+      "trafego": 4676,
+      "operadores": [
+        {
+          "id": "46",
+          "paginaId": "4",
+          "nome": "Oleybet",
+          "status": "vendido",
+          "valor": 850.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "47",
+          "paginaId": "4",
+          "nome": "Bet da Sorte",
+          "status": "vendido",
+          "valor": 750.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "48",
+          "paginaId": "4",
+          "nome": "Brasil Bet",
+          "status": "vendido",
+          "valor": 0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "49",
+          "paginaId": "4",
+          "nome": "Betboom",
+          "status": "vendido",
+          "valor": 1000.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "50",
+          "paginaId": "4",
+          "nome": "Gol de Bet",
+          "status": "vendido",
+          "valor": 250.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "51",
+          "paginaId": "4",
+          "nome": "Hiperbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "52",
+          "paginaId": "4",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 7
+        },
+        {
+          "id": "53",
+          "paginaId": "4",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 8
+        },
+        {
+          "id": "54",
+          "paginaId": "4",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 9
+        },
+        {
+          "id": "55",
+          "paginaId": "4",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 10
+        },
+        {
+          "id": "56",
+          "paginaId": "4",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 11
+        },
+        {
+          "id": "57",
+          "paginaId": "4",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 12
+        },
+        {
+          "id": "58",
+          "paginaId": "4",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 13
+        },
+        {
+          "id": "59",
+          "paginaId": "4",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 14
+        },
+        {
+          "id": "60",
+          "paginaId": "4",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "jornalId": "2",
+      "nome": "PLATAFORMAS LEGALIZADAS",
+      "status": "ativa",
+      "numeroOperadores": 8,
+      "trafego": 3271,
+      "operadores": [
+        {
+          "id": "61",
+          "paginaId": "5",
+          "nome": "Br4bet",
+          "status": "vendido",
+          "valor": 400.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "62",
+          "paginaId": "5",
+          "nome": "Lotogreen",
+          "status": "vendido",
+          "valor": 200.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "63",
+          "paginaId": "5",
+          "nome": "Brazino777",
+          "status": "vendido",
+          "valor": 1000.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "64",
+          "paginaId": "5",
+          "nome": "Gol de Bet",
+          "status": "vendido",
+          "valor": 100.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "65",
+          "paginaId": "5",
+          "nome": "Rivalo",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "66",
+          "paginaId": "5",
+          "nome": "Brasil Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "67",
+          "paginaId": "5",
+          "nome": "Super Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "68",
+          "paginaId": "5",
+          "nome": "Bet Gorillas",
+          "status": "vendido",
+          "valor": 200.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "69",
+          "paginaId": "5",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 9
+        },
+        {
+          "id": "70",
+          "paginaId": "5",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 10
+        },
+        {
+          "id": "71",
+          "paginaId": "5",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 11
+        },
+        {
+          "id": "72",
+          "paginaId": "5",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 12
+        },
+        {
+          "id": "73",
+          "paginaId": "5",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 13
+        },
+        {
+          "id": "74",
+          "paginaId": "5",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 14
+        },
+        {
+          "id": "75",
+          "paginaId": "5",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "jornalId": "2",
+      "nome": "MELHORES CASAS DE APOSTAS",
+      "status": "ativa",
+      "numeroOperadores": 15,
+      "trafego": 2429,
+      "operadores": [
+        {
+          "id": "76",
+          "paginaId": "6",
+          "nome": "Stake",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "77",
+          "paginaId": "6",
+          "nome": "Betdásorte",
+          "status": "vendido",
+          "valor": 1000.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "78",
+          "paginaId": "6",
+          "nome": "BR4Bet",
+          "status": "vendido",
+          "valor": 500.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "79",
+          "paginaId": "6",
+          "nome": "Oleybet",
+          "status": "vendido",
+          "valor": 800.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "80",
+          "paginaId": "6",
+          "nome": "Rivalo",
+          "status": "vendido",
+          "valor": 1500.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "81",
+          "paginaId": "6",
+          "nome": "Bateubet",
+          "status": "vendido",
+          "valor": 1000.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "82",
+          "paginaId": "6",
+          "nome": "CasadeApostas",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "83",
+          "paginaId": "6",
+          "nome": "Bravo Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "84",
+          "paginaId": "6",
+          "nome": "Alfabet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "85",
+          "paginaId": "6",
+          "nome": "Esportivabet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "86",
+          "paginaId": "6",
+          "nome": "Bet7k",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 11,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "87",
+          "paginaId": "6",
+          "nome": "Segurobet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 12,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "88",
+          "paginaId": "6",
+          "nome": "Blaze",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 13,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "89",
+          "paginaId": "6",
+          "nome": "KTO",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 14,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "90",
+          "paginaId": "6",
+          "nome": "Verabet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 15,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "jornalId": "2",
+      "nome": "PLATAFORMAS DE 10 CENTAVOS",
+      "status": "ativa",
+      "numeroOperadores": 5,
+      "trafego": 174,
+      "operadores": [
+        {
+          "id": "91",
+          "paginaId": "7",
+          "nome": "Stake",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "92",
+          "paginaId": "7",
+          "nome": "Sportingbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "93",
+          "paginaId": "7",
+          "nome": "Br4bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "94",
+          "paginaId": "7",
+          "nome": "Seubet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "95",
+          "paginaId": "7",
+          "nome": "BetdaSorte",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "96",
+          "paginaId": "7",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 6
+        },
+        {
+          "id": "97",
+          "paginaId": "7",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 7
+        },
+        {
+          "id": "98",
+          "paginaId": "7",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 8
+        },
+        {
+          "id": "99",
+          "paginaId": "7",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 9
+        },
+        {
+          "id": "100",
+          "paginaId": "7",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 10
+        },
+        {
+          "id": "101",
+          "paginaId": "7",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 11
+        },
+        {
+          "id": "102",
+          "paginaId": "7",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 12
+        },
+        {
+          "id": "103",
+          "paginaId": "7",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 13
+        },
+        {
+          "id": "104",
+          "paginaId": "7",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 14
+        },
+        {
+          "id": "105",
+          "paginaId": "7",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "jornalId": "2",
+      "nome": "CASSINOS LEGALIZADOS",
+      "status": "ativa",
+      "numeroOperadores": 15,
+      "trafego": 1361,
+      "operadores": [
+        {
+          "id": "106",
+          "paginaId": "8",
+          "nome": "Rivalo",
+          "status": "vendido",
+          "valor": 500.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "107",
+          "paginaId": "8",
+          "nome": "BR4bet",
+          "status": "vendido",
+          "valor": 400.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "108",
+          "paginaId": "8",
+          "nome": "Oleybet",
+          "status": "vendido",
+          "valor": 500.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "109",
+          "paginaId": "8",
+          "nome": "GoldeBet",
+          "status": "vendido",
+          "valor": 100.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "110",
+          "paginaId": "8",
+          "nome": "Betdasorte",
+          "status": "vendido",
+          "valor": 300.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "111",
+          "paginaId": "8",
+          "nome": "Estrelabet",
+          "status": "vendido",
+          "valor": 450.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "112",
+          "paginaId": "8",
+          "nome": "Bet7k",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "113",
+          "paginaId": "8",
+          "nome": "Hiperbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "114",
+          "paginaId": "8",
+          "nome": "Bateubet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "115",
+          "paginaId": "8",
+          "nome": "Betano",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "116",
+          "paginaId": "8",
+          "nome": "Blaze",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 11,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "117",
+          "paginaId": "8",
+          "nome": "CassinoPix",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 12,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "118",
+          "paginaId": "8",
+          "nome": "McGames",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 13,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "119",
+          "paginaId": "8",
+          "nome": "Verabet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 14,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "120",
+          "paginaId": "8",
+          "nome": "PlayUZU",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 15,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "jornalId": "2",
+      "nome": "CASSINOS ONLINE",
+      "status": "ativa",
+      "numeroOperadores": 15,
+      "trafego": 69,
+      "operadores": [
+        {
+          "id": "121",
+          "paginaId": "9",
+          "nome": "Betano",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "122",
+          "paginaId": "9",
+          "nome": "BR4Bet",
+          "status": "vendido",
+          "valor": 400.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "123",
+          "paginaId": "9",
+          "nome": "Brazino777",
+          "status": "vendido",
+          "valor": 1000.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "124",
+          "paginaId": "9",
+          "nome": "Vbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "125",
+          "paginaId": "9",
+          "nome": "F12.Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "126",
+          "paginaId": "9",
+          "nome": "Novibet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "127",
+          "paginaId": "9",
+          "nome": "Sportingbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "128",
+          "paginaId": "9",
+          "nome": "Bateubet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "129",
+          "paginaId": "9",
+          "nome": "B2XBet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "130",
+          "paginaId": "9",
+          "nome": "Blaze",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "131",
+          "paginaId": "9",
+          "nome": "BetMGM",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 11,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "132",
+          "paginaId": "9",
+          "nome": "Estrelabet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 12,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "133",
+          "paginaId": "9",
+          "nome": "PlayUZU",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 13,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "134",
+          "paginaId": "9",
+          "nome": "Bet.Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 14,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "135",
+          "paginaId": "9",
+          "nome": "Donald.bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 15,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "jornalId": "2",
+      "nome": "MELHORES GRUPOS DE TELEGRAM",
+      "status": "ativa",
+      "numeroOperadores": 8,
+      "trafego": 0,
+      "operadores": [
+        {
+          "id": "136",
+          "paginaId": "10",
+          "nome": "xxxxxxxxx",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "137",
+          "paginaId": "10",
+          "nome": "KTO",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "138",
+          "paginaId": "10",
+          "nome": "Alfabet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "139",
+          "paginaId": "10",
+          "nome": "Br4bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "140",
+          "paginaId": "10",
+          "nome": "BetdaSorte",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "141",
+          "paginaId": "10",
+          "nome": "Segurobet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "142",
+          "paginaId": "10",
+          "nome": "Superbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "143",
+          "paginaId": "10",
+          "nome": "Seubet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "144",
+          "paginaId": "10",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 9
+        },
+        {
+          "id": "145",
+          "paginaId": "10",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 10
+        },
+        {
+          "id": "146",
+          "paginaId": "10",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 11
+        },
+        {
+          "id": "147",
+          "paginaId": "10",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 12
+        },
+        {
+          "id": "148",
+          "paginaId": "10",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 13
+        },
+        {
+          "id": "149",
+          "paginaId": "10",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 14
+        },
+        {
+          "id": "150",
+          "paginaId": "10",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "jornalId": "2",
+      "nome": "PLATAFORMA NOVA PAGANDO",
+      "status": "ativa",
+      "numeroOperadores": 12,
+      "trafego": 2769,
+      "operadores": [
+        {
+          "id": "151",
+          "paginaId": "11",
+          "nome": "Gol de Bet",
+          "status": "vendido",
+          "valor": 100.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "152",
+          "paginaId": "11",
+          "nome": "BetdaSorte",
+          "status": "vendido",
+          "valor": 750.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "153",
+          "paginaId": "11",
+          "nome": "Rivalo",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "154",
+          "paginaId": "11",
+          "nome": "Startbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "155",
+          "paginaId": "11",
+          "nome": "Bet7K",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "156",
+          "paginaId": "11",
+          "nome": "BetMGM",
+          "status": "vendido",
+          "valor": 300.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "157",
+          "paginaId": "11",
+          "nome": "BetGorillas",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "158",
+          "paginaId": "11",
+          "nome": "Brasil Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "159",
+          "paginaId": "11",
+          "nome": "Alfabet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "160",
+          "paginaId": "11",
+          "nome": "Playbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "161",
+          "paginaId": "11",
+          "nome": "Brazino777",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 11,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "162",
+          "paginaId": "11",
+          "nome": "CassinoPix",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 12,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "163",
+          "paginaId": "11",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 13
+        },
+        {
+          "id": "164",
+          "paginaId": "11",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 14
+        },
+        {
+          "id": "165",
+          "paginaId": "11",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "jornalId": "2",
+      "nome": "PLATAFORMA DE 5 REAIS",
+      "status": "ativa",
+      "numeroOperadores": 15,
+      "trafego": 680,
+      "operadores": [
+        {
+          "id": "166",
+          "paginaId": "12",
+          "nome": "BR4bet",
+          "status": "vendido",
+          "valor": 400.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "167",
+          "paginaId": "12",
+          "nome": "GoldeBet",
+          "status": "vendido",
+          "valor": 100.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "168",
+          "paginaId": "12",
+          "nome": "Lotogreen",
+          "status": "vendido",
+          "valor": 200.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "169",
+          "paginaId": "12",
+          "nome": "BetBoom",
+          "status": "vendido",
+          "valor": 1500.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "170",
+          "paginaId": "12",
+          "nome": "Segurobet",
+          "status": "vendido",
+          "valor": 250.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "171",
+          "paginaId": "12",
+          "nome": "Energiabet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "172",
+          "paginaId": "12",
+          "nome": "Alfabet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "173",
+          "paginaId": "12",
+          "nome": "Novibet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "174",
+          "paginaId": "12",
+          "nome": "Vbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "175",
+          "paginaId": "12",
+          "nome": "Hiperbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "176",
+          "paginaId": "12",
+          "nome": "MCGames",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 11,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "177",
+          "paginaId": "12",
+          "nome": "Lottoland",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 12,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "178",
+          "paginaId": "12",
+          "nome": "Superbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 13,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "179",
+          "paginaId": "12",
+          "nome": "Stake",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 14,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "180",
+          "paginaId": "12",
+          "nome": "F12.Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 15,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "jornalId": "2",
+      "nome": "APOSTAS HANDICAP",
+      "status": "ativa",
+      "numeroOperadores": 3,
+      "trafego": 0,
+      "operadores": [
+        {
+          "id": "181",
+          "paginaId": "13",
+          "nome": "Vbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "182",
+          "paginaId": "13",
+          "nome": "Betano",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "183",
+          "paginaId": "13",
+          "nome": "KTO",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "184",
+          "paginaId": "13",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 4
+        },
+        {
+          "id": "185",
+          "paginaId": "13",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 5
+        },
+        {
+          "id": "186",
+          "paginaId": "13",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 6
+        },
+        {
+          "id": "187",
+          "paginaId": "13",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 7
+        },
+        {
+          "id": "188",
+          "paginaId": "13",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 8
+        },
+        {
+          "id": "189",
+          "paginaId": "13",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 9
+        },
+        {
+          "id": "190",
+          "paginaId": "13",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 10
+        },
+        {
+          "id": "191",
+          "paginaId": "13",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 11
+        },
+        {
+          "id": "192",
+          "paginaId": "13",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 12
+        },
+        {
+          "id": "193",
+          "paginaId": "13",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 13
+        },
+        {
+          "id": "194",
+          "paginaId": "13",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 14
+        },
+        {
+          "id": "195",
+          "paginaId": "13",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "jornalId": "2",
+      "nome": "PLATAFORMA DE 3 REAIS",
+      "status": "ativa",
+      "numeroOperadores": 10,
+      "trafego": 1088,
+      "operadores": [
+        {
+          "id": "196",
+          "paginaId": "14",
+          "nome": "Betano",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "197",
+          "paginaId": "14",
+          "nome": "Zona de Jogo",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "198",
+          "paginaId": "14",
+          "nome": "Superbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "199",
+          "paginaId": "14",
+          "nome": "Stake",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "200",
+          "paginaId": "14",
+          "nome": "BetdaSorte",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "201",
+          "paginaId": "14",
+          "nome": "Energia Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "202",
+          "paginaId": "14",
+          "nome": "Brazino777",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "203",
+          "paginaId": "14",
+          "nome": "Vbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "204",
+          "paginaId": "14",
+          "nome": "Novibet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "205",
+          "paginaId": "14",
+          "nome": "Estrelabet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "206",
+          "paginaId": "14",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 11
+        },
+        {
+          "id": "207",
+          "paginaId": "14",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 12
+        },
+        {
+          "id": "208",
+          "paginaId": "14",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 13
+        },
+        {
+          "id": "209",
+          "paginaId": "14",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 14
+        },
+        {
+          "id": "210",
+          "paginaId": "14",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "jornalId": "2",
+      "nome": "NOVAS CASAS DE APOSTAS",
+      "status": "ativa",
+      "numeroOperadores": 9,
+      "trafego": 185,
+      "operadores": [
+        {
+          "id": "211",
+          "paginaId": "15",
+          "nome": "BetMGM",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "212",
+          "paginaId": "15",
+          "nome": "Esportivabet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "213",
+          "paginaId": "15",
+          "nome": "Bateubet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "214",
+          "paginaId": "15",
+          "nome": "Alfabet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "215",
+          "paginaId": "15",
+          "nome": "Multibet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "216",
+          "paginaId": "15",
+          "nome": "Seubet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "217",
+          "paginaId": "15",
+          "nome": "Segurobet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "218",
+          "paginaId": "15",
+          "nome": "Betboom",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "219",
+          "paginaId": "15",
+          "nome": "Rei da Sorte",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "220",
+          "paginaId": "15",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 10
+        },
+        {
+          "id": "221",
+          "paginaId": "15",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 11
+        },
+        {
+          "id": "222",
+          "paginaId": "15",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 12
+        },
+        {
+          "id": "223",
+          "paginaId": "15",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 13
+        },
+        {
+          "id": "224",
+          "paginaId": "15",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 14
+        },
+        {
+          "id": "225",
+          "paginaId": "15",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "jornalId": "2",
+      "nome": "PLATAFORMAS CONFIÁVEIS",
+      "status": "ativa",
+      "numeroOperadores": 11,
+      "trafego": 208,
+      "operadores": [
+        {
+          "id": "226",
+          "paginaId": "16",
+          "nome": "Superbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "227",
+          "paginaId": "16",
+          "nome": "bet365",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "228",
+          "paginaId": "16",
+          "nome": "Betano",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "229",
+          "paginaId": "16",
+          "nome": "Alfabet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "230",
+          "paginaId": "16",
+          "nome": "BR4Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "231",
+          "paginaId": "16",
+          "nome": "BetdaSorte",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "232",
+          "paginaId": "16",
+          "nome": "Lottoland",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "233",
+          "paginaId": "16",
+          "nome": "Novibet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "234",
+          "paginaId": "16",
+          "nome": "Tivo Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "235",
+          "paginaId": "16",
+          "nome": "F12.bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "236",
+          "paginaId": "16",
+          "nome": "KTO",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 11,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "237",
+          "paginaId": "16",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 12
+        },
+        {
+          "id": "238",
+          "paginaId": "16",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 13
+        },
+        {
+          "id": "239",
+          "paginaId": "16",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 14
+        },
+        {
+          "id": "240",
+          "paginaId": "16",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "jornalId": "2",
+      "nome": "BETS QUE PATROCINAM TIMES BRASILEIROS",
+      "status": "ativa",
+      "numeroOperadores": 9,
+      "trafego": 1227,
+      "operadores": [
+        {
+          "id": "241",
+          "paginaId": "17",
+          "nome": "Bet7k",
+          "status": "vendido",
+          "valor": 500.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "242",
+          "paginaId": "17",
+          "nome": "Superbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "243",
+          "paginaId": "17",
+          "nome": "Sportingbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "244",
+          "paginaId": "17",
+          "nome": "Alfabet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "245",
+          "paginaId": "17",
+          "nome": "Stake",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "246",
+          "paginaId": "17",
+          "nome": "Vbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "247",
+          "paginaId": "17",
+          "nome": "Blaze",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "248",
+          "paginaId": "17",
+          "nome": "Betano",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "249",
+          "paginaId": "17",
+          "nome": "Cassino Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "250",
+          "paginaId": "17",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 10
+        },
+        {
+          "id": "251",
+          "paginaId": "17",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 11
+        },
+        {
+          "id": "252",
+          "paginaId": "17",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 12
+        },
+        {
+          "id": "253",
+          "paginaId": "17",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 13
+        },
+        {
+          "id": "254",
+          "paginaId": "17",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 14
+        },
+        {
+          "id": "255",
+          "paginaId": "17",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "jornalId": "2",
+      "nome": "CASAS DE APOSTAS QUE NÃO LIMITAM",
+      "status": "ativa",
+      "numeroOperadores": 8,
+      "trafego": 904,
+      "operadores": [
+        {
+          "id": "256",
+          "paginaId": "18",
+          "nome": "Bet7k",
+          "status": "vendido",
+          "valor": 700.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "257",
+          "paginaId": "18",
+          "nome": "Oleybet",
+          "status": "vendido",
+          "valor": 500.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "258",
+          "paginaId": "18",
+          "nome": "Rivalo",
+          "status": "vendido",
+          "valor": 300.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "259",
+          "paginaId": "18",
+          "nome": "BetMGM",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "260",
+          "paginaId": "18",
+          "nome": "Alfabet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "261",
+          "paginaId": "18",
+          "nome": "Superbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "262",
+          "paginaId": "18",
+          "nome": "Bravobet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "263",
+          "paginaId": "18",
+          "nome": "Startbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "264",
+          "paginaId": "18",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 9
+        },
+        {
+          "id": "265",
+          "paginaId": "18",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 10
+        },
+        {
+          "id": "266",
+          "paginaId": "18",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 11
+        },
+        {
+          "id": "267",
+          "paginaId": "18",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 12
+        },
+        {
+          "id": "268",
+          "paginaId": "18",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 13
+        },
+        {
+          "id": "269",
+          "paginaId": "18",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 14
+        },
+        {
+          "id": "270",
+          "paginaId": "18",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    },
+    {
+      "id": "19",
+      "jornalId": "6",
+      "nome": "CASSINOS COM GIROS GRÁTIS",
+      "status": "ativa",
+      "numeroOperadores": 15,
+      "trafego": 0,
+      "operadores": [
+        {
+          "id": "271",
+          "paginaId": "19",
+          "nome": "Superbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "272",
+          "paginaId": "19",
+          "nome": "bet365",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "273",
+          "paginaId": "19",
+          "nome": "Betano",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "274",
+          "paginaId": "19",
+          "nome": "Brazino 777",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "275",
+          "paginaId": "19",
+          "nome": "Novibet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "276",
+          "paginaId": "19",
+          "nome": "Superbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "277",
+          "paginaId": "19",
+          "nome": "Blaze",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "278",
+          "paginaId": "19",
+          "nome": "Estrela Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "279",
+          "paginaId": "19",
+          "nome": "Betsson",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "280",
+          "paginaId": "19",
+          "nome": "Segurobet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "281",
+          "paginaId": "19",
+          "nome": "Lotogreen",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 11,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "282",
+          "paginaId": "19",
+          "nome": "Gol de Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 12,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "283",
+          "paginaId": "19",
+          "nome": "Bet Dá Sorte",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 13,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "284",
+          "paginaId": "19",
+          "nome": "Bateubet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 14,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "285",
+          "paginaId": "19",
+          "nome": "MC Games",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 15,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        }
+      ]
+    },
+    {
+      "id": "20",
+      "jornalId": "6",
+      "nome": "NOVOS CASSINOS ONLINE",
+      "status": "ativa",
+      "numeroOperadores": 10,
+      "trafego": 0,
+      "operadores": [
+        {
+          "id": "286",
+          "paginaId": "20",
+          "nome": "KTO",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "287",
+          "paginaId": "20",
+          "nome": "bet365",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "288",
+          "paginaId": "20",
+          "nome": "Stake",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "289",
+          "paginaId": "20",
+          "nome": "Blaze",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "290",
+          "paginaId": "20",
+          "nome": "Estrela Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "291",
+          "paginaId": "20",
+          "nome": "Lotogreen",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "292",
+          "paginaId": "20",
+          "nome": "Gol de Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "293",
+          "paginaId": "20",
+          "nome": "Betaki",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "294",
+          "paginaId": "20",
+          "nome": "Rivalo",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "295",
+          "paginaId": "20",
+          "nome": "Jogo de Ouro",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "296",
+          "paginaId": "20",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 11
+        },
+        {
+          "id": "297",
+          "paginaId": "20",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 12
+        },
+        {
+          "id": "298",
+          "paginaId": "20",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 13
+        },
+        {
+          "id": "299",
+          "paginaId": "20",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 14
+        },
+        {
+          "id": "300",
+          "paginaId": "20",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    },
+    {
+      "id": "21",
+      "jornalId": "6",
+      "nome": "PLATAFORMA DE 5 REAIS",
+      "status": "ativa",
+      "numeroOperadores": 15,
+      "trafego": 0,
+      "operadores": [
+        {
+          "id": "301",
+          "paginaId": "21",
+          "nome": "Stake",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "302",
+          "paginaId": "21",
+          "nome": "bet365",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "303",
+          "paginaId": "21",
+          "nome": "Betano",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "304",
+          "paginaId": "21",
+          "nome": "Novibet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "305",
+          "paginaId": "21",
+          "nome": "B2xbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "306",
+          "paginaId": "21",
+          "nome": "Multibet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "307",
+          "paginaId": "21",
+          "nome": "Betboom",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "308",
+          "paginaId": "21",
+          "nome": "Bet7K",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "309",
+          "paginaId": "21",
+          "nome": "Upbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "310",
+          "paginaId": "21",
+          "nome": "Betaki",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "311",
+          "paginaId": "21",
+          "nome": "MMA Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 11,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "312",
+          "paginaId": "21",
+          "nome": "Br4bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 12,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "313",
+          "paginaId": "21",
+          "nome": "Seguro bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 13,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "314",
+          "paginaId": "21",
+          "nome": "Pagolbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 14,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "315",
+          "paginaId": "21",
+          "nome": "Sportingbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 15,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        }
+      ]
+    },
+    {
+      "id": "22",
+      "jornalId": "6",
+      "nome": "PLATAFORMA NOVA",
+      "status": "ativa",
+      "numeroOperadores": 10,
+      "trafego": 0,
+      "operadores": [
+        {
+          "id": "316",
+          "paginaId": "22",
+          "nome": "BateuBet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "317",
+          "paginaId": "22",
+          "nome": "Gol de Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "318",
+          "paginaId": "22",
+          "nome": "Oley Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "319",
+          "paginaId": "22",
+          "nome": "Rivalo",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "320",
+          "paginaId": "22",
+          "nome": "Energia Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "321",
+          "paginaId": "22",
+          "nome": "Lotogreen",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "322",
+          "paginaId": "22",
+          "nome": "1xbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "323",
+          "paginaId": "22",
+          "nome": "BetAki",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "324",
+          "paginaId": "22",
+          "nome": "MMABet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "325",
+          "paginaId": "22",
+          "nome": "BravoBet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "326",
+          "paginaId": "22",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 11
+        },
+        {
+          "id": "327",
+          "paginaId": "22",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 12
+        },
+        {
+          "id": "328",
+          "paginaId": "22",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 13
+        },
+        {
+          "id": "329",
+          "paginaId": "22",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 14
+        },
+        {
+          "id": "330",
+          "paginaId": "22",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    },
+    {
+      "id": "23",
+      "jornalId": "6",
+      "nome": "SITES DE APOSTAS",
+      "status": "ativa",
+      "numeroOperadores": 10,
+      "trafego": 0,
+      "operadores": [
+        {
+          "id": "331",
+          "paginaId": "23",
+          "nome": "Betano",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "332",
+          "paginaId": "23",
+          "nome": "bet365",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "333",
+          "paginaId": "23",
+          "nome": "BetMGM",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "334",
+          "paginaId": "23",
+          "nome": "Betboom",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "335",
+          "paginaId": "23",
+          "nome": "Superbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "336",
+          "paginaId": "23",
+          "nome": "KTO",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "337",
+          "paginaId": "23",
+          "nome": "BateuBet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "338",
+          "paginaId": "23",
+          "nome": "Bet da Sorte",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "339",
+          "paginaId": "23",
+          "nome": "Esportiva Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "340",
+          "paginaId": "23",
+          "nome": "BR4Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "341",
+          "paginaId": "23",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 11
+        },
+        {
+          "id": "342",
+          "paginaId": "23",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 12
+        },
+        {
+          "id": "343",
+          "paginaId": "23",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 13
+        },
+        {
+          "id": "344",
+          "paginaId": "23",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 14
+        },
+        {
+          "id": "345",
+          "paginaId": "23",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    },
+    {
+      "id": "24",
+      "jornalId": "6",
+      "nome": "TOP 20 CASAS",
+      "status": "ativa",
+      "numeroOperadores": 15,
+      "trafego": 0,
+      "operadores": [
+        {
+          "id": "346",
+          "paginaId": "24",
+          "nome": "Gol de Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "347",
+          "paginaId": "24",
+          "nome": "Multibet",
+          "status": "vendido",
+          "valor": 500.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "348",
+          "paginaId": "24",
+          "nome": "Bet Aki",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "349",
+          "paginaId": "24",
+          "nome": "KTO",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "350",
+          "paginaId": "24",
+          "nome": "Brazino 777",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "351",
+          "paginaId": "24",
+          "nome": "Esportiva Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "352",
+          "paginaId": "24",
+          "nome": "Novibet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "353",
+          "paginaId": "24",
+          "nome": "Bet Dá Sorte",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "354",
+          "paginaId": "24",
+          "nome": "Betano",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "355",
+          "paginaId": "24",
+          "nome": "Energia Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "356",
+          "paginaId": "24",
+          "nome": "Rivalo",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 11,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "357",
+          "paginaId": "24",
+          "nome": "Oley Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 12,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "358",
+          "paginaId": "24",
+          "nome": "Bateu Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 13,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "359",
+          "paginaId": "24",
+          "nome": "Superbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 14,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "360",
+          "paginaId": "24",
+          "nome": "Segurobet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 15,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        }
+      ]
+    },
+    {
+      "id": "25",
+      "jornalId": "6",
+      "nome": "BETS AUTORIZADAS",
+      "status": "ativa",
+      "numeroOperadores": 10,
+      "trafego": 0,
+      "operadores": [
+        {
+          "id": "361",
+          "paginaId": "25",
+          "nome": "Betano",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "362",
+          "paginaId": "25",
+          "nome": "Betsson",
+          "status": "vendido",
+          "valor": 200.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "363",
+          "paginaId": "25",
+          "nome": "Vbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "364",
+          "paginaId": "25",
+          "nome": "Brazino777",
+          "status": "vendido",
+          "valor": 1000.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "365",
+          "paginaId": "25",
+          "nome": "Superbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "366",
+          "paginaId": "25",
+          "nome": "Bet dá Sorte",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "367",
+          "paginaId": "25",
+          "nome": "Multibet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "368",
+          "paginaId": "25",
+          "nome": "Gol de Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "369",
+          "paginaId": "25",
+          "nome": "Oley Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "370",
+          "paginaId": "25",
+          "nome": "Rivalo",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "371",
+          "paginaId": "25",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 11
+        },
+        {
+          "id": "372",
+          "paginaId": "25",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 12
+        },
+        {
+          "id": "373",
+          "paginaId": "25",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 13
+        },
+        {
+          "id": "374",
+          "paginaId": "25",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 14
+        },
+        {
+          "id": "375",
+          "paginaId": "25",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    },
+    {
+      "id": "26",
+      "jornalId": "6",
+      "nome": "PLATAFORMA COM BÔNUS",
+      "status": "ativa",
+      "numeroOperadores": 14,
+      "trafego": 0,
+      "operadores": [
+        {
+          "id": "376",
+          "paginaId": "26",
+          "nome": "Brasil Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "377",
+          "paginaId": "26",
+          "nome": "Multibet",
+          "status": "vendido",
+          "valor": 500.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "378",
+          "paginaId": "26",
+          "nome": "Gol de Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "379",
+          "paginaId": "26",
+          "nome": "BateuBet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "380",
+          "paginaId": "26",
+          "nome": "Esportiva Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "381",
+          "paginaId": "26",
+          "nome": "VBet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "382",
+          "paginaId": "26",
+          "nome": "Stake",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "383",
+          "paginaId": "26",
+          "nome": "Bet7K",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "384",
+          "paginaId": "26",
+          "nome": "Betano",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "385",
+          "paginaId": "26",
+          "nome": "BR4Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "386",
+          "paginaId": "26",
+          "nome": "Segurobet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 11,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "387",
+          "paginaId": "26",
+          "nome": "Rivalo",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 12,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "388",
+          "paginaId": "26",
+          "nome": "Oleybet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 13,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "389",
+          "paginaId": "26",
+          "nome": "Superbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 14,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "390",
+          "paginaId": "26",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    },
+    {
+      "id": "27",
+      "jornalId": "6",
+      "nome": "PLATAFORMA QUE MAIS PAGA",
+      "status": "ativa",
+      "numeroOperadores": 15,
+      "trafego": 0,
+      "operadores": [
+        {
+          "id": "391",
+          "paginaId": "27",
+          "nome": "Multibet",
+          "status": "vendido",
+          "valor": 750.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "392",
+          "paginaId": "27",
+          "nome": "Brasil Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "393",
+          "paginaId": "27",
+          "nome": "Gol de Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "394",
+          "paginaId": "27",
+          "nome": "Bet dá Sorte",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "395",
+          "paginaId": "27",
+          "nome": "Esportiva Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "396",
+          "paginaId": "27",
+          "nome": "Novibet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "397",
+          "paginaId": "27",
+          "nome": "Lotogreen",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "398",
+          "paginaId": "27",
+          "nome": "Br4bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "399",
+          "paginaId": "27",
+          "nome": "Superbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "400",
+          "paginaId": "27",
+          "nome": "Bateubet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "401",
+          "paginaId": "27",
+          "nome": "Vbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 11,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "402",
+          "paginaId": "27",
+          "nome": "Segurobet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 12,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "403",
+          "paginaId": "27",
+          "nome": "Stake",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 13,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "404",
+          "paginaId": "27",
+          "nome": "Oleybet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 14,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "405",
+          "paginaId": "27",
+          "nome": "Rivalo",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 15,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        }
+      ]
+    },
+    {
+      "id": "28",
+      "jornalId": "6",
+      "nome": "COPA DO MUNDO 2026",
+      "status": "ativa",
+      "numeroOperadores": 10,
+      "trafego": 0,
+      "operadores": [
+        {
+          "id": "406",
+          "paginaId": "28",
+          "nome": "Stake",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "407",
+          "paginaId": "28",
+          "nome": "Esportiva Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "408",
+          "paginaId": "28",
+          "nome": "Novibet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "409",
+          "paginaId": "28",
+          "nome": "bet365",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "410",
+          "paginaId": "28",
+          "nome": "Betano",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "411",
+          "paginaId": "28",
+          "nome": "Superbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "412",
+          "paginaId": "28",
+          "nome": "BETesporte",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "413",
+          "paginaId": "28",
+          "nome": "LuvaBet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "414",
+          "paginaId": "28",
+          "nome": "KTO",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "415",
+          "paginaId": "28",
+          "nome": "Betsson",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "416",
+          "paginaId": "28",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 11
+        },
+        {
+          "id": "417",
+          "paginaId": "28",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 12
+        },
+        {
+          "id": "418",
+          "paginaId": "28",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 13
+        },
+        {
+          "id": "419",
+          "paginaId": "28",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 14
+        },
+        {
+          "id": "420",
+          "paginaId": "28",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    },
+    {
+      "id": "29",
+      "jornalId": "6",
+      "nome": "BRASILEIRÃO 2026",
+      "status": "ativa",
+      "numeroOperadores": 10,
+      "trafego": 0,
+      "operadores": [
+        {
+          "id": "421",
+          "paginaId": "29",
+          "nome": "Betano",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "422",
+          "paginaId": "29",
+          "nome": "bet365",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "423",
+          "paginaId": "29",
+          "nome": "Superbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "424",
+          "paginaId": "29",
+          "nome": "F12 Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "425",
+          "paginaId": "29",
+          "nome": "Stake",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "426",
+          "paginaId": "29",
+          "nome": "Novibet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "427",
+          "paginaId": "29",
+          "nome": "KTO",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "428",
+          "paginaId": "29",
+          "nome": "Gol de Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "429",
+          "paginaId": "29",
+          "nome": "Lotogreen",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "430",
+          "paginaId": "29",
+          "nome": "Multibet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "431",
+          "paginaId": "29",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 11
+        },
+        {
+          "id": "432",
+          "paginaId": "29",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 12
+        },
+        {
+          "id": "433",
+          "paginaId": "29",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 13
+        },
+        {
+          "id": "434",
+          "paginaId": "29",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 14
+        },
+        {
+          "id": "435",
+          "paginaId": "29",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    },
+    {
+      "id": "30",
+      "jornalId": "6",
+      "nome": "AVIATOR",
+      "status": "ativa",
+      "numeroOperadores": 5,
+      "trafego": 0,
+      "operadores": [
+        {
+          "id": "436",
+          "paginaId": "30",
+          "nome": "KTO",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "437",
+          "paginaId": "30",
+          "nome": "Bet365",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "438",
+          "paginaId": "30",
+          "nome": "Super Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "439",
+          "paginaId": "30",
+          "nome": "Blaze",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "440",
+          "paginaId": "30",
+          "nome": "Betsson",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "441",
+          "paginaId": "30",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 6
+        },
+        {
+          "id": "442",
+          "paginaId": "30",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 7
+        },
+        {
+          "id": "443",
+          "paginaId": "30",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 8
+        },
+        {
+          "id": "444",
+          "paginaId": "30",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 9
+        },
+        {
+          "id": "445",
+          "paginaId": "30",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 10
+        },
+        {
+          "id": "446",
+          "paginaId": "30",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 11
+        },
+        {
+          "id": "447",
+          "paginaId": "30",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 12
+        },
+        {
+          "id": "448",
+          "paginaId": "30",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 13
+        },
+        {
+          "id": "449",
+          "paginaId": "30",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 14
+        },
+        {
+          "id": "450",
+          "paginaId": "30",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    },
+    {
+      "id": "31",
+      "jornalId": "6",
+      "nome": "SLOTS ONLINE",
+      "status": "ativa",
+      "numeroOperadores": 15,
+      "trafego": 0,
+      "operadores": [
+        {
+          "id": "451",
+          "paginaId": "31",
+          "nome": "KTO",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "452",
+          "paginaId": "31",
+          "nome": "Superbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "453",
+          "paginaId": "31",
+          "nome": "Stake",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "454",
+          "paginaId": "31",
+          "nome": "Novibet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "455",
+          "paginaId": "31",
+          "nome": "EstrelaBet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "456",
+          "paginaId": "31",
+          "nome": "McGames",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "457",
+          "paginaId": "31",
+          "nome": "Multibet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "458",
+          "paginaId": "31",
+          "nome": "BR4Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "459",
+          "paginaId": "31",
+          "nome": "F12Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "460",
+          "paginaId": "31",
+          "nome": "Bet da Sorte",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "461",
+          "paginaId": "31",
+          "nome": "SeguroBet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 11,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "462",
+          "paginaId": "31",
+          "nome": "Lotogreen",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 12,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "463",
+          "paginaId": "31",
+          "nome": "Jogo de Ouro",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 13,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "464",
+          "paginaId": "31",
+          "nome": "Bacana Play",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 14,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "465",
+          "paginaId": "31",
+          "nome": "Lottoland",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 15,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        }
+      ]
+    },
+    {
+      "id": "32",
+      "jornalId": "1",
+      "nome": "PLATAFORMA QUE MAIS PAGA",
+      "status": "ativa",
+      "numeroOperadores": 10,
+      "trafego": 2703,
+      "operadores": [
+        {
+          "id": "466",
+          "paginaId": "32",
+          "nome": "Br4bet",
+          "status": "vendido",
+          "valor": 400.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "467",
+          "paginaId": "32",
+          "nome": "Hiperbet",
+          "status": "vendido",
+          "valor": 250.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "468",
+          "paginaId": "32",
+          "nome": "Brazino777",
+          "status": "vendido",
+          "valor": 1000.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "469",
+          "paginaId": "32",
+          "nome": "Rivalo",
+          "status": "vendido",
+          "valor": 200.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "470",
+          "paginaId": "32",
+          "nome": "Brasil Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "471",
+          "paginaId": "32",
+          "nome": "Esportiva Bet",
+          "status": "vendido",
+          "valor": 800.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "472",
+          "paginaId": "32",
+          "nome": "BetGorillas",
+          "status": "vendido",
+          "valor": 200.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "473",
+          "paginaId": "32",
+          "nome": "Betano",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "474",
+          "paginaId": "32",
+          "nome": "Goldebet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "475",
+          "paginaId": "32",
+          "nome": "Segurobet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "476",
+          "paginaId": "32",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 11
+        },
+        {
+          "id": "477",
+          "paginaId": "32",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 12
+        },
+        {
+          "id": "478",
+          "paginaId": "32",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 13
+        },
+        {
+          "id": "479",
+          "paginaId": "32",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 14
+        },
+        {
+          "id": "480",
+          "paginaId": "32",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    },
+    {
+      "id": "33",
+      "jornalId": "1",
+      "nome": "CASAS DE APOSTAS",
+      "status": "ativa",
+      "numeroOperadores": 15,
+      "trafego": 4243,
+      "operadores": [
+        {
+          "id": "481",
+          "paginaId": "33",
+          "nome": "Stake",
+          "status": "vendido",
+          "valor": 5000.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "482",
+          "paginaId": "33",
+          "nome": "Multibet",
+          "status": "vendido",
+          "valor": 250.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "483",
+          "paginaId": "33",
+          "nome": "Novibet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "484",
+          "paginaId": "33",
+          "nome": "Rivalo",
+          "status": "vendido",
+          "valor": 200.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "485",
+          "paginaId": "33",
+          "nome": "KTO",
+          "status": "vendido",
+          "valor": 500.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "486",
+          "paginaId": "33",
+          "nome": "Brasil Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "487",
+          "paginaId": "33",
+          "nome": "Superbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "488",
+          "paginaId": "33",
+          "nome": "BetMGM",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "489",
+          "paginaId": "33",
+          "nome": "Alfabet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "490",
+          "paginaId": "33",
+          "nome": "Bet365",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "491",
+          "paginaId": "33",
+          "nome": "Brazino777",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 11,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "492",
+          "paginaId": "33",
+          "nome": "Start Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 12,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "493",
+          "paginaId": "33",
+          "nome": "Sportingbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 13,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "494",
+          "paginaId": "33",
+          "nome": "Play Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 14,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "495",
+          "paginaId": "33",
+          "nome": "BetGorillas",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 15,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        }
+      ]
+    },
+    {
+      "id": "34",
+      "jornalId": "1",
+      "nome": "PAGAMENTO ANTECIPADO",
+      "status": "ativa",
+      "numeroOperadores": 13,
+      "trafego": 1726,
+      "operadores": [
+        {
+          "id": "496",
+          "paginaId": "34",
+          "nome": "Br4bet",
+          "status": "vendido",
+          "valor": 300.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "497",
+          "paginaId": "34",
+          "nome": "Goldebet",
+          "status": "vendido",
+          "valor": 350.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "498",
+          "paginaId": "34",
+          "nome": "Segurobet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "499",
+          "paginaId": "34",
+          "nome": "Lotogreen",
+          "status": "vendido",
+          "valor": 200.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "500",
+          "paginaId": "34",
+          "nome": "MC Games",
+          "status": "vendido",
+          "valor": 200.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "501",
+          "paginaId": "34",
+          "nome": "Energia Bet",
+          "status": "vendido",
+          "valor": 150.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "502",
+          "paginaId": "34",
+          "nome": "KTO",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "503",
+          "paginaId": "34",
+          "nome": "Stake",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "504",
+          "paginaId": "34",
+          "nome": "Novibet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "505",
+          "paginaId": "34",
+          "nome": "Superbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "506",
+          "paginaId": "34",
+          "nome": "Estrela Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 11,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "507",
+          "paginaId": "34",
+          "nome": "Bet365",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 12,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "508",
+          "paginaId": "34",
+          "nome": "Betano",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 13,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "509",
+          "paginaId": "34",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 14
+        },
+        {
+          "id": "510",
+          "paginaId": "34",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    },
+    {
+      "id": "35",
+      "jornalId": "1",
+      "nome": "CASAS DE APOSTAS LEGALIZADAS",
+      "status": "ativa",
+      "numeroOperadores": 10,
+      "trafego": 1557,
+      "operadores": [
+        {
+          "id": "511",
+          "paginaId": "35",
+          "nome": "MC Games",
+          "status": "vendido",
+          "valor": 500.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "512",
+          "paginaId": "35",
+          "nome": "Br4Bet",
+          "status": "vendido",
+          "valor": 400.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "513",
+          "paginaId": "35",
+          "nome": "Goldebet",
+          "status": "vendido",
+          "valor": 500.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "514",
+          "paginaId": "35",
+          "nome": "Multibet",
+          "status": "vendido",
+          "valor": 250.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "515",
+          "paginaId": "35",
+          "nome": "Lotogreen",
+          "status": "vendido",
+          "valor": 100.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "516",
+          "paginaId": "35",
+          "nome": "Vbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "517",
+          "paginaId": "35",
+          "nome": "Superbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "518",
+          "paginaId": "35",
+          "nome": "Sportingbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "519",
+          "paginaId": "35",
+          "nome": "Betano",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "520",
+          "paginaId": "35",
+          "nome": "Stake",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "521",
+          "paginaId": "35",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 11
+        },
+        {
+          "id": "522",
+          "paginaId": "35",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 12
+        },
+        {
+          "id": "523",
+          "paginaId": "35",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 13
+        },
+        {
+          "id": "524",
+          "paginaId": "35",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 14
+        },
+        {
+          "id": "525",
+          "paginaId": "35",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    },
+    {
+      "id": "36",
+      "jornalId": "1",
+      "nome": "PLATAFORMA DE 3 REAIS",
+      "status": "ativa",
+      "numeroOperadores": 10,
+      "trafego": 0,
+      "operadores": [
+        {
+          "id": "526",
+          "paginaId": "36",
+          "nome": "Alfabet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "527",
+          "paginaId": "36",
+          "nome": "Superbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "528",
+          "paginaId": "36",
+          "nome": "Betnacional",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "529",
+          "paginaId": "36",
+          "nome": "Luva Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "530",
+          "paginaId": "36",
+          "nome": "Vbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "531",
+          "paginaId": "36",
+          "nome": "F12 Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "532",
+          "paginaId": "36",
+          "nome": "Esportiva Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "533",
+          "paginaId": "36",
+          "nome": "4win",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "534",
+          "paginaId": "36",
+          "nome": "Bateubet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "535",
+          "paginaId": "36",
+          "nome": "BetMGM",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "536",
+          "paginaId": "36",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 11
+        },
+        {
+          "id": "537",
+          "paginaId": "36",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 12
+        },
+        {
+          "id": "538",
+          "paginaId": "36",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 13
+        },
+        {
+          "id": "539",
+          "paginaId": "36",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 14
+        },
+        {
+          "id": "540",
+          "paginaId": "36",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    },
+    {
+      "id": "37",
+      "jornalId": "1",
+      "nome": "PLATAFORMA NOVA",
+      "status": "ativa",
+      "numeroOperadores": 15,
+      "trafego": 997,
+      "operadores": [
+        {
+          "id": "541",
+          "paginaId": "37",
+          "nome": "Oleybet",
+          "status": "vendido",
+          "valor": 500.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "542",
+          "paginaId": "37",
+          "nome": "Bateubet",
+          "status": "vendido",
+          "valor": 800.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "543",
+          "paginaId": "37",
+          "nome": "Goldebet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "544",
+          "paginaId": "37",
+          "nome": "Betboom",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "545",
+          "paginaId": "37",
+          "nome": "Brasil Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "546",
+          "paginaId": "37",
+          "nome": "Brazino777",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "547",
+          "paginaId": "37",
+          "nome": "Bet7k",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "548",
+          "paginaId": "37",
+          "nome": "Multibet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "549",
+          "paginaId": "37",
+          "nome": "Upbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "550",
+          "paginaId": "37",
+          "nome": "BetMGM",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "551",
+          "paginaId": "37",
+          "nome": "Segurobet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 11,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "552",
+          "paginaId": "37",
+          "nome": "Hiperbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 12,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "553",
+          "paginaId": "37",
+          "nome": "4win",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 13,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "554",
+          "paginaId": "37",
+          "nome": "Alfabet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 14,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "555",
+          "paginaId": "37",
+          "nome": "Vera Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 15,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        }
+      ]
+    },
+    {
+      "id": "38",
+      "jornalId": "1",
+      "nome": "NOVAS CASAS DE APOSTAS",
+      "status": "ativa",
+      "numeroOperadores": 10,
+      "trafego": 448,
+      "operadores": [
+        {
+          "id": "556",
+          "paginaId": "38",
+          "nome": "Rivalo",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "557",
+          "paginaId": "38",
+          "nome": "Br4bet",
+          "status": "vendido",
+          "valor": 400.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "558",
+          "paginaId": "38",
+          "nome": "Bateubet",
+          "status": "vendido",
+          "valor": 500.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "559",
+          "paginaId": "38",
+          "nome": "Goldebet",
+          "status": "vendido",
+          "valor": 250.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "560",
+          "paginaId": "38",
+          "nome": "Esportiva Bet",
+          "status": "vendido",
+          "valor": 750.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "561",
+          "paginaId": "38",
+          "nome": "Start Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "562",
+          "paginaId": "38",
+          "nome": "Multibet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "563",
+          "paginaId": "38",
+          "nome": "Brazino777",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "564",
+          "paginaId": "38",
+          "nome": "4win",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "565",
+          "paginaId": "38",
+          "nome": "Play Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "566",
+          "paginaId": "38",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 11
+        },
+        {
+          "id": "567",
+          "paginaId": "38",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 12
+        },
+        {
+          "id": "568",
+          "paginaId": "38",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 13
+        },
+        {
+          "id": "569",
+          "paginaId": "38",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 14
+        },
+        {
+          "id": "570",
+          "paginaId": "38",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    },
+    {
+      "id": "39",
+      "jornalId": "1",
+      "nome": "CASAS DE APOSTAS PARA ESCANTEIOS",
+      "status": "ativa",
+      "numeroOperadores": 10,
+      "trafego": 136,
+      "operadores": [
+        {
+          "id": "571",
+          "paginaId": "39",
+          "nome": "Multibet",
+          "status": "vendido",
+          "valor": 250.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "572",
+          "paginaId": "39",
+          "nome": "Br4bet",
+          "status": "vendido",
+          "valor": 300.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "573",
+          "paginaId": "39",
+          "nome": "Casa de Apostas",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "574",
+          "paginaId": "39",
+          "nome": "Bet da Sorte",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "575",
+          "paginaId": "39",
+          "nome": "Zeroum Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "576",
+          "paginaId": "39",
+          "nome": "Superbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "577",
+          "paginaId": "39",
+          "nome": "Stake",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "578",
+          "paginaId": "39",
+          "nome": "Betano",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "579",
+          "paginaId": "39",
+          "nome": "Bet365",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "580",
+          "paginaId": "39",
+          "nome": "Sportingbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "581",
+          "paginaId": "39",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 11
+        },
+        {
+          "id": "582",
+          "paginaId": "39",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 12
+        },
+        {
+          "id": "583",
+          "paginaId": "39",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 13
+        },
+        {
+          "id": "584",
+          "paginaId": "39",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 14
+        },
+        {
+          "id": "585",
+          "paginaId": "39",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    },
+    {
+      "id": "40",
+      "jornalId": "1",
+      "nome": "CASAS DE APOSTAS COM CASHBACK",
+      "status": "ativa",
+      "numeroOperadores": 6,
+      "trafego": 135,
+      "operadores": [
+        {
+          "id": "586",
+          "paginaId": "40",
+          "nome": "Br4Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "587",
+          "paginaId": "40",
+          "nome": "Jogo de Ouro",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "588",
+          "paginaId": "40",
+          "nome": "Novibet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "589",
+          "paginaId": "40",
+          "nome": "Rivalo",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "590",
+          "paginaId": "40",
+          "nome": "Segurobet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "591",
+          "paginaId": "40",
+          "nome": "Pagolbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "592",
+          "paginaId": "40",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 7
+        },
+        {
+          "id": "593",
+          "paginaId": "40",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 8
+        },
+        {
+          "id": "594",
+          "paginaId": "40",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 9
+        },
+        {
+          "id": "595",
+          "paginaId": "40",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 10
+        },
+        {
+          "id": "596",
+          "paginaId": "40",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 11
+        },
+        {
+          "id": "597",
+          "paginaId": "40",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 12
+        },
+        {
+          "id": "598",
+          "paginaId": "40",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 13
+        },
+        {
+          "id": "599",
+          "paginaId": "40",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 14
+        },
+        {
+          "id": "600",
+          "paginaId": "40",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    },
+    {
+      "id": "41",
+      "jornalId": "5",
+      "nome": "CASAS DE APOSTAS",
+      "status": "ativa",
+      "numeroOperadores": 15,
+      "trafego": 4406,
+      "operadores": [
+        {
+          "id": "601",
+          "paginaId": "41",
+          "nome": "Stake",
+          "status": "vendido",
+          "valor": 8000.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "602",
+          "paginaId": "41",
+          "nome": "MC Games",
+          "status": "vendido",
+          "valor": 250.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "603",
+          "paginaId": "41",
+          "nome": "Esportivabet",
+          "status": "vendido",
+          "valor": 1000.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "604",
+          "paginaId": "41",
+          "nome": "Novibet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "605",
+          "paginaId": "41",
+          "nome": "Energia Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "606",
+          "paginaId": "41",
+          "nome": "Br4bet",
+          "status": "vendido",
+          "valor": 400.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "607",
+          "paginaId": "41",
+          "nome": "Multibet",
+          "status": "vendido",
+          "valor": 250.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "608",
+          "paginaId": "41",
+          "nome": "Betano",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "609",
+          "paginaId": "41",
+          "nome": "Alfabet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "610",
+          "paginaId": "41",
+          "nome": "Superbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "611",
+          "paginaId": "41",
+          "nome": "Rivalo",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 11,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "612",
+          "paginaId": "41",
+          "nome": "Oleybet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 12,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "613",
+          "paginaId": "41",
+          "nome": "Bet7k",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 13,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "614",
+          "paginaId": "41",
+          "nome": "Gol de Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 14,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "615",
+          "paginaId": "41",
+          "nome": "Luva Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 15,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        }
+      ]
+    },
+    {
+      "id": "42",
+      "jornalId": "7",
+      "nome": "PLATAFORMA NOVA",
+      "status": "ativa",
+      "numeroOperadores": 10,
+      "trafego": 1034,
+      "operadores": [
+        {
+          "id": "616",
+          "paginaId": "42",
+          "nome": "Oleybet",
+          "status": "vendido",
+          "valor": 500.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "617",
+          "paginaId": "42",
+          "nome": "Brasil Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "618",
+          "paginaId": "42",
+          "nome": "Tradicional Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "619",
+          "paginaId": "42",
+          "nome": "Rivalo",
+          "status": "vendido",
+          "valor": 300.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "620",
+          "paginaId": "42",
+          "nome": "BetWarrior",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "621",
+          "paginaId": "42",
+          "nome": "Bet7k",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "622",
+          "paginaId": "42",
+          "nome": "Alfabet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "623",
+          "paginaId": "42",
+          "nome": "Zona de Jogo",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "624",
+          "paginaId": "42",
+          "nome": "Bravobet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "625",
+          "paginaId": "42",
+          "nome": "Playbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "626",
+          "paginaId": "42",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 11
+        },
+        {
+          "id": "627",
+          "paginaId": "42",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 12
+        },
+        {
+          "id": "628",
+          "paginaId": "42",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 13
+        },
+        {
+          "id": "629",
+          "paginaId": "42",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 14
+        },
+        {
+          "id": "630",
+          "paginaId": "42",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    },
+    {
+      "id": "43",
+      "jornalId": "3",
+      "nome": "BETS QUE MAIS PAGAM",
+      "status": "ativa",
+      "numeroOperadores": 15,
+      "trafego": 2264,
+      "operadores": [
+        {
+          "id": "631",
+          "paginaId": "43",
+          "nome": "Betboom",
+          "status": "vendido",
+          "valor": 1000.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "632",
+          "paginaId": "43",
+          "nome": "Oleybet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "633",
+          "paginaId": "43",
+          "nome": "Bravo Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "634",
+          "paginaId": "43",
+          "nome": "Rivalo",
+          "status": "vendido",
+          "valor": 100.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "635",
+          "paginaId": "43",
+          "nome": "Rei da Sorte",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "636",
+          "paginaId": "43",
+          "nome": "Estrelabet",
+          "status": "vendido",
+          "valor": 100.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "637",
+          "paginaId": "43",
+          "nome": "Bet7k",
+          "status": "vendido",
+          "valor": 400.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "638",
+          "paginaId": "43",
+          "nome": "Casa de Apostas",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "639",
+          "paginaId": "43",
+          "nome": "bet365",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "640",
+          "paginaId": "43",
+          "nome": "Stake",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "641",
+          "paginaId": "43",
+          "nome": "Playbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 11,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "642",
+          "paginaId": "43",
+          "nome": "BetFalcons",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 12,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "643",
+          "paginaId": "43",
+          "nome": "Hiperbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 13,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "644",
+          "paginaId": "43",
+          "nome": "Upbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 14,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "645",
+          "paginaId": "43",
+          "nome": "Pagolbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 15,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        }
+      ]
+    },
+    {
+      "id": "44",
+      "jornalId": "3",
+      "nome": "PLATAFORMAS COM BÔNUS NO BRASIL",
+      "status": "ativa",
+      "numeroOperadores": 10,
+      "trafego": 1405,
+      "operadores": [
+        {
+          "id": "646",
+          "paginaId": "44",
+          "nome": "Energia Bet",
+          "status": "vendido",
+          "valor": 500.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "647",
+          "paginaId": "44",
+          "nome": "MC Games",
+          "status": "vendido",
+          "valor": 200.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "648",
+          "paginaId": "44",
+          "nome": "Start.Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "649",
+          "paginaId": "44",
+          "nome": "Betaki",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "650",
+          "paginaId": "44",
+          "nome": "Bet7K",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "651",
+          "paginaId": "44",
+          "nome": "Br4bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "652",
+          "paginaId": "44",
+          "nome": "Cassino",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "653",
+          "paginaId": "44",
+          "nome": "ZeroUm",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "654",
+          "paginaId": "44",
+          "nome": "KTO",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "655",
+          "paginaId": "44",
+          "nome": "Bateubet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "656",
+          "paginaId": "44",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 11
+        },
+        {
+          "id": "657",
+          "paginaId": "44",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 12
+        },
+        {
+          "id": "658",
+          "paginaId": "44",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 13
+        },
+        {
+          "id": "659",
+          "paginaId": "44",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 14
+        },
+        {
+          "id": "660",
+          "paginaId": "44",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    },
+    {
+      "id": "45",
+      "jornalId": "3",
+      "nome": "CASSINOS ONLINE",
+      "status": "ativa",
+      "numeroOperadores": 15,
+      "trafego": 1235,
+      "operadores": [
+        {
+          "id": "661",
+          "paginaId": "45",
+          "nome": "Betano",
+          "status": "vendido",
+          "valor": 250.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "662",
+          "paginaId": "45",
+          "nome": "Brazino 777",
+          "status": "vendido",
+          "valor": 1000.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "663",
+          "paginaId": "45",
+          "nome": "PlayUZU",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "664",
+          "paginaId": "45",
+          "nome": "Novibet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "665",
+          "paginaId": "45",
+          "nome": "Oleybet",
+          "status": "vendido",
+          "valor": 200.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "666",
+          "paginaId": "45",
+          "nome": "Estrela.Bet",
+          "status": "vendido",
+          "valor": 500.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "667",
+          "paginaId": "45",
+          "nome": "Vbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "668",
+          "paginaId": "45",
+          "nome": "Zona de Jogo",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "669",
+          "paginaId": "45",
+          "nome": "Casa de Apostas",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "670",
+          "paginaId": "45",
+          "nome": "bet365",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "671",
+          "paginaId": "45",
+          "nome": "Blaze",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 11,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "672",
+          "paginaId": "45",
+          "nome": "Geralbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 12,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "673",
+          "paginaId": "45",
+          "nome": "4win",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 13,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "674",
+          "paginaId": "45",
+          "nome": "Start Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 14,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "675",
+          "paginaId": "45",
+          "nome": "Zeroum",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 15,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        }
+      ]
+    },
+    {
+      "id": "46",
+      "jornalId": "3",
+      "nome": "SITES FORTUNE TIGER",
+      "status": "ativa",
+      "numeroOperadores": 5,
+      "trafego": 1234,
+      "operadores": [
+        {
+          "id": "676",
+          "paginaId": "46",
+          "nome": "Oleybet",
+          "status": "vendido",
+          "valor": 200.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "677",
+          "paginaId": "46",
+          "nome": "Betsson",
+          "status": "vendido",
+          "valor": 3500.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "678",
+          "paginaId": "46",
+          "nome": "Multibet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "679",
+          "paginaId": "46",
+          "nome": "bet365",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "680",
+          "paginaId": "46",
+          "nome": "Rivalo",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "681",
+          "paginaId": "46",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 6
+        },
+        {
+          "id": "682",
+          "paginaId": "46",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 7
+        },
+        {
+          "id": "683",
+          "paginaId": "46",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 8
+        },
+        {
+          "id": "684",
+          "paginaId": "46",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 9
+        },
+        {
+          "id": "685",
+          "paginaId": "46",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 10
+        },
+        {
+          "id": "686",
+          "paginaId": "46",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 11
+        },
+        {
+          "id": "687",
+          "paginaId": "46",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 12
+        },
+        {
+          "id": "688",
+          "paginaId": "46",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 13
+        },
+        {
+          "id": "689",
+          "paginaId": "46",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 14
+        },
+        {
+          "id": "690",
+          "paginaId": "46",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    },
+    {
+      "id": "47",
+      "jornalId": "3",
+      "nome": "CASSINO DEPÓSITO MÍNIMO 1 REAL",
+      "status": "ativa",
+      "numeroOperadores": 10,
+      "trafego": 711,
+      "operadores": [
+        {
+          "id": "691",
+          "paginaId": "47",
+          "nome": "Jogo de Ouro",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "692",
+          "paginaId": "47",
+          "nome": "Vbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "693",
+          "paginaId": "47",
+          "nome": "Bet7k",
+          "status": "vendido",
+          "valor": 100.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "694",
+          "paginaId": "47",
+          "nome": "Brazino777",
+          "status": "vendido",
+          "valor": 1000.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "695",
+          "paginaId": "47",
+          "nome": "Estrela Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "696",
+          "paginaId": "47",
+          "nome": "Bravo Bet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "697",
+          "paginaId": "47",
+          "nome": "Superbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "698",
+          "paginaId": "47",
+          "nome": "Zeroum",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "699",
+          "paginaId": "47",
+          "nome": "Tivobet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "700",
+          "paginaId": "47",
+          "nome": "Hiperbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "701",
+          "paginaId": "47",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 11
+        },
+        {
+          "id": "702",
+          "paginaId": "47",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 12
+        },
+        {
+          "id": "703",
+          "paginaId": "47",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 13
+        },
+        {
+          "id": "704",
+          "paginaId": "47",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 14
+        },
+        {
+          "id": "705",
+          "paginaId": "47",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    },
+    {
+      "id": "48",
+      "jornalId": "3",
+      "nome": "CASA DE APOSTA DEPÓSITO MÍNIMO 1 REAL",
+      "status": "ativa",
+      "numeroOperadores": 10,
+      "trafego": 685,
+      "operadores": [
+        {
+          "id": "706",
+          "paginaId": "48",
+          "nome": "Jogo de Ouro",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "707",
+          "paginaId": "48",
+          "nome": "Bet7k",
+          "status": "vendido",
+          "valor": 100.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "708",
+          "paginaId": "48",
+          "nome": "Casa de Apostas",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "709",
+          "paginaId": "48",
+          "nome": "Vbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "710",
+          "paginaId": "48",
+          "nome": "Hiperbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "711",
+          "paginaId": "48",
+          "nome": "Bet da Sorte",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "712",
+          "paginaId": "48",
+          "nome": "4win",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "713",
+          "paginaId": "48",
+          "nome": "Superbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "714",
+          "paginaId": "48",
+          "nome": "Zero Um",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "715",
+          "paginaId": "48",
+          "nome": "Reiabet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "716",
+          "paginaId": "48",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 11
+        },
+        {
+          "id": "717",
+          "paginaId": "48",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 12
+        },
+        {
+          "id": "718",
+          "paginaId": "48",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 13
+        },
+        {
+          "id": "719",
+          "paginaId": "48",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 14
+        },
+        {
+          "id": "720",
+          "paginaId": "48",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    },
+    {
+      "id": "49",
+      "jornalId": "3",
+      "nome": "MELHORES CASAS DE APOSTAS",
+      "status": "ativa",
+      "numeroOperadores": 15,
+      "trafego": 624,
+      "operadores": [
+        {
+          "id": "721",
+          "paginaId": "49",
+          "nome": "Stake",
+          "status": "vendido",
+          "valor": 3000.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "722",
+          "paginaId": "49",
+          "nome": "Oleybet",
+          "status": "vendido",
+          "valor": 200.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "723",
+          "paginaId": "49",
+          "nome": "Energia Bet",
+          "status": "vendido",
+          "valor": 500.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "724",
+          "paginaId": "49",
+          "nome": "Betaki",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "725",
+          "paginaId": "49",
+          "nome": "Betano",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "726",
+          "paginaId": "49",
+          "nome": "Superbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "727",
+          "paginaId": "49",
+          "nome": "bet365",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "728",
+          "paginaId": "49",
+          "nome": "Novibet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "729",
+          "paginaId": "49",
+          "nome": "Sportingbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "730",
+          "paginaId": "49",
+          "nome": "Segurobet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "731",
+          "paginaId": "49",
+          "nome": "KTO",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 11,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "732",
+          "paginaId": "49",
+          "nome": "Pagolbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 12,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "733",
+          "paginaId": "49",
+          "nome": "Brasilbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 13,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "734",
+          "paginaId": "49",
+          "nome": "Zeroum",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 14,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "735",
+          "paginaId": "49",
+          "nome": "MMABET",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 15,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        }
+      ]
+    },
+    {
+      "id": "50",
+      "jornalId": "3",
+      "nome": "SITES PARA INICIANTES",
+      "status": "ativa",
+      "numeroOperadores": 15,
+      "trafego": 603,
+      "operadores": [
+        {
+          "id": "736",
+          "paginaId": "50",
+          "nome": "MC Games",
+          "status": "vendido",
+          "valor": 200.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "737",
+          "paginaId": "50",
+          "nome": "Oleybet",
+          "status": "vendido",
+          "valor": 100.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "738",
+          "paginaId": "50",
+          "nome": "Zeroum",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "739",
+          "paginaId": "50",
+          "nome": "Rei da Sorte",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "740",
+          "paginaId": "50",
+          "nome": "Rivalo",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "741",
+          "paginaId": "50",
+          "nome": "Superbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "742",
+          "paginaId": "50",
+          "nome": "Casa de Apostas",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "743",
+          "paginaId": "50",
+          "nome": "Betano",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "744",
+          "paginaId": "50",
+          "nome": "Playbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "745",
+          "paginaId": "50",
+          "nome": "KTO",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "746",
+          "paginaId": "50",
+          "nome": "Brasilbet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 11,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "747",
+          "paginaId": "50",
+          "nome": "Betaki",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 12,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "748",
+          "paginaId": "50",
+          "nome": "BetFalcons",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 13,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "749",
+          "paginaId": "50",
+          "nome": "Stake",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 14,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "750",
+          "paginaId": "50",
+          "nome": "Segurobet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 15,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        }
+      ]
+    },
+    {
+      "id": "51",
+      "jornalId": "3",
+      "nome": "NOVAS CASAS DE APOSTAS",
+      "status": "ativa",
+      "numeroOperadores": 10,
+      "trafego": 461,
+      "operadores": [
+        {
+          "id": "751",
+          "paginaId": "51",
+          "nome": "Bet7K",
+          "status": "vendido",
+          "valor": 100.0,
+          "ordem": 1,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "752",
+          "paginaId": "51",
+          "nome": "Oleybet",
+          "status": "vendido",
+          "valor": 100.0,
+          "ordem": 2,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "753",
+          "paginaId": "51",
+          "nome": "Lotogreen",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 3,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "754",
+          "paginaId": "51",
+          "nome": "ZeroUm",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 4,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "755",
+          "paginaId": "51",
+          "nome": "Playbet",
+          "status": "vendido",
+          "valor": 200.0,
+          "ordem": 5,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "756",
+          "paginaId": "51",
+          "nome": "Zona de Jogo",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 6,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "757",
+          "paginaId": "51",
+          "nome": "Bateubet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 7,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "758",
+          "paginaId": "51",
+          "nome": "Rei da Sorte",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 8,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "759",
+          "paginaId": "51",
+          "nome": "MultiBet",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 9,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "760",
+          "paginaId": "51",
+          "nome": "BETesporte",
+          "status": "vendido",
+          "valor": 0.0,
+          "ordem": 10,
+          "vendidoEm": "2024-05-15T11:20:00Z"
+        },
+        {
+          "id": "761",
+          "paginaId": "51",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 11
+        },
+        {
+          "id": "762",
+          "paginaId": "51",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 12
+        },
+        {
+          "id": "763",
+          "paginaId": "51",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 13
+        },
+        {
+          "id": "764",
+          "paginaId": "51",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 14
+        },
+        {
+          "id": "765",
+          "paginaId": "51",
+          "nome": "Vazio",
+          "status": "livre",
+          "valor": 0,
+          "ordem": 15
+        }
+      ]
+    }
+  ]
+}

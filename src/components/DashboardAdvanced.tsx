@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, LineChart, Line, ResponsiveContainer } from 'recharts';
 import { TrendingUp, TrendingDown, Target, DollarSign, Users, AlertCircle } from 'lucide-react';
-import { HeatmapSlots } from '@/components/HeatmapSlots';
 import { TopPerformers } from '@/components/TopPerformers';
-import { ActivityTimeline } from '@/components/ActivityTimeline';
+import { useData } from '@/context/DataContext';
 
 export const DashboardAdvanced = () => {
+  const { jornais, paginas } = useData();
   const [selectedFilters, setSelectedFilters] = useState({
     jornal: 'todos',
     status: 'todos',
@@ -16,67 +16,73 @@ export const DashboardAdvanced = () => {
     valorMax: 10000
   });
 
-  // Dados reais dos jornais
-  const dadosReaisJornais = [
-    {
-      nome: 'Lakers Brasil',
-      receita: 11650,
-      slotsVendidos: 5,
-      slotsTotal: 18,
-      ocupacao: 27.8
-    },
-    {
-      nome: 'Trivela',
-      receita: 10500,
-      slotsVendidos: 8,
-      slotsTotal: 23,
-      ocupacao: 34.8
-    },
-    {
-      nome: 'Um Dois Esportes',
-      receita: 4900,
-      slotsVendidos: 4,
-      slotsTotal: 17,
-      ocupacao: 23.5
-    },
-    {
-      nome: 'Gazeta do Povo',
-      receita: 2750,
-      slotsVendidos: 3,
-      slotsTotal: 28,
-      ocupacao: 10.7
-    },
-    {
-      nome: 'Placar',
-      receita: 0,
-      slotsVendidos: 0,
-      slotsTotal: 28,
-      ocupacao: 0
-    }
-  ];
+  // Calcular métricas reais a partir dos dados
+  const dadosReaisJornais = useMemo(() => {
+    return jornais.map(jornal => {
+      const paginasJornal = paginas.filter(p => p.jornalId === jornal.id);
 
-  // Métricas principais com dados reais
-  const metricas = {
-    receitaTotal: 29800,
-    taxaOcupacao: 17.5,
-    slotsLivres: 94,
-    slotsTotal: 114,
-    ticketMedio: 1490,
-    potencialLivres: 140060,
-    slotsVendidos: 20,
-    totalJornais: 5,
-    totalPaginas: 66,
-    operadoresUnicos: 15
-  };
+      const slotsTotal = paginasJornal.reduce((sum, pagina) => sum + pagina.operadores.length, 0);
+      const slotsPagos = paginasJornal.reduce((sum, pagina) =>
+        sum + pagina.operadores.filter(op => op.valor > 0).length, 0
+      );
+      const receita = paginasJornal.reduce((sum, pagina) =>
+        sum + pagina.operadores.reduce((opSum, op) => opSum + op.valor, 0), 0
+      );
+      const ocupacao = slotsTotal > 0 ? (slotsPagos / slotsTotal) * 100 : 0;
 
-  // Dados para gráficos com valores reais
-  const dadosReceita = dadosReaisJornais.map(jornal => ({
-    nome: jornal.nome,
-    receita: jornal.receita,
-    slots: jornal.slotsTotal,
-    vendidos: jornal.slotsVendidos,
-    livres: jornal.slotsTotal - jornal.slotsVendidos
-  }));
+      return {
+        nome: jornal.nome,
+        receita: receita,
+        slotsVendidos: slotsPagos,
+        slotsTotal: slotsTotal,
+        slotsLivres: slotsTotal - slotsPagos,
+        ocupacao: ocupacao
+      };
+    }).filter(j => j.slotsTotal > 0); // Apenas jornais com dados
+  }, [jornais, paginas]);
+
+  // Métricas principais calculadas
+  const metricas = useMemo(() => {
+    const receitaTotal = dadosReaisJornais.reduce((sum, j) => sum + j.receita, 0);
+    const slotsTotal = dadosReaisJornais.reduce((sum, j) => sum + j.slotsTotal, 0);
+    const slotsVendidos = dadosReaisJornais.reduce((sum, j) => sum + j.slotsVendidos, 0);
+    const slotsLivres = slotsTotal - slotsVendidos;
+    const taxaOcupacao = slotsTotal > 0 ? (slotsVendidos / slotsTotal) * 100 : 0;
+    const ticketMedio = slotsVendidos > 0 ? receitaTotal / slotsVendidos : 0;
+    const potencialLivres = ticketMedio * slotsLivres;
+
+    // Contar operadores únicos
+    const operadoresSet = new Set<string>();
+    paginas.forEach(pagina => {
+      pagina.operadores.forEach(op => {
+        operadoresSet.add(op.nome.toLowerCase().trim());
+      });
+    });
+
+    return {
+      receitaTotal,
+      taxaOcupacao,
+      slotsLivres,
+      slotsTotal,
+      ticketMedio,
+      potencialLivres,
+      slotsVendidos,
+      totalJornais: dadosReaisJornais.length,
+      totalPaginas: paginas.length,
+      operadoresUnicos: operadoresSet.size
+    };
+  }, [dadosReaisJornais, paginas]);
+
+  // Dados para gráficos
+  const dadosReceita = useMemo(() => {
+    return dadosReaisJornais.map(jornal => ({
+      nome: jornal.nome,
+      receita: jornal.receita,
+      slots: jornal.slotsTotal,
+      vendidos: jornal.slotsVendidos,
+      livres: jornal.slotsLivres
+    }));
+  }, [dadosReaisJornais]);
 
   const chartConfig = {
     receita: { label: "Receita", color: "#2F6BFF" },
@@ -95,11 +101,10 @@ export const DashboardAdvanced = () => {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold" style={{ color: '#2F6BFF' }}>
-              R$ {metricas.receitaTotal.toLocaleString()}
+              € {metricas.receitaTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </div>
-            <div className="flex items-center text-xs text-muted-foreground">
-              <TrendingUp className="h-3 w-3 mr-1 text-green-600" />
-              +R$ 8.200 vs mês anterior
+            <div className="text-xs text-muted-foreground">
+              {metricas.slotsVendidos} slots vendidos
             </div>
           </CardContent>
         </Card>
@@ -111,17 +116,16 @@ export const DashboardAdvanced = () => {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-gray-900">
-              {metricas.taxaOcupacao}%
+              {metricas.taxaOcupacao.toFixed(1)}%
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
-              <div 
-                className="bg-blue-600 h-2 rounded-full transition-all" 
+              <div
+                className="bg-blue-600 h-2 rounded-full transition-all"
                 style={{ width: `${metricas.taxaOcupacao}%` }}
               ></div>
             </div>
-            <div className="flex items-center text-xs text-muted-foreground mt-1">
-              <TrendingUp className="h-3 w-3 mr-1 text-green-600" />
-              +12% vs mês anterior
+            <div className="text-xs text-muted-foreground mt-1">
+              {metricas.slotsVendidos} de {metricas.slotsTotal} slots
             </div>
           </CardContent>
         </Card>
@@ -136,7 +140,7 @@ export const DashboardAdvanced = () => {
               {metricas.slotsLivres}
             </div>
             <div className="text-xs text-muted-foreground">
-              Potencial: R$ {metricas.potencialLivres.toLocaleString()}
+              Potencial: € {metricas.potencialLivres.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </div>
           </CardContent>
         </Card>
@@ -148,11 +152,10 @@ export const DashboardAdvanced = () => {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-green-600">
-              R$ {metricas.ticketMedio.toLocaleString()}
+              € {metricas.ticketMedio.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </div>
-            <div className="flex items-center text-xs text-muted-foreground">
-              <TrendingUp className="h-3 w-3 mr-1 text-green-600" />
-              +3 operadores vs mês anterior
+            <div className="text-xs text-muted-foreground">
+              Valor médio por slot vendido
             </div>
           </CardContent>
         </Card>
@@ -197,117 +200,37 @@ export const DashboardAdvanced = () => {
         </Card>
       </div>
 
-      {/* Mapa de Calor */}
-      <Card>
+      {/* Gráfico de Pizza - Receita por Jornal */}
+      <Card className="mb-6">
         <CardHeader>
-          <CardTitle>Mapa de Calor - Ocupação dos Slots</CardTitle>
+          <CardTitle className="text-lg">Receita por Jornal</CardTitle>
         </CardHeader>
-        <CardContent>
-          <HeatmapSlots jornais={[]} filters={selectedFilters} />
+        <CardContent className="flex items-center justify-center">
+          <ChartContainer config={chartConfig} className="h-[300px] w-full">
+            <ResponsiveContainer width="100%" height="100%">
+              <PieChart>
+                <Pie
+                  data={dadosReceita}
+                  dataKey="receita"
+                  nameKey="nome"
+                  cx="50%"
+                  cy="50%"
+                  outerRadius={80}
+                  label={({ nome, receita }) => receita > 0 ? `${nome}: €${(receita/1000).toFixed(1)}k` : null}
+                >
+                  {dadosReceita.map((_, index) => (
+                    <Cell key={`cell-${index}`} fill={`hsl(${index * 72}, 70%, 50%)`} />
+                  ))}
+                </Pie>
+                <ChartTooltip content={<ChartTooltipContent />} />
+              </PieChart>
+            </ResponsiveContainer>
+          </ChartContainer>
         </CardContent>
       </Card>
 
-      {/* Gráficos de Análise com melhor alinhamento */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-        {/* Gráfico de Pizza - Receita por Jornal */}
-        <Card className="flex flex-col">
-          <CardHeader>
-            <CardTitle className="text-lg">Receita por Jornal</CardTitle>
-          </CardHeader>
-          <CardContent className="flex-1 flex items-center justify-center">
-            <ChartContainer config={chartConfig} className="h-[300px] w-full">
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={dadosReceita}
-                    dataKey="receita"
-                    nameKey="nome"
-                    cx="50%"
-                    cy="50%"
-                    outerRadius={80}
-                    label={({ nome, receita }) => `${nome}: R$${(receita/1000).toFixed(1)}k`}
-                  >
-                    {dadosReceita.map((_, index) => (
-                      <Cell key={`cell-${index}`} fill={`hsl(${index * 72}, 70%, 50%)`} />
-                    ))}
-                  </Pie>
-                  <ChartTooltip content={<ChartTooltipContent />} />
-                </PieChart>
-              </ResponsiveContainer>
-            </ChartContainer>
-          </CardContent>
-        </Card>
-
-        {/* Gráfico de Barras - Slots por Status */}
-        <Card className="flex flex-col">
-          <CardHeader>
-            <CardTitle className="text-lg">Slots por Status</CardTitle>
-          </CardHeader>
-          <CardContent className="flex-1 flex items-center justify-center">
-            <ChartContainer config={chartConfig} className="h-[300px] w-full">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={dadosReceita}>
-                  <XAxis dataKey="nome" tick={{ fontSize: 12 }} />
-                  <YAxis />
-                  <Bar dataKey="vendidos" fill="#10B981" radius={[4, 4, 0, 0]} />
-                  <Bar dataKey="livres" fill="#F59E0B" radius={[4, 4, 0, 0]} />
-                  <ChartTooltip content={<ChartTooltipContent />} />
-                </BarChart>
-              </ResponsiveContainer>
-            </ChartContainer>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* Layout de duas colunas para outros componentes */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Top Performers */}
-        <div className="lg:col-span-2">
-          <TopPerformers jornais={[]} />
-        </div>
-        
-        {/* Timeline de Atividades */}
-        <div className="lg:col-span-2">
-          <ActivityTimeline />
-        </div>
-
-        {/* Meta de Ocupação por Jornal com dados reais */}
-        <Card className="lg:col-span-2">
-          <CardHeader>
-            <CardTitle className="text-lg flex items-center gap-2">
-              <Target className="h-5 w-5" />
-              Metas de Ocupação
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            {dadosReaisJornais.map((jornal, index) => {
-              const ocupacao = jornal.ocupacao;
-              const meta = 80; // Meta de 80%
-              const cor = ocupacao >= meta ? 'bg-green-500' : ocupacao >= 50 ? 'bg-yellow-500' : 'bg-red-500';
-              
-              return (
-                <div key={index} className="space-y-2">
-                  <div className="flex justify-between text-sm">
-                    <span className="font-medium">{jornal.nome}</span>
-                    <span className={ocupacao >= meta ? 'text-green-600' : 'text-gray-600'}>
-                      {ocupacao.toFixed(1)}%
-                    </span>
-                  </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div 
-                      className={`${cor} h-2 rounded-full transition-all`}
-                      style={{ width: `${Math.min(ocupacao, 100)}%` }}
-                    ></div>
-                  </div>
-                  <div className="text-xs text-gray-500">
-                    {jornal.slotsVendidos} de {jornal.slotsTotal} slots vendidos
-                  </div>
-                </div>
-              );
-            })}
-          </CardContent>
-        </Card>
-      </div>
+      {/* Top Performers */}
+      <TopPerformers dadosJornais={dadosReaisJornais} paginas={paginas} jornais={jornais} />
     </div>
   );
 };

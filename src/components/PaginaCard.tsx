@@ -40,7 +40,7 @@ export const PaginaCard: React.FC<PaginaCardProps> = ({ pagina, jornalId }) => {
   };
 
   return (
-    <Card 
+    <Card
       className="relative w-full h-[200px] bg-white rounded-xl shadow-sm border border-gray-200 cursor-pointer transition-transform duration-200 hover:scale-105 hover:z-20 hover:shadow-2xl group focus-within:scale-105 focus-within:z-20 focus-within:shadow-2xl overflow-hidden"
       onClick={handleCardClick}
       onKeyDown={handleKeyDown}
@@ -71,23 +71,19 @@ export const PaginaCard: React.FC<PaginaCardProps> = ({ pagina, jornalId }) => {
           {/* Informações em grid */}
           <div className="grid grid-cols-2 gap-4 w-full mb-4">
             <div className="text-center">
-              <span className="text-sm text-gray-600">Slots</span>
-              <div className="font-medium text-gray-900">{pagina.numeroOperadores}</div>
+              <span className="text-sm text-gray-600">Operadoras</span>
+              <div className="font-medium text-gray-900">{pagina.operadores.length}</div>
             </div>
             <div className="text-center">
               <span className="text-sm text-gray-600">Tráfego</span>
               <div className="font-medium text-blue-600">{formatarTrafego(pagina.trafego)}</div>
             </div>
           </div>
-          
-          {/* Receita estimada */}
+
           <div className="text-center">
-            <div className="text-sm font-medium text-gray-700">Receita estimada</div>
+            <div className="text-sm font-medium text-gray-700">Receita Fixa</div>
             <div className="text-lg text-green-600 font-semibold">
-              R$ {(pagina.trafego * 0.5).toLocaleString()}
-            </div>
-            <div className="text-xs text-gray-500 mt-1">
-              Baseado em {formatarTrafego(pagina.trafego)} visitas mensais
+              R$ {pagina.operadores.reduce((acc, op) => acc + (op.valor || 0), 0).toLocaleString()}
             </div>
           </div>
         </div>

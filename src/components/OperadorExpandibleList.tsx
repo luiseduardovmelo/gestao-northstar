@@ -1,122 +1,76 @@
-
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
-import { ChevronDown, ChevronUp, Search, Filter, TrendingUp, Users } from 'lucide-react';
-
-// Dados reais dos operadores da planilha Excel
-const operadoresReais = [
-  {
-    id: 'stake',
-    nome: 'Stake',
-    presencas: 3,
-    receitaTotal: 7700,
-    detalhes: [
-      { jornal: 'Trivela', pagina: 'Casas de apostas', valor: 2000, status: 'vendido' },
-      { jornal: 'Um Dois Esportes', pagina: 'Fortune tiger', valor: 1500, status: 'vendido' },
-      { jornal: 'Lakers Brasil', pagina: 'Sites de apostas confiáveis', valor: 4200, status: 'vendido' }
-    ]
-  },
-  {
-    id: 'betano',
-    nome: 'Betano',
-    presencas: 4,
-    receitaTotal: 7500,
-    detalhes: [
-      { jornal: 'Trivela', pagina: 'Plataforma que mais paga', valor: 3500, status: 'vendido' },
-      { jornal: 'Um Dois Esportes', pagina: 'Plataformas legalizadas', valor: 1200, status: 'vendido' },
-      { jornal: 'Gazeta do Povo', pagina: 'Plataformas legalizadas', valor: 0, status: 'livre' },
-      { jornal: 'Lakers Brasil', pagina: 'Melhores bets', valor: 2800, status: 'vendido' }
-    ]
-  },
-  {
-    id: 'superbet',
-    nome: 'Superbet',
-    presencas: 3,
-    receitaTotal: 4450,
-    detalhes: [
-      { jornal: 'Trivela', pagina: 'Novas casas de apostas', valor: 1800, status: 'vendido' },
-      { jornal: 'Gazeta do Povo', pagina: 'Bônus sem depósito', valor: 0, status: 'livre' },
-      { jornal: 'Lakers Brasil', pagina: 'Apps de apostas', valor: 2650, status: 'vendido' }
-    ]
-  },
-  {
-    id: 'lottoland',
-    nome: 'Lottoland',
-    presencas: 2,
-    receitaTotal: 2750,
-    detalhes: [
-      { jornal: 'Lakers Brasil', pagina: 'Casas de apostas com bônus', valor: 2000, status: 'vendido' },
-      { jornal: 'Gazeta do Povo', pagina: 'Bônus sem depósito', valor: 750, status: 'vendido' }
-    ]
-  },
-  {
-    id: 'br4bet',
-    nome: 'BR4Bet',
-    presencas: 2,
-    receitaTotal: 2500,
-    detalhes: [
-      { jornal: 'Trivela', pagina: 'Apps de apostas', valor: 1200, status: 'vendido' },
-      { jornal: 'Um Dois Esportes', pagina: 'Plataforma de 10 reais', valor: 1300, status: 'vendido' }
-    ]
-  },
-  {
-    id: 'betboom',
-    nome: 'Betboom',
-    presencas: 1,
-    receitaTotal: 2000,
-    detalhes: [
-      { jornal: 'Trivela', pagina: 'Casas de apostas que aceitam Pix', valor: 2000, status: 'vendido' }
-    ]
-  },
-  {
-    id: 'novibet',
-    nome: 'Novibet',
-    presencas: 1,
-    receitaTotal: 1000,
-    detalhes: [
-      { jornal: 'Trivela', pagina: 'Melhores bets', valor: 1000, status: 'vendido' }
-    ]
-  },
-  {
-    id: 'multibet',
-    nome: 'Multibet',
-    presencas: 2,
-    receitaTotal: 900,
-    detalhes: [
-      { jornal: 'Um Dois Esportes', pagina: 'Plataforma de 5 reais', valor: 900, status: 'vendido' },
-      { jornal: 'Gazeta do Povo', pagina: 'Plataformas legalizadas', valor: 0, status: 'livre' }
-    ]
-  },
-  {
-    id: 'operadores-livres',
-    nome: 'Operadores Livres',
-    presencas: 9,
-    receitaTotal: 0,
-    detalhes: [
-      { jornal: 'Gazeta do Povo', pagina: 'Plataformas legalizadas', valor: 0, status: 'livre', operadores: ['KTO', 'Alfabet', 'Hanzbet', 'Estrelabet'] },
-      { jornal: 'Gazeta do Povo', pagina: 'Bônus sem depósito', valor: 0, status: 'livre', operadores: ['Bacana Play', 'Esportiva Bet', 'Betwarrior'] }
-    ]
-  }
-];
+import { ChevronDown, ChevronUp, Search, TrendingUp, Users } from 'lucide-react';
+import { useData } from '@/context/DataContext';
+import { useNavigate } from 'react-router-dom';
 
 interface OperadorExpandibleListProps {
   className?: string;
 }
 
 export const OperadorExpandibleList: React.FC<OperadorExpandibleListProps> = ({ className }) => {
+  const { jornais, paginas } = useData();
+  const navigate = useNavigate();
   const [expandedItems, setExpandedItems] = useState<string[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [sortBy, setSortBy] = useState<'receita' | 'presencas' | 'alfabetica'>('receita');
-  const [filterStatus, setFilterStatus] = useState<'todos' | 'vendido' | 'livre'>('todos');
+  const [filterStatus, setFilterStatus] = useState<'todos' | 'pago' | 'livre'>('todos');
+
+  // Calcular dados dos operadores
+  const operadoresData = useMemo(() => {
+    const operadoresMap = new Map<string, {
+      id: string;
+      nome: string;
+      presencas: number;
+      receitaTotal: number;
+      detalhes: Array<{
+        jornal: string;
+        pagina: string;
+        valor: number;
+        isPago: boolean;
+      }>;
+    }>();
+
+    paginas.forEach(pagina => {
+      const jornal = jornais.find(j => j.id === pagina.jornalId);
+      if (!jornal) return;
+
+      pagina.operadores.forEach(operador => {
+        const key = operador.nome.toLowerCase().trim();
+
+        if (!operadoresMap.has(key)) {
+          operadoresMap.set(key, {
+            id: key,
+            nome: operador.nome,
+            presencas: 0,
+            receitaTotal: 0,
+            detalhes: []
+          });
+        }
+
+        const opData = operadoresMap.get(key)!;
+        opData.presencas++;
+        opData.receitaTotal += operador.valor;
+        opData.detalhes.push({
+          jornal: jornal.nome,
+          pagina: pagina.nome,
+          valor: operador.valor,
+          isPago: operador.valor > 0
+        });
+      });
+    });
+
+    return Array.from(operadoresMap.values());
+  }, [jornais, paginas]);
 
   // Estatísticas calculadas
-  const totalOperadores = operadoresReais.length;
-  const totalPresencas = operadoresReais.reduce((acc, op) => acc + op.presencas, 0);
-  const receitaConsolidada = operadoresReais.reduce((acc, op) => acc + op.receitaTotal, 0);
+  const totalOperadores = operadoresData.length;
+  const totalPresencas = operadoresData.reduce((acc, op) => acc + op.presencas, 0);
+  const receitaConsolidada = operadoresData.reduce((acc, op) => acc + op.receitaTotal, 0);
 
   const toggleExpanded = (operadorId: string) => {
     setExpandedItems(prev =>
@@ -127,7 +81,7 @@ export const OperadorExpandibleList: React.FC<OperadorExpandibleListProps> = ({ 
   };
 
   const expandAll = () => {
-    setExpandedItems(operadoresReais.map(op => op.id));
+    setExpandedItems(operadoresData.map(op => op.id));
   };
 
   const collapseAll = () => {
@@ -135,12 +89,14 @@ export const OperadorExpandibleList: React.FC<OperadorExpandibleListProps> = ({ 
   };
 
   // Filtro e ordenação
-  const filteredOperadores = operadoresReais
+  const filteredOperadores = operadoresData
     .filter(operador => {
       const matchesSearch = operador.nome.toLowerCase().includes(searchTerm.toLowerCase());
       if (filterStatus === 'todos') return matchesSearch;
-      
-      const hasStatus = operador.detalhes.some(detalhe => detalhe.status === filterStatus);
+
+      const hasStatus = operador.detalhes.some(detalhe =>
+        filterStatus === 'pago' ? detalhe.isPago : !detalhe.isPago
+      );
       return matchesSearch && hasStatus;
     })
     .sort((a, b) => {
@@ -171,7 +127,7 @@ export const OperadorExpandibleList: React.FC<OperadorExpandibleListProps> = ({ 
             </div>
           </CardContent>
         </Card>
-        
+
         <Card>
           <CardContent className="pt-6">
             <div className="flex items-center space-x-2">
@@ -183,7 +139,7 @@ export const OperadorExpandibleList: React.FC<OperadorExpandibleListProps> = ({ 
             </div>
           </CardContent>
         </Card>
-        
+
         <Card>
           <CardContent className="pt-6">
             <div className="flex items-center space-x-2">
@@ -191,7 +147,7 @@ export const OperadorExpandibleList: React.FC<OperadorExpandibleListProps> = ({ 
               <div>
                 <p className="text-sm font-medium">Receita Consolidada</p>
                 <p className="text-2xl font-bold" style={{ color: '#2F6BFF' }}>
-                  R$ {receitaConsolidada.toLocaleString()}
+                  € {receitaConsolidada.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </p>
               </div>
             </div>
@@ -227,7 +183,7 @@ export const OperadorExpandibleList: React.FC<OperadorExpandibleListProps> = ({ 
                 />
               </div>
             </div>
-            
+
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as 'receita' | 'presencas' | 'alfabetica')}
@@ -237,14 +193,14 @@ export const OperadorExpandibleList: React.FC<OperadorExpandibleListProps> = ({ 
               <option value="presencas">Por Presenças</option>
               <option value="alfabetica">Alfabética</option>
             </select>
-            
+
             <select
               value={filterStatus}
-              onChange={(e) => setFilterStatus(e.target.value as 'todos' | 'vendido' | 'livre')}
+              onChange={(e) => setFilterStatus(e.target.value as 'todos' | 'pago' | 'livre')}
               className="px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             >
               <option value="todos">Todos os Status</option>
-              <option value="vendido">Apenas Vendidos</option>
+              <option value="pago">Apenas Pagos</option>
               <option value="livre">Apenas Livres</option>
             </select>
           </div>
@@ -265,16 +221,26 @@ export const OperadorExpandibleList: React.FC<OperadorExpandibleListProps> = ({ 
                           <div>
                             <h3 className="font-semibold text-lg">{operador.nome}</h3>
                             <div className="flex items-center space-x-4 text-sm text-gray-600">
-                              <span>{operador.presencas} presenças</span>
+                              <span>{operador.presencas} presença{operador.presencas !== 1 ? 's' : ''}</span>
                               <span className="font-medium" style={{ color: '#2F6BFF' }}>
-                                R$ {operador.receitaTotal.toLocaleString()}
+                                € {operador.receitaTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                               </span>
                             </div>
                           </div>
                         </div>
                         <div className="flex items-center space-x-2">
+                          <Badge
+                            variant="secondary"
+                            className="cursor-pointer hover:bg-blue-100"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              navigate(`/operador/${encodeURIComponent(operador.nome)}`);
+                            }}
+                          >
+                            Ver detalhes
+                          </Badge>
                           <Badge variant="secondary">
-                            {operador.detalhes.filter(d => d.status === 'vendido').length} vendidos
+                            {operador.detalhes.filter(d => d.isPago).length} pago{operador.detalhes.filter(d => d.isPago).length !== 1 ? 's' : ''}
                           </Badge>
                           {expandedItems.includes(operador.id) ? (
                             <ChevronUp className="h-5 w-5 text-gray-400" />
@@ -286,34 +252,40 @@ export const OperadorExpandibleList: React.FC<OperadorExpandibleListProps> = ({ 
                     </CardContent>
                   </Card>
                 </CollapsibleTrigger>
-                
+
                 <CollapsibleContent className="px-6 pb-4">
                   <div className="bg-gray-50 rounded-lg p-4 mt-2">
                     <div className="space-y-3">
                       {operador.detalhes.map((detalhe, index) => (
-                        <div key={index} className="flex items-center justify-between py-2 border-b border-gray-200 last:border-b-0">
+                        <div
+                          key={index}
+                          className={`flex items-center justify-between py-2 border-b border-gray-200 last:border-b-0 ${
+                            !detalhe.isPago ? 'bg-orange-50 -mx-2 px-2 rounded' : ''
+                          }`}
+                        >
                           <div className="flex-1">
                             <div className="font-medium text-sm">{detalhe.jornal}</div>
                             <div className="text-xs text-gray-600">{detalhe.pagina}</div>
-                            {detalhe.operadores && (
-                              <div className="text-xs text-gray-500 mt-1">
-                                {detalhe.operadores.join(', ')}
-                              </div>
-                            )}
                           </div>
                           <div className="flex items-center space-x-3">
                             <Badge
-                              variant={detalhe.status === 'vendido' ? 'default' : 'secondary'}
+                              variant={detalhe.isPago ? 'default' : 'secondary'}
                               className={
-                                detalhe.status === 'vendido'
-                                  ? 'bg-blue-100 text-blue-800 border-blue-200'
-                                  : 'bg-green-100 text-green-800 border-green-200'
+                                detalhe.isPago
+                                  ? 'bg-green-100 text-green-800 border-green-200'
+                                  : 'bg-orange-100 text-orange-800 border-orange-200'
                               }
                             >
-                              {detalhe.status === 'vendido' ? 'Vendido' : 'Livre'}
+                              {detalhe.isPago ? 'Pago' : 'Livre'}
                             </Badge>
-                            <span className="text-sm font-medium">
-                              {detalhe.valor > 0 ? `R$ ${detalhe.valor.toLocaleString()}` : '-'}
+                            <span className="text-sm font-medium min-w-[80px] text-right">
+                              {detalhe.isPago ? (
+                                <span className="text-green-600">
+                                  € {detalhe.valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                                </span>
+                              ) : (
+                                <span className="text-orange-600">-</span>
+                              )}
                             </span>
                           </div>
                         </div>
@@ -324,6 +296,12 @@ export const OperadorExpandibleList: React.FC<OperadorExpandibleListProps> = ({ 
               </Collapsible>
             ))}
           </div>
+
+          {filteredOperadores.length === 0 && (
+            <div className="text-center py-12">
+              <p className="text-gray-500">Nenhum operador encontrado.</p>
+            </div>
+          )}
         </CardContent>
       </Card>
     </div>
