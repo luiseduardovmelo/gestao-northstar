@@ -1,12 +1,19 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import { Jornal, Pagina } from '../types';
+import React, { createContext, useContext, useState, useEffect, useCallback, useMemo } from 'react';
+import { Jornal, Pagina, Operador } from '../types';
 import { supabase } from '../lib/supabase';
+import { toast } from 'sonner';
 
 interface DataContextType {
   jornais: Jornal[];
   paginas: Pagina[];
   refreshData: (newJornais: Jornal[], newPaginas: Pagina[]) => void;
   isLoading: boolean;
+  // CRUD Operations
+  updateOperador: (paginaId: string, operadorId: string, updates: Partial<Operador>) => Promise<void>;
+  deleteOperador: (paginaId: string, operadorId: string) => Promise<void>;
+  addOperador: (paginaId: string, operador: Omit<Operador, 'id'>, position: number) => Promise<void>;
+  reorderOperadores: (paginaId: string, newOrder: string[]) => Promise<void>;
+  getUniqueOperadores: () => { nome: string; logoUrl?: string }[];
 }
 
 const DataContext = createContext<DataContextType | undefined>(undefined);
@@ -156,8 +163,177 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
     // REMOVIDO: setTimeout que recarregava do Supabase e sobrescrevia os dados novos
   };
 
+  // Recalcula totais dos jornais baseado nas páginas
+  const recalculateJornalTotals = useCallback((newPaginas: Pagina[]): Jornal[] => {
+    return JORNAIS_FIXOS.map(jornal => {
+      const jornalPaginas = newPaginas.filter(p => p.jornalId === jornal.id);
+      const numeroPaginas = jornalPaginas.length;
+      const numeroOperadores = jornalPaginas.reduce((acc, p) => acc + p.operadores.length, 0);
+      const receitaTotal = jornalPaginas.reduce(
+        (acc, p) => acc + p.operadores.reduce((opAcc, op) => opAcc + op.valor, 0), 0
+      );
+      return { ...jornal, numeroPaginas, numeroOperadores, receitaTotal };
+    });
+  }, []);
+
+  // Salva dados no Supabase (UPDATE no registro existente)
+  const saveToSupabase = useCallback(async (newJornais: Jornal[], newPaginas: Pagina[]) => {
+    try {
+      console.log('[DataContext] saveToSupabase iniciado');
+
+      // Busca o ID do registro mais recente
+      const { data: latestUpload } = await supabase
+        .from('csv_raw_data')
+        .select('id')
+        .order('created_at', { ascending: false })
+        .limit(1)
+        .single();
+
+      if (latestUpload?.id) {
+        const { error } = await supabase
+          .from('csv_raw_data')
+          .update({
+            row_data: { jornais: newJornais, paginas: newPaginas }
+          })
+          .eq('id', latestUpload.id);
+
+        if (error) {
+          console.error('[DataContext] Erro ao salvar no Supabase:', error);
+          toast.error('Erro ao salvar alterações no banco de dados');
+          throw error;
+        }
+        console.log('[DataContext] saveToSupabase concluído com sucesso');
+      } else {
+        console.warn('[DataContext] Nenhum registro encontrado para atualizar');
+        toast.error('Nenhum dado encontrado para atualizar. Faça upload de um arquivo primeiro.');
+      }
+    } catch (error) {
+      console.error('[DataContext] Erro ao salvar no Supabase:', error);
+      throw error;
+    }
+  }, []);
+
+  // Atualiza um operador específico
+  const updateOperador = useCallback(async (paginaId: string, operadorId: string, updates: Partial<Operador>) => {
+    console.log('[DataContext] updateOperador:', { paginaId, operadorId, updates });
+
+    const newPaginas = paginas.map(p => {
+      if (p.id !== paginaId) return p;
+      return {
+        ...p,
+        operadores: p.operadores.map(op =>
+          op.id === operadorId ? { ...op, ...updates } : op
+        )
+      };
+    });
+
+    const newJornais = recalculateJornalTotals(newPaginas);
+
+    await saveToSupabase(newJornais, newPaginas);
+    setJornais(newJornais);
+    setPaginas(newPaginas);
+    toast.success('Operador atualizado com sucesso');
+  }, [paginas, recalculateJornalTotals, saveToSupabase]);
+
+  // Deleta um operador
+  const deleteOperador = useCallback(async (paginaId: string, operadorId: string) => {
+    console.log('[DataContext] deleteOperador:', { paginaId, operadorId });
+
+    const newPaginas = paginas.map(p => {
+      if (p.id !== paginaId) return p;
+      const newOperadores = p.operadores.filter(op => op.id !== operadorId);
+      return {
+        ...p,
+        operadores: newOperadores.map((op, idx) => ({ ...op, ordem: idx + 1 })),
+        numeroOperadores: newOperadores.length
+      };
+    });
+
+    const newJornais = recalculateJornalTotals(newPaginas);
+
+    await saveToSupabase(newJornais, newPaginas);
+    setJornais(newJornais);
+    setPaginas(newPaginas);
+    toast.success('Operador removido com sucesso');
+  }, [paginas, recalculateJornalTotals, saveToSupabase]);
+
+  // Adiciona um operador em uma posição específica
+  const addOperador = useCallback(async (paginaId: string, operador: Omit<Operador, 'id'>, position: number) => {
+    console.log('[DataContext] addOperador:', { paginaId, operador, position });
+
+    const newId = String(Date.now());
+    const newOperador: Operador = {
+      ...operador,
+      id: newId,
+      paginaId,
+      ordem: position
+    };
+
+    const newPaginas = paginas.map(p => {
+      if (p.id !== paginaId) return p;
+      const newOperadores = [...p.operadores];
+      newOperadores.splice(position - 1, 0, newOperador);
+      return {
+        ...p,
+        operadores: newOperadores.map((op, idx) => ({ ...op, ordem: idx + 1 })),
+        numeroOperadores: newOperadores.length
+      };
+    });
+
+    const newJornais = recalculateJornalTotals(newPaginas);
+
+    await saveToSupabase(newJornais, newPaginas);
+    setJornais(newJornais);
+    setPaginas(newPaginas);
+    toast.success('Operador adicionado com sucesso');
+  }, [paginas, recalculateJornalTotals, saveToSupabase]);
+
+  // Reordena operadores (drag & drop)
+  const reorderOperadores = useCallback(async (paginaId: string, newOrder: string[]) => {
+    console.log('[DataContext] reorderOperadores:', { paginaId, newOrder });
+
+    const newPaginas = paginas.map(p => {
+      if (p.id !== paginaId) return p;
+      const reordered = newOrder.map((id, idx) => {
+        const op = p.operadores.find(o => o.id === id);
+        if (!op) return null;
+        return { ...op, ordem: idx + 1 };
+      }).filter((op): op is Operador => op !== null);
+      return { ...p, operadores: reordered };
+    });
+
+    // Reordenação não muda totais, mas precisamos salvar
+    await saveToSupabase(jornais, newPaginas);
+    setPaginas(newPaginas);
+    toast.success('Ordem atualizada com sucesso');
+  }, [paginas, jornais, saveToSupabase]);
+
+  // Retorna lista de operadores únicos (para modal de adicionar)
+  const getUniqueOperadores = useCallback((): { nome: string; logoUrl?: string }[] => {
+    const operadoresMap = new Map<string, { nome: string; logoUrl?: string }>();
+    paginas.forEach(p => {
+      p.operadores.forEach(op => {
+        const key = op.nome.toLowerCase().trim();
+        if (!operadoresMap.has(key)) {
+          operadoresMap.set(key, { nome: op.nome, logoUrl: op.logoUrl });
+        }
+      });
+    });
+    return Array.from(operadoresMap.values()).sort((a, b) => a.nome.localeCompare(b.nome));
+  }, [paginas]);
+
   return (
-    <DataContext.Provider value={{ jornais, paginas, refreshData, isLoading }}>
+    <DataContext.Provider value={{
+      jornais,
+      paginas,
+      refreshData,
+      isLoading,
+      updateOperador,
+      deleteOperador,
+      addOperador,
+      reorderOperadores,
+      getUniqueOperadores
+    }}>
       {children}
     </DataContext.Provider>
   );

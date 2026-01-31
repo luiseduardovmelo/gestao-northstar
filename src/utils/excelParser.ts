@@ -89,6 +89,7 @@ export const parseExcelData = async (file: File): Promise<NorthStarData> => {
           // Rows 4-9: posicao | operador | valor | nan | ...
 
           const row0 = rows[0] || [];
+          const row1 = rows[1] || [];
           const row2 = rows[2] || [];
 
           // Inicializa jornal
@@ -115,6 +116,7 @@ export const parseExcelData = async (file: File): Promise<NorthStarData> => {
 
             console.log(`[Parser] ${metaKey} - Página na coluna ${col}: ${pageName}`);
             const traffic = parseTraffic(row2[col]);
+            const pageUrl = row1[col] ? String(row1[col]).trim() : '';
             const currentPaginaId = String(paginaId++);
 
             // Extrai operadores a partir da row 4 (quantidade dinamica)
@@ -152,7 +154,8 @@ export const parseExcelData = async (file: File): Promise<NorthStarData> => {
               status: 'ativa',
               numeroOperadores: operadores.length,
               trafego: traffic,
-              operadores: operadores
+              operadores: operadores,
+              url: pageUrl || undefined
             });
 
             // Atualiza contadores do jornal

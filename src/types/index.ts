@@ -20,6 +20,7 @@ export interface Pagina {
   numeroOperadores: number;
   trafego: number;
   operadores: Operador[];
+  url?: string;
 }
 
 export interface Operador {
